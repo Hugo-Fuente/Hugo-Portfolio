@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Classe CSS para esconder as páginas */
+      .oculto {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ========================================== -->
+    <!-- TELA 1: PÁGINA PRINCIPAL DO PORTFÓLIO      -->
+    <!-- ========================================== -->
+    <div id="pagina-principal" class="frame">
+      <div class="portflio-cyber-de">
+        <div class="abertura">
+          <img class="retrato-principal-de" src="img/retrato-principal-de-hugo.png" />
+          <div class="vu-cinematogrfico"></div>
+          <div class="gradiente-inferior"></div>
+
+          <div class="navegao">
+            <div class="assinatura">
+              <div class="circle-x">
+                <img class="vector" src="img/vector.svg" />
+              </div>
+              <div class="nome">HUGO.DEV_</div>
+            </div>
+
+            <div class="links">
+              <div class="text-wrapper">SOBRE</div>
+              <div class="text-wrapper">PROJETOS</div>
+              <div class="text-wrapper">HABILIDADES</div>
+              <div class="text-wrapper">EXPERIÊNCIA</div>
+              <div class="text-wrapper">CONTATO</div>
+            </div>
+
+            <div class="status">● DISPONÍVEL PARA MISSÕES</div>
+          </div>
+
+          <div class="contedo-do-hero">
+            <p class="microcopy">[ SYSTEMS / DATA / AUTOMATION ]</p>
+            <p class="t-tulo">Arquitetura para sistemas que não podem parar.</p>
+            <p class="descri-o">
+              Sou Hugo Gomes de la Fuente, estudante de Sistemas de Informação na UNICAMP.
+              <br />Focado em Cibersegurança, DevOps e Bancos de Dados para criar sistemas resilientes,
+              da infraestrutura à operação.
+            </p>
+            <div class="aes">
+              <div class="ao">
+                <div class="r-tulo">VER PROJETOS</div>
+              </div>
+              <div class="div">
+                <div class="r-tulo-2">CONTATO</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="leitura-biomtrica">
+            <p class="leitura">
+              FACE_ID: HDF-01<br />
+              DRONE_CONTROL_MESH: GESTURE_TRACKING_ACTIVE<br />
+              FOCUS: CYBERSECURITY | IA | DEV OPS<br />
+              SYSTEM_INTEGRITY: 99.7%
+            </p>
+          </div>
+
+          <div class="ndice-de-rolagem">
+            <img class="linha" src="img/linha.svg" />
+            <div class="nota">SCROLL TO EXPLORE</div>
+          </div>
+        </div>
+
+        <div class="apresentao">
+          <div class="manifesto">
+            <div class="etiqueta">// 01 · PERFIL</div>
+            <p class="p">Código é só o começo. O sistema inteiro é o produto.</p>
+            <div class="sinal"></div>
+          </div>
+
+          <div class="texto">
+            <p class="descri-o-2">
+              Atuo com uma visão sistêmica de ponta a ponta. Minha formação engloba engenharia de
+              software (full-stack), redes de computadores e cibersegurança. Uno essas disciplinas para
+              desenhar arquiteturas robustas e operações preparadas para o inesperado.
+            </p>
+            <p class="complemento">
+              Na Unicamp, aprendi a entender o produto como um todo. Meu foco atual conecta essa visão
+              com a execução: estruturação de bancos de dados, automação em Python e garantia de que a
+              infraestrutura entregue desempenho e segurança.
+            </p>
+
+            <div class="indicadores">
+              <div class="indicador">
+                <div class="valor">06+ anos</div>
+                <div class="legenda">DE IMERSÃO E FUNDAMENTAÇÃO</div>
+              </div>
+              <div class="indicador">
+                <div class="valor">99,9%</div>
+                <div class="legenda">DISPONIBILIDADE ALVO</div>
+              </div>
+              <div class="indicador">
+                <div class="valor">∞</div>
+                <div class="legenda">CURIOSIDADE APLICADA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="meus-projetos">
+          <div class="ttulo-da-seo">
+            <div class="ttulo">
+              <p class="etiqueta">// 02 · SELECTED WORK</p>
+              <div class="t-tulo-2">Meus Projetos</div>
+            </div>
+            <p class="nota-2">SISTEMAS REAIS · DECISÕES RASTREÁVEIS · IMPACTO MENSURÁVEL</p>
+          </div>
+
+          <div class="lista-de-projetos">
+            
+            <!-- Adicionado style="cursor: pointer;" e onclick para abrir a página do drone -->
+            <div class="div-2" style="cursor: pointer;" onclick="navegarPara('pagina-drone')">
+              <img class="visual-do-projeto" src="img/visual-do-projeto-2.png" />
+              <div class="contedo">
+                <div class="metadados">
+                  <div class="text-wrapper">01</div>
+                  <div class="tipo">IA / VISÃO COMPUTACIONAL</div>
+                </div>
+                <div class="t-tulo-3">Drone Gesture Control</div>
+                <p class="descri-o-3">
+                  Sistema autônomo de controle para drones DJI Tello utilizando visão computacional
+                  (OpenCV) e reconhecimento de gestos (MediaPipe) em Python.
+                </p>
+                <div class="m-trica">TCC Unicamp</div>
+              </div>
+            </div>
+
+            <div class="div-2">
+              <img class="img" src="img/visual-do-projeto.png" />
+              <div class="contedo">
+                <div class="metadados">
+                  <div class="text-wrapper">02</div>
+                  <p class="tipo">BACKEND / JAVA / SQL</p>
+                </div>
+                <div class="t-tulo-3">App de Clínica Veterinária</div>
+                <p class="descri-o-3">
+                  Aplicação desktop de gestão desenvolvida em Java, aplicando padrões de arquitetura MVC
+                  e DAO com persistência em banco de dados MySQL.
+                </p>
+                <div class="m-trica">Arquitetura MVC</div>
+              </div>
+            </div>
+
+            <div class="minesweeper">
+              <img class="visual-do-projeto-2" src="img/image.png" />
+              <div class="contedo-2">
+                <div class="metadados">
+                  <div class="text-wrapper">03</div>
+                  <div class="tipo">FRONTEND / JAVASCRIPT</div>
+                </div>
+                <div class="t-tulo-3">Minesweeper Online</div>
+                <p class="descri-o-3">
+                  Jogo Campo Minado web com sistema de contas via SessionStorage, histórico, ranking local
+                  e um modo especial contra o tempo.
+                </p>
+                <div class="m-trica">Lógica JS pura</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="competncias">
+          <div class="ttulo-da-seo-2">
+            <div class="ttulo">
+              <div class="etiqueta">// 03 · CAPABILITIES</div>
+              <div class="t-tulo-2">Competências conectadas</div>
+            </div>
+            <p class="nota-3">DA CAMADA DE APLICAÇÃO À INFRAESTRUTURA · SEM SILOS</p>
+          </div>
+
+          <div class="grade-de-competncias">
+            <div class="competncia">
+              <div class="t-tulo-4">SOFTWARE</div>
+              <p class="tecnologias">Python · C/C++ · Java · PHP</p>
+            </div>
+            <div class="competncia">
+              <div class="t-tulo-4">DATA SYSTEMS</div>
+              <p class="tecnologias">SQL Server · MySQL · MariaDB · Microsoft Access</p>
+            </div>
+            <div class="competncia">
+              <div class="t-tulo-4">DEVOPS / INFRA</div>
+              <p class="tecnologias">Linux · Docker · Redes TCP/IP · Cloud</p>
+            </div>
+            <div class="competncia">
+              <div class="t-tulo-4">FRONTEND / UI</div>
+              <p class="tecnologias">HTML5 · CSS3 · JavaScript · Figma</p>
+            </div>
+            <div class="competncia">
+              <div class="t-tulo-4">CIBERSEGURANÇA</div>
+              <p class="tecnologias">Gestão de Ameaças · Networking · Protocolos</p>
+            </div>
+            <div class="competncia">
+              <div class="t-tulo-4">IA / VISÃO COMPUTACIONAL</div>
+              <p class="tecnologias">OpenCV · MediaPipe · Llama / Local LLMs</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="experincia-e">
+          <div class="ttulo-da-seo">
+            <div class="ttulo">
+              <p class="etiqueta">// 04 · OPERATING MODEL</p>
+              <div class="t-tulo-2">Do problema à operação</div>
+            </div>
+            <p class="nota-3">O CICLO COMPLETO DE DESENVOLVIMENTO E INFRAESTRUTURA</p>
+          </div>
+
+          <div class="processo">
+            <div class="etapa">
+              <div class="text-wrapper">01</div>
+              <div class="t-tulo-5">Mapear</div>
+              <p class="descri-o-4">Contexto, risco e métricas antes da solução.</p>
+            </div>
+            <div class="etapa">
+              <div class="text-wrapper">02</div>
+              <div class="t-tulo-5">Projetar</div>
+              <p class="descri-o-4">Arquitetura simples, contratos claros e guardrails.</p>
+            </div>
+            <div class="etapa">
+              <div class="text-wrapper">03</div>
+              <div class="t-tulo-5">Entregar</div>
+              <p class="descri-o-4">Incrementos pequenos com feedback de produção.</p>
+            </div>
+            <div class="etapa">
+              <div class="text-wrapper">04</div>
+              <div class="t-tulo-5">Operar</div>
+              <p class="descri-o-4">Telemetria, resposta e melhoria contínua.</p>
+            </div>
+          </div>
+
+          <div class="experincia">
+            <div class="marco-profissional">
+              <div class="per-odo">2025—2026</div>
+              <div class="cargo">Capacitações em Cibersegurança</div>
+              <p class="resumo">
+                Programa Hackers do Bem (SENAI SP) e Gestão de Ameaças Cibernéticas (Cisco Networking
+                Academy).
+              </p>
+            </div>
+
+            <div class="marco-profissional">
+              <div class="per-odo">Fev 2022—Jul 2022</div>
+              <p class="cargo-2">Instrutor de Lógica de Programação - Voluntariado</p>
+              <p class="resumo-2">
+                Gestão de projeto comunitário e ensino de lógica com Scratch e Python básico para alunos
+                de escolas públicas.
+              </p>
+            </div>
+
+            <div class="marco-profissional">
+              <div class="per-odo">2020—Atual</div>
+              <p class="cargo-2">Sistemas de Informação - UNICAMP</p>
+              <p class="resumo-2">
+                Engenharia de Software, Bancos de Dados, Redes e TCC em Inteligência Artificial para
+                drones.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="terminal-e-contato">
+          <div class="contato">
+            <div class="convite">
+              <div class="text-wrapper">// 05 · START_A_CONVERSATION</div>
+              <p class="t-tulo-6">Vamos construir algo que permaneça confiável sob pressão.</p>
+              <p class="descri-o-5">
+                Estudante de Sistemas de Informação na Unicamp em busca de estágio. Tenho uma base
+                sólida mas sou flexível, aprendo rápido e estou totalmente aberto a abraçar desafios e
+                crescer em qualquer área da tecnologia.
+              </p>
+
+              <div class="aes">
+                <div class="ao">
+                  <div class="r-tulo">ENVIAR EMAIL</div>
+                </div>
+                <div class="div">
+                  <div class="r-tulo-2">WHATSAPP</div>
+                  <img class="image" src="img/image-16.png" />
+                </div>
+                <div class="div">
+                  <div class="r-tulo-2">LINKEDIN</div>
+                  <img class="image" src="img/image-18.png" />
+                </div>
+                <div class="div">
+                  <div class="r-tulo-3">GITHUB</div>
+                  <img class="image" src="img/image-82.png" />
+                </div>
+              </div>
+            </div>
+
+            <div class="terminal">
+              <div class="barra-do-terminal">
+                <div class="estado">
+                  <div class="indicador-2"></div>
+                  <div class="text-wrapper-2">hugo@portfolio:~</div>
+                </div>
+                <div class="text-wrapper-2">— □ ×</div>
+              </div>
+
+              <div class="corpo-do-terminal">
+                <p class="sess-o">
+                  $ whoami<br />
+                  hugo_gomes_de_la_fuente<br /><br />
+                  $ cat focus.txt<br />
+                  software_engineering · infra · adaptability · continuous_learning<br /><br />
+                  $ contact --open<br />
+                  → hugo.fuente@yahoo.com<br />
+                  → status: looking_for_internship_
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rodap">
+            <div class="marca">HUGO.DEV_</div>
+            <p class="nota-4">PROJETADO COM CURIOSIDADE · OPERADO COM CUIDADO · © 2026</p>
+          </div>
+
+          <p class="nota-5">
+            <span class="span">Icones por </span>
+            <a href="https://www.svgrepo.com/author/Mary%20Akveo/" target="_blank" rel="noopener noreferrer">
+              <span class="text-wrapper-3">Mary Akveo</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- TELA 2: PÁGINA DO PROJETO DRONE            -->
+    <!-- Inicialmente escondida pela classe .oculto -->
+    <!-- ========================================== -->
+    <div id="pagina-drone" class="projeto-TCC-drone oculto">
+      <div class="screen">
+        <div class="ttulo-da-seo">
+          <div class="seo"></div>
+          <div class="t-tulo">Funcionalidades do Código</div>
+        </div>
+        <div class="lista-de-projetos">
+          <div class="projeto">
+            <div class="nmero"><div class="ndice">01</div></div>
+            <div class="contedo">
+              <p class="text-wrapper">Controle por Gestos e Navegação.</p>
+              <p class="descri-o">Pilotagem completa (decolagem, pouso, eixos dimensionais e rotações) utilizando mapeamento de mãos em tempo real. Inclui travas de segurança para ativações acidentais.</p>
+            </div>
+            <img class="visual-do-projeto" src="img/visual-do-projeto.png" />
+          </div>
+          <div class="div">
+            <div class="nmero"><div class="ndice">02</div></div>
+            <div class="contedo">
+              <div class="text-wrapper">Rastreamento Autônomo ("Me Siga").</div>
+              <p class="descri-o">O drone utiliza a própria câmera e algoritmos de detecção facial para centralizar o usuário e manter uma distância constante de forma autônoma.</p>
+            </div>
+            <img class="img" src="img/visual-do-projeto-2.png" />
+          </div>
+          <div class="projeto-2">
+            <div class="nmero"><div class="ndice">03</div></div>
+            <div class="contedo">
+              <div class="text-wrapper">Scan de Rostos 360º.</div>
+              <p class="descri-o">Execução de varredura panorâmica automática, detectando e contabilizando o número de faces presentes no ambiente mapeado.</p>
+            </div>
+            <img class="visual-do-projeto-2" src="img/image.png" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="screen-2">
+        <img class="image" src="img/image-2-2.png" />
+        <img class="gradiente-sobreposio" src="img/gradiente-sobreposi-o-2.png" />
+        <img class="gradiente-inferior" src="img/gradiente-inferior.png" />
+        <div class="apresentao">
+          <div class="t-tulo-2">Arquitetura e Comandos.</div>
+          <p class="resumo">Mão Fechada: Decolar / Armar.<br/><br/><br/><br/><br/><br/>“Símbolo do Rock”: Modo Controle por Gestos.<br/><br/><br/><br/><br/><br/><br/>“Sinal de Paz”: Modo de Comandos Especiais.</p>
+          <div class="resumo-2">Mão Aberta: Pousar.</div>
+        </div>
+      </div>
+      
+      <div class="screen-3">
+        <img class="image-2" src="img/image-2.png" />
+        <img class="gradiente-sobreposio-2" src="img/gradiente-sobreposi-o.png" />
+        <div class="apresentao-2">
+          <p class="p">Visão Computacional Aplicada ao Controle Inteligente de Drones.</p>
+          <p class="resumo-3">Sistema de Interface Humano-Máquina (IHM) para o drone DJI Tello EDU. Uma alternativa de pilotagem intuitiva e acessível que substitui controles tradicionais por interações com gestos manuais e modos de voo autônomos utilizando MediaPipe e OpenCV.</p>
+          <div class="aes">
+            <div class="ao"><div class="r-tulo">ASSISTIR DEMONSTRAÇÃO</div></div>
+            <div class="r-tulo-wrapper"><div class="r-tulo-2">VER NO GITHUB</div></div>
+          </div>
+          <div class="sinais">
+            <div class="text-wrapper-2">OpenCV</div>
+            <div class="text-wrapper-2">MediaPipe</div>
+            <div class="text-wrapper-2">DJITelloPy</div>
+            <div class="text-wrapper-2">Python</div>
+          </div>
+          <div class="seo-2">
+            <div class="marca"></div>
+            <div class="r-tulo-3">PROJETOS SELECIONADOS</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="navegao">
+        <div class="navegao-2">
+          <div class="div-2">
+            <div class="circle-x"><img class="vector" src="img/vector.svg" /></div>
+            <div class="nome">HUGO.DEV_</div>
+          </div>
+          <div class="navbar">
+            <!-- Adicionado botão voltar para retornar a tela principal -->
+            <div class="text-wrapper-2" style="cursor: pointer; color: #ffeb3b; font-weight: bold;" onclick="navegarPara('pagina-principal')">⬅ VOLTAR AO PORTFÓLIO</div>
+            <div class="text-wrapper-2">SOBRE</div>
+            <div class="text-wrapper-2">PROJETOS</div>
+            <div class="text-wrapper-2">HABILIDADES</div>
+            <div class="text-wrapper-2">EXPERIÊNCIA</div>
+            <div class="text-wrapper-2">CONTATO</div>
+          </div>
+          <div class="status">● DISPONÍVEL PARA MISSÕES</div>
+        </div>
+      </div>
+      
+      <div class="rodap">
+        <div class="div-2">
+          <div class="circuit-board"><img class="vector-2" src="img/vector.png" /></div>
+          <div class="assinatura">HUGO DE LA FUENTE</div>
+        </div>
+        <p class="nota">PROJETADO COM CURIOSIDADE · OPERADO COM CUIDADO · © 2026</p>
+      </div>
+      <img class="image-3" src="img/image-3.png" />
+      <img class="image-4" src="img/image-11.png" />
+      <img class="image-5" src="img/image-6.png" />
+      <img class="image-6" src="img/image-7.png" />
+      <img class="image-7" src="img/image-12.png" />
+      <img class="image-8" src="img/image-13.png" />
+      <img class="image-9" src="img/image-8.png" />
+      <img class="image-10" src="img/image-9.png" />
+      <img class="image-11" src="img/image-10.png" />
+      <img class="image-12" src="img/image-5.png" />
+      <img class="image-13" src="img/image-4.png" />
+      <p class="nota-2">Desenhos feitos por: Uncle_Zah<br/>Arrow Keys by. flaticon.com</p>
+      <img class="image-14" src="img/image-15.png" />
+      <img class="image-15" src="img/image-16.png" />
+    </div>
+
+    <!-- Script Javascript para fazer a troca de telas (Navegação) -->
+    <script>
+      function navegarPara(idDaTela) {
+        // Esconde ambas as telas primeiro
+        document.getElementById('pagina-principal').classList.add('oculto');
+        document.getElementById('pagina-drone').classList.add('oculto');
+        
+        // Remove a classe 'oculto' apenas da tela que queremos mostrar
+        document.getElementById(idDaTela).classList.remove('oculto');
+        
+        // Faz a página rolar para o topo suavemente ao trocar de tela
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    </script>
+  </body>
+</html>
