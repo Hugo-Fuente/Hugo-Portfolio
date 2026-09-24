@@ -42,8 +42,8 @@ Como o projeto é construído em HTML e CSS estático, não requer processos de 
 Estou sempre aberto a novos desafios e oportunidades de estágio. Vamos construir algo resiliente juntos:
 
 - **Email:** hugo.fuente@yahoo.com
-- **LinkedIn:** [Aceder ao Perfil](https://www.linkedin.com/)
-- **GitHub:** [Aceder ao Perfil](https://github.com/Hugo-Fuente)
+- **LinkedIn:** https://www.linkedin.com/in/hugo-fuente/
+- **GitHub:** https://github.com/Hugo-Fuente
 
 ---
 *Projetado com curiosidade · Operado com cuidado · © 2026*
