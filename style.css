@@ -300,7 +300,7 @@ html {
   padding: 12px 16px;
   position: absolute;
   bottom: 40px; /* Aumentado de 20px para 40px para alinhar com a esquerda */
-  right: 20px; /* Mantém afastado do seu rosto */
+  right: 35px; /* Mantém afastado do seu rosto */
   background-color: rgba(4, 17, 23, 0.25);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -364,27 +364,28 @@ html {
 
 .frame .apresentao {
   display: flex;
-  align-items: center; /* Mudado de flex-start para center para centrar o conteúdo verticalmente */
-  gap: 90px;
-  padding: 104px 80px;
+  align-items: center; 
+  justify-content: center; 
+  gap: 120px; 
+  padding: 80px; /* Adicionado padding para respiro caso o conteúdo cresça */
   position: relative;
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
   background-color: #07161c;
-  
-  /* Novas regras para ocupar o ecrã e travar o scroll */
-  height: 100vh;
+  min-height: 100vh; /* Substitui height: 100vh */
+  height: auto;
   scroll-snap-align: start;
 }
 
 .frame .manifesto {
   display: flex;
   flex-direction: column;
-  width: 470px;
+  width: 500px; /* Ligeiramente mais largo para o título encaixar melhor */
   align-items: flex-start;
-  gap: 26px;
+  gap: 32px; /* Aumentado de 26px para afastar a linha de ciano do texto */
   position: relative;
+  flex-shrink: 0; /* Impede que o título seja esmagado em ecrãs menores */
 }
 
 .frame .etiqueta {
@@ -421,10 +422,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 28px;
+  gap: 40px; /* Aumentado de 28px para separar bem os parágrafos das caixas de indicadores */
   position: relative;
   flex: 1;
-  flex-grow: 1;
+  max-width: 650px; /* Adicionado para impedir que as linhas de texto fiquem demasiado longas num monitor grande */
 }
 
 .frame .descri-o-2 {
@@ -452,8 +453,8 @@ html {
 
 .frame .indicadores {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  align-items: stretch; /* Faz com que todos os cartões cresçam até à mesma altura máxima */
+  gap: 16px; /* Aumenta um pouco o respiro entre os cartões */
   position: relative;
   align-self: stretch;
   width: 100%;
@@ -464,16 +465,22 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 7px;
-  padding: 20px;
+  justify-content: center; /* Mantém o conteúdo sempre centrado verticalmente */
+  gap: 12px; /* Dá mais espaço entre o número e o texto pequeno */
+  padding: 24px 20px; /* Aumenta o espaço interno para tornar os cartões mais imponentes */
   position: relative;
-  flex: 1;
-  flex-grow: 1;
+  flex: 1 1 0; /* A magia acontece aqui: força todos a terem a mesma largura exata */
   background-color: #0b2028;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #173a43;
+  border-radius: 8px; /* Cantos ligeiramente mais arredondados */
+  border: 1px solid #173a43;
+  transition: all 0.3s ease; /* Prepara o cartão para uma animação suave */
+}
+
+/* NOVO: Efeito de embelezamento ao passar o rato (Hover) */
+.frame .indicador:hover {
+  border-color: #65fff0; /* A borda acende com a cor ciano */
+  transform: translateY(-4px); /* O cartão "levanta" ligeiramente */
+  box-shadow: 0 8px 24px rgba(101, 255, 240, 0.1); /* Cria um brilho suave por baixo */
 }
 
 .frame .valor {
@@ -503,9 +510,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center; /* Centraliza o conteúdo na vertical */
-  height: 100vh; /* Ocupa a janela inteira */
-  scroll-snap-align: start; /* Trava o scroll aqui */
+  justify-content: center; 
+  min-height: 100vh; /* Substitui height: 100vh */
+  height: auto;
+  scroll-snap-align: start; 
   gap: 54px;
   padding: 104px 80px;
   position: relative;
@@ -705,9 +713,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center; /* Centraliza o conteúdo na vertical */
-  height: 100vh; /* Ocupa a janela inteira */
-  scroll-snap-align: start; /* Trava o scroll aqui */
+  justify-content: center; 
+  min-height: 100vh; /* Substitui height: 100vh */
+  height: auto;
+  scroll-snap-align: start; 
   gap: 48px;
   padding: 104px 80px;
   position: relative;
@@ -791,9 +800,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center; /* Centraliza o conteúdo na vertical */
-  height: 100vh; /* Ocupa a janela inteira */
-  scroll-snap-align: start; /* Trava o scroll aqui */
+  justify-content: center; 
+  min-height: 100vh; /* Substitui height: 100vh */
+  height: auto;
+  scroll-snap-align: start; 
   gap: 58px;
   padding: 104px 80px;
   position: relative;
@@ -935,9 +945,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between; /* Empurra o rodapé para baixo */
-  height: 100vh; /* Ocupa a janela inteira */
-  scroll-snap-align: start; /* Trava o scroll aqui */
+  justify-content: space-between; 
+  min-height: 100vh; /* Substitui height: 100vh */
+  height: auto;
+  scroll-snap-align: start; 
   position: relative;
   align-self: stretch;
   width: 100%;
