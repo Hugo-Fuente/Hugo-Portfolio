@@ -154,12 +154,19 @@
 .frame .status {
   position: relative;
   width: fit-content;
-  font-family: "Roboto Mono-Regular", Helvetica;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 400;
-  color: #5ee7e7;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
+  color: #65fff0; /* Voltamos pro ciano original */
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  
+  /* Criando a etiqueta com fundo escuro */
+  background-color: rgba(2, 9, 13, 0.75); 
+  padding: 6px 14px;
+  border-radius: 20px; /* Deixa as bordas arredondadas (formato pílula) */
+  border: 1px solid rgba(101, 255, 240, 0.15); /* Borda bem sutil */
+  backdrop-filter: blur(4px); /* Borra o fundo claro da foto atrás dele */
+  z-index: 11;
 }
 
 .frame .contedo-do-hero {
@@ -168,9 +175,9 @@
   width: 650px;
   max-width: 90%;
   align-items: flex-start;
-  gap: 26px;
+  gap: 22px; /* Define um espaçamento uniforme e confortável entre as linhas de texto */
   position: absolute;
-  top: 22vh; /* Desce o texto com base na porcentagem da tela, não em pixels */
+  top: 22vh; /* Mantém a altura original do seu código que enquadrou bem na tela */
   left: 80px;
   z-index: 10;
 }
@@ -179,24 +186,25 @@
   position: relative;
   width: fit-content;
   margin-top: -1px;
-  font-family: 'Roboto Mono', monospace; /* Fonte tech/código */
+  font-family: 'Roboto Mono', monospace;
   font-weight: 400;
   color: #65fff0;
-  font-size: 13px; /* Um pouquinho maior para leitura */
-  letter-spacing: 2px; /* ISSO cria o espaçamento profissional entre as letras */
-  text-transform: uppercase; /* Garante que fique tudo maiúsculo */
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   line-height: normal;
+  margin-bottom: 0; /* Garante a remoção de qualquer margem negativa que estava colando no título */
 }
 
 .frame .t-tulo {
   position: relative;
   align-self: stretch;
-  font-family: "Space Grotesk-Bold", Helvetica;
+  font-family: "Space Grotesk", Helvetica, sans-serif;
   font-weight: 700;
   color: #e9fbf8;
-  font-size: 76px;
-  letter-spacing: -2.58px;
-  line-height: 74.5px;
+  font-size: 60px; /* Reduzido de 76px para ganhar bastante espaço vertical */
+  letter-spacing: -1.5px;
+  line-height: 1.1; /* Usar proporção (1.1) em vez de pixels fixos agrupa as 3 linhas melhor */
 }
 
 .frame .descri-o {
@@ -213,61 +221,59 @@
 .frame .aes {
   display: inline-flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px; 
   position: relative;
   flex: 0 0 auto;
+  margin-top: 0; /* Remove a margem extra, deixando apenas o espaçamento natural do bloco */
 }
 
-/* Ajuste nos botões para ficarem iguais ao design */
-.frame .ao {
-  display: inline-flex;
-  height: 52px;
-  align-items: center;
-  justify-content: center;
-  padding: 0px 32px;
-  background-color: #65fff0;
-  border-radius: 6px;
-  border: 1px solid #65fff0;
-  box-shadow: 0px 0px 20px rgba(101, 255, 240, 0.27);
-  transition: all 0.3s ease;
-}
-
-.frame .r-tulo {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Mono-Bold", Helvetica;
-  font-weight: 700;
-  color: #02090d;
-  font-size: 13px;
-  letter-spacing: 0.1px;
-  line-height: normal;
-}
-
+/* 1. Estado Base para AMBOS os botões (Apagado / Transparente) */
+.frame .ao,
 .frame .div {
-  background-color: transparent;
   display: inline-flex;
   height: 52px;
   align-items: center;
   justify-content: center;
   padding: 0px 32px;
+  background-color: transparent; /* Fundo invisível por padrão */
   border-radius: 6px;
-  border: 1px solid #65fff0;
-  transition: all 0.3s ease;
+  border: 1px solid #65fff0; /* Apenas a linha externa */
+  box-shadow: none; /* Sem brilho inicial */
+  transition: all 0.3s ease; /* Deixa a animação suave */
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.frame .div:hover {
-  background-color: rgba(101, 255, 240, 0.1);
-}
-
+/* 2. Cor do texto para AMBOS os botões no Estado Base */
+.frame .r-tulo,
 .frame .r-tulo-2 {
-  width: fit-content;
   position: relative;
-  font-family: "Roboto Mono-Bold", Helvetica;
+  width: fit-content;
+  font-family: "Roboto Mono", Helvetica, monospace;
   font-weight: 700;
-  color: #65fff0;
+  color: #65fff0; /* Texto ciano por padrão */
   font-size: 13px;
   letter-spacing: 0.1px;
   line-height: normal;
+  transition: color 0.3s ease; /* Anima a cor do texto também */
+}
+
+/* 3. Estado HOVER (Quando passa o rato por cima - Aceso / Brilhante) */
+.frame .ao:hover,
+.frame .div:hover,
+.frame .ao:focus-visible,
+.frame .div:focus-visible {
+  background-color: #65fff0; /* Preenche com a cor sólida */
+  box-shadow: 0px 0px 20px rgba(101, 255, 240, 0.4); /* Adiciona o brilho / glow */
+  filter: none; /* Remove qualquer filtro antigo */
+}
+
+/* 4. Muda a cor do texto para escuro quando o botão está aceso */
+.frame .ao:hover .r-tulo,
+.frame .div:hover .r-tulo-2,
+.frame .ao:focus-visible .r-tulo,
+.frame .div:focus-visible .r-tulo-2 {
+  color: #02090d; /* O texto fica escuro para dar contraste com o fundo ciano */
 }
 
 .frame .leitura-biomtrica {
@@ -278,8 +284,8 @@
   gap: 6px;
   padding: 12px 16px;
   position: absolute;
-  bottom: 10vh; /* Substitui os 30px fixos por 10% da altura da tela, garantindo margem segura */
-  right: 80px; /* Volta para o alinhamento da margem direita do seu layout */
+  bottom: 16vh; /* Aumentamos de 10vh para subir a caixa */
+  right: 40px; /* Reduzimos de 80px para aproximá-la da borda direita */
   background-color: rgba(4, 17, 23, 0.25);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -304,15 +310,15 @@
   white-space: nowrap;
 }
 
-/* Ajuste do container para alinhar a linha e o texto */
 .frame .ndice-de-rolagem {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   position: absolute;
-  bottom: 40px; /* Gruda no fim da tela */
-  left: 80px; /* Alinhado com o texto de cima */
-  z-index: 3;
+  top: auto; /* Anula o valor do Figma que empurrava para baixo */
+  bottom: 80px; /* Aumentei de 40px para 80px. Se precisar subir mais, mude para 100px ou 120px */
+  left: 80px;
+  z-index: 10;
   text-decoration: none;
 }
 
@@ -1120,22 +1126,6 @@
   outline: 2px solid #65fff0;
   outline-offset: 4px;
   border-radius: 3px;
-}
-
-.frame .ao,
-.frame .div {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.frame .ao:hover,
-.frame .ao:focus-visible {
-  filter: brightness(1.08);
-}
-
-.frame .div:hover,
-.frame .div:focus-visible {
-  background-color: #0b2028;
 }
 
 .frame .retrato-principal-de,
