@@ -25,42 +25,47 @@
 .frame .abertura {
   display: flex;
   flex-direction: column;
-  height: 900px;
+  height: 100vh; /* 100% da altura da janela do usuário (Viewport Height) */
+  min-height: 700px; /* Trava de segurança para telas muito achatadas */
   align-items: flex-start;
   position: relative;
   align-self: stretch;
   width: 100%;
   background-color: #02090d;
+  overflow: hidden; /* Garante que a foto não vaze para o bloco de baixo */
 }
 
-/* Ajuste para garantir que a imagem não quebre o layout */
 .frame .retrato-principal-de {
   position: absolute;
   top: 0;
-  right: 0; /* Alinha a imagem à direita */
-  width: 1010px; /* Mantém a largura que você definiu */
-  max-width: 65%; /* Garante que não cubra o texto em telas menores */
-  height: 100%; /* Ocupa 100% da altura do cabeçalho */
+  right: 0;
+  width: 1010px; /* Voltamos para o tamanho que não dava zoom */
+  max-width: 65%; /* Mantém o respeito ao espaço do texto */
+  height: 100%;
   object-fit: cover;
-  object-position: center center; /* ISSO AQUI centraliza a sua foto verticalmente e horizontalmente */
-  z-index: 0; /* Mantém a imagem no fundo */
+  object-position: center center;
+  z-index: 0;
+  
+  /* Mantemos apenas a máscara que funcionou bem */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+  mask-image: linear-gradient(to right, transparent 0%, black 40%);
 }
 
+/* 2. O véu volta a ser apenas uma sombra suave para o texto */
 .frame .vu-cinematogrfico {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; /* Ajustado para cobrir toda a altura */
+  height: 100%;
   background: linear-gradient(
     90deg,
-    #02090d 35%, /* O azul escuro sólido até 35% da tela (onde fica o texto) */
-    rgba(2, 9, 13, 0.8) 55%, /* Começa a revelar a foto */
-    rgba(2, 9, 13, 0.2) 75%,
-    rgba(2, 9, 13, 0) 100% /* Totalmente transparente no lado direito */
+    rgba(2, 9, 13, 0.95) 0%, /* Bem escuro atrás do texto */
+    rgba(2, 9, 13, 0.4) 45%, /* Suave no meio */
+    rgba(2, 9, 13, 0) 100%   /* 100% transparente no lado direito do seu rosto */
   );
-  z-index: 1; /* Fica entre a foto e o texto */
-  pointer-events: none; /* Garante que não atrapalhe cliques nos botões */
+  z-index: 1;
+  pointer-events: none; /* Garante que você pode clicar nos botões */
 }
 
 .frame .gradiente-inferior {
@@ -89,6 +94,7 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: #24414a;
+  z-index: 10; /* ISSO AQUI traz o menu para a frente de tudo */
 }
 
 .frame .assinatura {
@@ -156,7 +162,6 @@
   line-height: normal;
 }
 
-/* O texto principal estava com position absolute, vamos garantir que ele fique acima da imagem */
 .frame .contedo-do-hero {
   display: flex;
   flex-direction: column;
@@ -165,20 +170,21 @@
   align-items: flex-start;
   gap: 26px;
   position: absolute;
-  top: 30%;
+  top: 22vh; /* Desce o texto com base na porcentagem da tela, não em pixels */
   left: 80px;
-  z-index: 2;
+  z-index: 10;
 }
 
 .frame .microcopy {
   position: relative;
   width: fit-content;
   margin-top: -1px;
-  font-family: "Roboto Mono-Regular", Helvetica;
+  font-family: 'Roboto Mono', monospace; /* Fonte tech/código */
   font-weight: 400;
   color: #65fff0;
-  font-size: 12px;
-  letter-spacing: 0.17px;
+  font-size: 13px; /* Um pouquinho maior para leitura */
+  letter-spacing: 2px; /* ISSO cria o espaçamento profissional entre as letras */
+  text-transform: uppercase; /* Garante que fique tudo maiúsculo */
   line-height: normal;
 }
 
@@ -267,32 +273,35 @@
 .frame .leitura-biomtrica {
   display: flex;
   flex-direction: column;
-  width: 287px;
+  width: auto;
   align-items: flex-start;
-  gap: 8px;
-  padding: 16px;
+  gap: 6px;
+  padding: 12px 16px;
   position: absolute;
-  top: 618px;
-  left: 1108px;
-  background-color: #041117aa;
+  bottom: 10vh; /* Substitui os 30px fixos por 10% da altura da tela, garantindo margem segura */
+  right: 80px; /* Volta para o alinhamento da margem direita do seu layout */
+  background-color: rgba(4, 17, 23, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-top-width: 1px;
   border-top-style: solid;
   border-left-width: 1px;
   border-left-style: solid;
-  border-color: #65fff0;
+  border-color: rgba(101, 255, 240, 0.4);
+  z-index: 10;
 }
 
 .frame .leitura {
   position: relative;
   width: fit-content;
   margin-top: -1px;
-  margin-right: -4px;
-  font-family: "Roboto Mono-Regular", Helvetica;
+  font-family: 'Roboto Mono', monospace;
   font-weight: 400;
-  color: #65fff0;
-  font-size: 10px;
-  letter-spacing: 0;
-  line-height: 17px;
+  color: rgba(101, 255, 240, 0.85); /* Texto levemente suavizado */
+  font-size: 10px; /* Fonte um pouco menor para reforçar que é um detalhe */
+  letter-spacing: 1px;
+  line-height: 20px;
+  white-space: nowrap;
 }
 
 /* Ajuste do container para alinhar a linha e o texto */
