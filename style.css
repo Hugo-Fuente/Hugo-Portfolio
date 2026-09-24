@@ -1,3 +1,8 @@
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
 .frame {
   display: flex;
   min-height: 100vh;
@@ -6,6 +11,10 @@
   gap: 10px;
   padding: 0;
   position: relative;
+  
+  /* Novas regras para evitar scroll lateral sem quebrar o imã: */
+  width: 100%;
+  overflow-x: clip;
 }
 
 .frame .portflio-cyber-de {
@@ -19,33 +28,40 @@
   background-color: #02090d;
   max-width: 1440px;
   margin: 0 auto;
-  overflow: hidden;
+  
+  /* AJUSTE AQUI: Troque 'hidden' por 'clip' */
+  overflow: clip; 
 }
 
 .frame .abertura {
   display: flex;
   flex-direction: column;
-  height: 92vh; /* Aumentado de 85vh para 92vh para um corte mais suave */
-  min-height: 650px; /* Meio termo para não espremer os elementos */
+  height: 100vh; /* Devolvido para 100vh para preencher o bloco inteiro */
+  min-height: 650px; 
   align-items: flex-start;
   position: relative;
   align-self: stretch;
   width: 100%;
   background-color: #02090d;
   overflow: hidden;
+  
+  /* Adicionar a trava também neste primeiro bloco */
+  scroll-snap-align: start; 
 }
 
 .frame .retrato-principal-de {
   position: absolute;
   top: 0;
-  right: 0; /* AJUSTE AQUI: Use -50px ou 50px para mover lateralmente */
-  width: 1010px; 
-  max-width: 65%; /* AJUSTE AQUI: Mude a porcentagem para alterar o limite esquerdo */
-  height: 110%;
+  right: 0;
+  width: 750px; /* Aumentamos um pouco para recuperar espaço de manobra */
+  max-width: 150%; /* Permite que a foto avance mais para a esquerda do ecrã */
+  height: 115%;
   object-fit: cover;
-  object-position: center center; /* AJUSTE AQUI: Mude para 'top right' ou 'center right' */
-  z-index: 0;
   
+  /* AJUSTE AQUI: Valores perto de 0% empurram a foto para a esquerda */
+  object-position: 0% center; 
+  
+  z-index: 0;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
   mask-image: linear-gradient(to right, transparent 0%, black 40%);
 }
@@ -315,7 +331,7 @@
   gap: 12px;
   position: absolute;
   top: auto; 
-  bottom: 40px; /* Aumentado de 20px para 40px para não encostar nos botões de cima */
+  bottom: 30px; /* Aumentado de 20px para 40px para não encostar nos botões de cima */
   left: 80px;
   z-index: 10;
   text-decoration: none;
@@ -348,7 +364,7 @@
 
 .frame .apresentao {
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* Mudado de flex-start para center para centrar o conteúdo verticalmente */
   gap: 90px;
   padding: 104px 80px;
   position: relative;
@@ -356,6 +372,10 @@
   width: 100%;
   flex: 0 0 auto;
   background-color: #07161c;
+  
+  /* Novas regras para ocupar o ecrã e travar o scroll */
+  height: 100vh;
+  scroll-snap-align: start;
 }
 
 .frame .manifesto {
@@ -483,6 +503,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center; /* Centraliza o conteúdo na vertical */
+  height: 100vh; /* Ocupa a janela inteira */
+  scroll-snap-align: start; /* Trava o scroll aqui */
   gap: 54px;
   padding: 104px 80px;
   position: relative;
@@ -682,6 +705,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center; /* Centraliza o conteúdo na vertical */
+  height: 100vh; /* Ocupa a janela inteira */
+  scroll-snap-align: start; /* Trava o scroll aqui */
   gap: 48px;
   padding: 104px 80px;
   position: relative;
@@ -693,7 +719,7 @@
 
 .frame .ttulo-da-seo-2 {
   display: flex;
-  width: 1254px;
+  width: 100%; /* Mudado de 1254px para 100% para se adaptar ao ecrã */
   align-items: flex-end;
   justify-content: space-between;
   position: relative;
@@ -761,10 +787,13 @@
   line-height: 22.5px;
 }
 
-.frame .experincia-e {
+.frame .experncia-e {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center; /* Centraliza o conteúdo na vertical */
+  height: 100vh; /* Ocupa a janela inteira */
+  scroll-snap-align: start; /* Trava o scroll aqui */
   gap: 58px;
   padding: 104px 80px;
   position: relative;
@@ -906,6 +935,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between; /* Empurra o rodapé para baixo */
+  height: 100vh; /* Ocupa a janela inteira */
+  scroll-snap-align: start; /* Trava o scroll aqui */
   position: relative;
   align-self: stretch;
   width: 100%;

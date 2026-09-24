@@ -3,11 +3,19 @@
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
+
 html,
 body {
   margin: 0px;
   min-height: 100%;
 }
+
+/* Garanta que o html mantém o snap ativado: */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
 /* a blue color as a generic focus style */
 button:focus-visible {
   outline: 2px solid #4a90e2 !important;
