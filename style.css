@@ -1,13 +1,10 @@
-/* ========================================== */
-/* TELA 1: PÁGINA PRINCIPAL DO PORTFÓLIO      */
-/* ========================================== */
-
 .frame {
   display: flex;
   min-height: 100vh;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 10px;
+  padding: 0;
   position: relative;
 }
 
@@ -20,6 +17,9 @@
   align-self: stretch;
   flex-grow: 1;
   background-color: #02090d;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .frame .abertura {
@@ -33,41 +33,48 @@
   background-color: #02090d;
 }
 
+/* Ajuste para garantir que a imagem não quebre o layout */
 .frame .retrato-principal-de {
   position: absolute;
   top: 0;
-  left: 430px;
-  width: 1010px;
-  height: 900px;
+  right: 0; /* Alinha a imagem à direita */
+  width: 1010px; /* Mantém a largura que você definiu */
+  max-width: 65%; /* Garante que não cubra o texto em telas menores */
+  height: 100%; /* Ocupa 100% da altura do cabeçalho */
   object-fit: cover;
+  object-position: center center; /* ISSO AQUI centraliza a sua foto verticalmente e horizontalmente */
+  z-index: 0; /* Mantém a imagem no fundo */
 }
 
 .frame .vu-cinematogrfico {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1440px;
-  height: 900px;
+  width: 100%;
+  height: 100%; /* Ajustado para cobrir toda a altura */
   background: linear-gradient(
     90deg,
-    rgba(2, 9, 13, 1) 0%,
-    rgba(2, 9, 13, 0.91) 42%,
-    rgba(2, 9, 13, 0.14) 75%,
-    rgba(2, 9, 13, 0.53) 100%
+    #02090d 35%, /* O azul escuro sólido até 35% da tela (onde fica o texto) */
+    rgba(2, 9, 13, 0.8) 55%, /* Começa a revelar a foto */
+    rgba(2, 9, 13, 0.2) 75%,
+    rgba(2, 9, 13, 0) 100% /* Totalmente transparente no lado direito */
   );
+  z-index: 1; /* Fica entre a foto e o texto */
+  pointer-events: none; /* Garante que não atrapalhe cliques nos botões */
 }
 
 .frame .gradiente-inferior {
   position: absolute;
-  top: 660px;
+  bottom: 0; /* Prende o gradiente no final (embaixo) do cabeçalho */
   left: 0;
-  width: 1440px;
-  height: 240px;
+  width: 100%;
+  height: 300px; /* Altura do esfumaçado */
   background: linear-gradient(
-    0deg,
-    rgba(2, 9, 13, 0) 0%,
-    rgba(2, 9, 13, 1) 100%
+    to top, 
+    rgba(2, 9, 13, 1) 0%, /* Sólido na base para fundir com a próxima seção */
+    rgba(2, 9, 13, 0) 100% /* Transparente no topo para mostrar seu rosto */
   );
+  z-index: 1; /* Fica acima da foto, mas abaixo do texto */
 }
 
 .frame .navegao {
@@ -149,15 +156,18 @@
   line-height: normal;
 }
 
+/* O texto principal estava com position absolute, vamos garantir que ele fique acima da imagem */
 .frame .contedo-do-hero {
   display: flex;
   flex-direction: column;
   width: 650px;
+  max-width: 90%;
   align-items: flex-start;
   gap: 26px;
   position: absolute;
-  top: 190px;
+  top: 30%;
   left: 80px;
+  z-index: 2;
 }
 
 .frame .microcopy {
@@ -202,19 +212,18 @@
   flex: 0 0 auto;
 }
 
+/* Ajuste nos botões para ficarem iguais ao design */
 .frame .ao {
   display: inline-flex;
   height: 52px;
   align-items: center;
   justify-content: center;
-  padding: 0px 24px;
-  position: relative;
-  flex: 0 0 auto;
+  padding: 0px 32px;
   background-color: #65fff0;
   border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid;
-  box-shadow: 0px 0px 20px #65fff044;
+  border: 1px solid #65fff0;
+  box-shadow: 0px 0px 20px rgba(101, 255, 240, 0.27);
+  transition: all 0.3s ease;
 }
 
 .frame .r-tulo {
@@ -229,18 +238,19 @@
 }
 
 .frame .div {
-  background-color: #07161c;
-  border-color: #65fff0;
+  background-color: transparent;
   display: inline-flex;
   height: 52px;
   align-items: center;
   justify-content: center;
-  padding: 0px 24px;
-  position: relative;
-  flex: 0 0 auto;
+  padding: 0px 32px;
   border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid;
+  border: 1px solid #65fff0;
+  transition: all 0.3s ease;
+}
+
+.frame .div:hover {
+  background-color: rgba(101, 255, 240, 0.1);
 }
 
 .frame .r-tulo-2 {
@@ -285,32 +295,41 @@
   line-height: 17px;
 }
 
+/* Ajuste do container para alinhar a linha e o texto */
 .frame .ndice-de-rolagem {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   position: absolute;
-  top: 840px;
-  left: 80px;
+  bottom: 40px; /* Gruda no fim da tela */
+  left: 80px; /* Alinhado com o texto de cima */
+  z-index: 3;
+  text-decoration: none;
 }
 
-.frame .linha {
-  position: relative;
+/* Criando a linha com CSS puro */
+.frame .ndice-de-rolagem::before {
+  content: "";
+  display: block;
   width: 68px;
-  height: 1px;
-  object-fit: cover;
+  height: 2px;
+  background-color: #65fff0; /* A mesma cor do botão */
 }
 
+/* Escondendo a imagem antiga da linha, já que estamos usando CSS agora */
+.frame .linha {
+  display: none;
+}
+
+/* Ajustando a cor e a fonte da nota */
 .frame .nota {
   position: relative;
   width: fit-content;
-  margin-top: -1px;
-  color: #82a4a8;
+  color: #82a4a8; /* Esta cor estava escura no fundo preto. Se quiser mais claro, troque para #ddecf0 */
   font-size: 10px;
   letter-spacing: 0.14px;
-  line-height: normal;
-  font-family: "Roboto Mono-Regular", Helvetica;
-  font-weight: 400;
+  font-family: "Roboto Mono-Regular", Helvetica, sans-serif;
+  text-transform: uppercase;
 }
 
 .frame .apresentao {
@@ -1082,726 +1101,260 @@
   text-decoration: underline;
 }
 
-/* ========================================== */
-/* TELA 2: PÁGINA DO PROJETO DRONE            */
-/* ========================================== */
-
-.projeto-TCC-drone {
-  width: 100%;
-  min-width: 1376px;
-  min-height: 2746px;
-  position: relative;
-}
-
-.projeto-TCC-drone .screen {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 48px;
-  padding: 104px 96px;
-  top: 848px;
-  background-color: #0b1a24;
-  width: 100%;
-  position: absolute;
-  left: 0;
-}
-
-.projeto-TCC-drone .ttulo-da-seo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-}
-
-.projeto-TCC-drone .seo {
-  position: relative;
-  width: 28px;
-  height: 2px;
-}
-
-.projeto-TCC-drone .t-tulo {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Condensed-Bold", Helvetica;
-  font-weight: 700;
-  color: #ddecf0;
-  font-size: 42px;
-  letter-spacing: 0;
-  line-height: 44.1px;
-  white-space: nowrap;
-}
-
-.projeto-TCC-drone .lista-de-projetos {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-}
-
-.projeto-TCC-drone .projeto {
-  display: flex;
-  height: 225px;
-  align-items: center;
-  gap: 32px;
-  padding: 32px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  background-color: #0c202a;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #65fff0;
-}
-
-.projeto-TCC-drone .nmero {
-  display: flex;
-  flex-direction: column;
-  width: 80px;
-  align-items: flex-start;
-  justify-content: flex-end;
-  position: relative;
-  align-self: stretch;
-}
-
-.projeto-TCC-drone .ndice {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Mono-Regular", Helvetica;
-  font-weight: 400;
-  color: #5ee7e7;
-  font-size: 13px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.projeto-TCC-drone .contedo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  position: relative;
-  flex: 1;
-  flex-grow: 1;
-}
-
-.projeto-TCC-drone .text-wrapper {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Roboto Condensed-Bold", Helvetica;
-  font-weight: 700;
-  color: #ddecf0;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.projeto-TCC-drone .descri-o {
-  position: relative;
-  align-self: stretch;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #8fa8b0;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: 25.6px;
-}
-
-.projeto-TCC-drone .visual-do-projeto {
-  position: relative;
-  width: 418px;
-  height: 187px;
-  margin-top: -13px;
-  margin-bottom: -13px;
-}
-
-.projeto-TCC-drone .div {
-  height: 206px;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  padding: 32px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  background-color: #0c202a;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #24414a;
-}
-
-.projeto-TCC-drone .img {
-  position: relative;
-  width: 414px;
-  height: 178px;
-  margin-top: -18px;
-  margin-bottom: -18px;
-}
-
-.projeto-TCC-drone .projeto-2 {
-  height: 203px;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  padding: 32px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  background-color: #0c202a;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #24414a;
-}
-
-.projeto-TCC-drone .visual-do-projeto-2 {
-  position: relative;
-  width: 411px;
-  height: 171px;
-  margin-top: -16px;
-  margin-bottom: -16px;
-}
-
-.projeto-TCC-drone .screen-2 {
-  top: 1808px;
-  height: 788px;
-  background-color: #071118;
-  width: 100%;
-  position: absolute;
-  left: 0;
-}
-
-.projeto-TCC-drone .image {
-  top: -138px;
-  left: 616px;
-  width: 760px;
-  height: 1076px;
-  aspect-ratio: 0.75;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .gradiente-sobreposio {
-  top: 0;
-  width: 707px;
-  height: 760px;
-  position: absolute;
-  left: 0;
-}
-
-.projeto-TCC-drone .gradiente-inferior {
-  top: 608px;
-  width: 1376px;
-  height: 180px;
-  position: absolute;
-  left: 0;
-}
-
-.projeto-TCC-drone .apresentao {
-  display: flex;
-  flex-direction: column;
-  width: 620px;
-  height: 701px;
-  align-items: flex-start;
-  gap: 28px;
-  position: absolute;
-  top: 59px;
-  left: 30px;
-}
-
-.projeto-TCC-drone .t-tulo-2 {
-  position: relative;
-  width: 600px;
-  margin-top: -1px;
-  font-family: "Roboto Condensed-ExtraBold", Helvetica;
-  font-weight: 800;
-  color: #ddecf0;
-  font-size: 42px;
-  letter-spacing: -0.84px;
-  line-height: 39.9px;
-}
-
-.projeto-TCC-drone .resumo {
-  position: relative;
-  width: 291px;
-  height: 633px;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #8fa8b0;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: 28.8px;
-}
-
-.projeto-TCC-drone .resumo-2 {
-  top: 68px;
-  left: 329px;
-  width: 291px;
-  position: absolute;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #8fa8b0;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: 28.8px;
-}
-
-.projeto-TCC-drone .screen-3 {
-  top: 0;
-  height: 907px;
-  background-color: #071118;
-  width: 100%;
-  position: absolute;
-  left: 0;
-}
-
-.projeto-TCC-drone .image-2 {
-  position: absolute;
-  top: 11px;
-  left: 0;
-  width: 986px;
-  height: 1391px;
-  aspect-ratio: 0.75;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .gradiente-sobreposio-2 {
-  position: absolute;
-  top: 88px;
-  right: 0;
-  width: 720px;
-  height: 760px;
-}
-
-.projeto-TCC-drone .apresentao-2 {
-  position: absolute;
-  top: 140px;
-  right: 50px;
-  width: 620px;
-  height: 679px;
-}
-
-.projeto-TCC-drone .p {
-  position: absolute;
-  top: 48px;
-  left: 47px;
-  width: 549px;
-  font-family: "Roboto Condensed-ExtraBold", Helvetica;
-  font-weight: 800;
-  color: #ddecf0;
-  font-size: 64px;
-  text-align: right;
-  letter-spacing: -1.28px;
-  line-height: 60.8px;
-}
-
-.projeto-TCC-drone .resumo-3 {
-  top: 353px;
-  left: 110px;
-  width: 476px;
-  text-align: right;
-  position: absolute;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #8fa8b0;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: 28.8px;
-}
-
-.projeto-TCC-drone .aes {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 16px;
-  position: absolute;
-  top: 555px;
-  left: 213px;
-}
-
-.projeto-TCC-drone .ao {
-  display: inline-flex;
-  height: 52px;
-  align-items: center;
-  justify-content: center;
-  padding: 0px 24px;
-  position: relative;
-  flex: 0 0 auto;
-  background-color: #5ee7e7;
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1px solid;
-  box-shadow: 0px 0px 18px #5ee7e744;
-}
-
-.projeto-TCC-drone .r-tulo {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Mono-Bold", Helvetica;
-  font-weight: 700;
-  color: #020709;
-  font-size: 13px;
-  letter-spacing: 0.13px;
-  line-height: normal;
-}
-
-.projeto-TCC-drone .r-tulo-wrapper {
-  display: inline-flex;
-  height: 52px;
-  align-items: center;
-  justify-content: center;
-  padding: 0px 24px;
-  position: relative;
-  flex: 0 0 auto;
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #65fff0;
-}
-
-.projeto-TCC-drone .r-tulo-2 {
-  font-family: "Roboto Mono-Bold", Helvetica;
-  font-weight: 700;
-  color: #ddecf0;
-  font-size: 13px;
-  letter-spacing: 0.13px;
-  position: relative;
-  width: fit-content;
-  line-height: normal;
-}
-
-.projeto-TCC-drone .sinais {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 24px;
-  position: absolute;
-  top: 663px;
-  left: 293px;
-}
-
-.projeto-TCC-drone .text-wrapper-2 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Roboto Mono-Regular", Helvetica;
-  font-weight: 400;
-  color: #65fff0;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.projeto-TCC-drone .seo-2 {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  top: 0;
-  left: 406px;
-}
-
-.projeto-TCC-drone .marca {
-  position: relative;
-  width: 28px;
-  height: 2px;
-  background-color: #65fff0;
-}
-
-.projeto-TCC-drone .r-tulo-3 {
-  margin-top: -1px;
-  font-family: "Roboto Mono-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #5ee7e7;
-  font-size: 12px;
-  letter-spacing: 0.24px;
-  position: relative;
-  width: fit-content;
-  line-height: normal;
-}
-
-.projeto-TCC-drone .navegao {
-  display: flex;
-  width: 100%;
-  height: 88px;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0px 96px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #24414a;
-}
-
-.projeto-TCC-drone .navegao-2 {
-  display: flex;
-  width: 1173px;
-  height: 88px;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-color: #24414a;
-}
-
-.projeto-TCC-drone .div-2 {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.projeto-TCC-drone .circle-x {
-  position: relative;
-  width: 32px;
-  height: 32px;
-}
-
-.projeto-TCC-drone .vector {
-  position: absolute;
-  width: 93.23%;
-  height: 93.23%;
-  top: 6.77%;
-  left: 6.77%;
-}
-
-.projeto-TCC-drone .nome {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Condensed-Bold", Helvetica;
-  font-weight: 700;
-  color: #ddecf0;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.projeto-TCC-drone .navbar {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 34px;
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.projeto-TCC-drone .status {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Mono-Regular", Helvetica;
-  font-weight: 400;
-  color: #5ee7e7;
-  font-size: 12px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.projeto-TCC-drone .rodap {
-  display: flex;
-  width: calc(100% - 1px);
-  height: 150px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 96px;
-  position: absolute;
-  top: 2596px;
-  left: 1px;
-  background-color: #020709;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-color: #24414a;
-}
-
-.projeto-TCC-drone .circuit-board {
-  position: relative;
-  width: 28px;
-  height: 28px;
-}
-
-.projeto-TCC-drone .vector-2 {
-  position: absolute;
-  width: 89.29%;
-  height: 89.29%;
-  top: 10.71%;
-  left: 10.71%;
-}
-
-.projeto-TCC-drone .assinatura {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Condensed-Bold", Helvetica;
-  font-weight: 700;
-  color: #ddecf0;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.projeto-TCC-drone .nota {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Mono-Regular", Helvetica;
-  font-weight: 400;
-  color: #8fa8b0;
-  font-size: 11px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.projeto-TCC-drone .image-3 {
-  top: 1976px;
-  left: 128px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-4 {
-  top: 2284px;
-  left: 430px;
-  width: 127px;
-  height: 127px;
-  aspect-ratio: 1;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-5 {
-  top: 1976px;
-  left: 430px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-6 {
-  top: 2160px;
-  left: 451px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-7 {
-  top: 2444px;
-  left: 348px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-8 {
-  top: 2444px;
-  left: 554px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-9 {
-  top: 2284px;
-  left: 326px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-10 {
-  top: 2284px;
-  left: 585px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-11 {
-  top: 2408px;
-  left: 451px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-12 {
-  top: 2416px;
-  left: 128px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-13 {
-  top: 2184px;
-  left: 128px;
-  width: 76px;
-  height: 124px;
-  aspect-ratio: 0.62;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .nota-2 {
-  position: absolute;
-  top: 2536px;
-  right: 28px;
-  width: 240px;
-  font-family: "Roboto Mono-Regular", Helvetica;
-  font-weight: 400;
-  color: #8fa8b0;
-  font-size: 13px;
-  text-align: right;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.projeto-TCC-drone .image-14 {
-  top: 2483px;
-  left: 638px;
-  width: 53px;
-  height: 53px;
-  aspect-ratio: 1;
-  position: absolute;
-  object-fit: cover;
-}
-
-.projeto-TCC-drone .image-15 {
-  top: 2483px;
-  left: 287px;
-  width: 53px;
-  height: 53px;
-  aspect-ratio: 1;
-  position: absolute;
-  object-fit: cover;
+/* Original style.css is preserved above this accessibility and interaction layer. */
+
+.frame a {
+  color: inherit;
+}
+
+.frame a:focus-visible {
+  outline: 2px solid #65fff0;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+.frame .ao,
+.frame .div {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.frame .ao:hover,
+.frame .ao:focus-visible {
+  filter: brightness(1.08);
+}
+
+.frame .div:hover,
+.frame .div:focus-visible {
+  background-color: #0b2028;
+}
+
+.frame .retrato-principal-de,
+.frame .vector,
+.frame .linha,
+.frame .image {
+  display: block;
+}
+
+.frame .links .text-wrapper {
+  text-decoration: none;
+}
+
+.frame .links .text-wrapper:hover,
+.frame .links .text-wrapper:focus-visible,
+.frame .text-wrapper-3:hover,
+.frame .text-wrapper-3:focus-visible {
+  color: #e9fbf8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .frame {
+    padding: 0;
+  }
+
+  .frame .navegao {
+    padding: 0 32px;
+  }
+
+  .frame .links {
+    gap: 16px;
+  }
+
+  .frame .status {
+    display: none;
+  }
+
+  .frame .contedo-do-hero {
+    left: 48px;
+    width: min(650px, calc(100% - 96px));
+  }
+
+  .frame .apresentao,
+  .frame .meus-projetos,
+  .frame .competncias,
+  .frame .experncia-e,
+  .frame .contato {
+    padding-right: 48px;
+    padding-left: 48px;
+  }
+
+  .frame .apresentao,
+  .frame .contato {
+    gap: 48px;
+  }
+
+  .frame .ttulo-da-seo-2 {
+    width: 100%;
+  }
+
+  .frame .competncia {
+    width: calc(50% - 6px);
+  }
+
+  .frame .terminal {
+    width: 420px;
+  }
+
+  .frame .descri-o-5 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+.frame .abertura {
+height: 760px;
+}
+
+.frame .retrato-principal-de {
+left: 20%;
+width: 80%;
+height: 760px;
+}
+
+.frame .vu-cinematogrfico,
+.frame .gradiente-inferior {
+width: 100%;
+}
+
+.frame .gradiente-inferior {
+top: 520px;
+height: 240px;
+}
+
+.frame .navegao {
+height: 72px;
+padding: 0 20px;
+}
+
+.frame .links {
+display: none;
+}
+
+.frame .contedo-do-hero {
+top: 140px;
+left: 20px;
+width: calc(100% - 40px);
+gap: 20px;
+}
+
+.frame .t-tulo {
+font-size: 48px;
+line-height: 49px;
+letter-spacing: -1.5px;
+}
+
+.frame .descri-o {
+width: 100%;
+font-size: 15px;
+line-height: 23px;
+}
+
+.frame .leitura-biomtrica {
+top: auto;
+right: 20px;
+bottom: 76px;
+left: auto;
+width: 240px;
+}
+
+.frame .ndice-de-rolagem {
+top: auto;
+bottom: 24px;
+left: 20px;
+}
+
+.frame .apresentao,
+.frame .meus-projetos,
+.frame .competncias,
+.frame .experncia-e,
+.frame .contato {
+padding: 64px 20px;
+}
+
+.frame .apresentao,
+.frame .contato {
+flex-direction: column;
+gap: 40px;
+}
+
+.frame .manifesto,
+.frame .texto,
+.frame .convite,
+.frame .terminal {
+width: 100%;
+}
+
+.frame .p,
+.frame .t-tulo-2,
+.frame .t-tulo-6 {
+font-size: 36px;
+line-height: 39px;
+white-space: normal;
+}
+
+.frame .ttulo-da-seo,
+.frame .ttulo-da-seo-2 {
+align-items: flex-start;
+flex-direction: column;
+gap: 16px;
+}
+
+.frame .nota-2,
+.frame .nota-3 {
+width: 100%;
+text-align: left;
+}
+
+.frame .lista-de-projetos,
+.frame .processo {
+flex-direction: column;
+}
+
+.frame .div-2,
+.frame .minesweeper,
+.frame .etapa {
+width: 100%;
+flex: none;
+}
+
+.frame .competncia {
+width: 100%;
+}
+
+.frame .marco-profissional {
+align-items: flex-start;
+flex-direction: column;
+gap: 10px;
+}
+
+.frame .per-odo,
+.frame .cargo,
+.frame .cargo-2 {
+width: 100%;
+}
+
+.frame .rodap {
+height: auto;
+align-items: flex-start;
+flex-direction: column;
+gap: 16px;
+padding: 32px 20px;
+}
+
+.frame .nota-5 {
+position: static;
+width: auto;
+padding: 0 20px 32px;
+text-align: left;
+}
 }
