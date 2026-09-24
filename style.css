@@ -25,28 +25,27 @@
 .frame .abertura {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* 100% da altura da janela do usuário (Viewport Height) */
-  min-height: 700px; /* Trava de segurança para telas muito achatadas */
+  height: 92vh; /* Aumentado de 85vh para 92vh para um corte mais suave */
+  min-height: 650px; /* Meio termo para não espremer os elementos */
   align-items: flex-start;
   position: relative;
   align-self: stretch;
   width: 100%;
   background-color: #02090d;
-  overflow: hidden; /* Garante que a foto não vaze para o bloco de baixo */
+  overflow: hidden;
 }
 
 .frame .retrato-principal-de {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 1010px; /* Voltamos para o tamanho que não dava zoom */
-  max-width: 65%; /* Mantém o respeito ao espaço do texto */
-  height: 100%;
+  right: 0; /* AJUSTE AQUI: Use -50px ou 50px para mover lateralmente */
+  width: 1010px; 
+  max-width: 65%; /* AJUSTE AQUI: Mude a porcentagem para alterar o limite esquerdo */
+  height: 110%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center center; /* AJUSTE AQUI: Mude para 'top right' ou 'center right' */
   z-index: 0;
   
-  /* Mantemos apenas a máscara que funcionou bem */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
   mask-image: linear-gradient(to right, transparent 0%, black 40%);
 }
@@ -284,8 +283,8 @@
   gap: 6px;
   padding: 12px 16px;
   position: absolute;
-  bottom: 16vh; /* Aumentamos de 10vh para subir a caixa */
-  right: 40px; /* Reduzimos de 80px para aproximá-la da borda direita */
+  bottom: 40px; /* Aumentado de 20px para 40px para alinhar com a esquerda */
+  right: 20px; /* Mantém afastado do seu rosto */
   background-color: rgba(4, 17, 23, 0.25);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -315,8 +314,8 @@
   align-items: center;
   gap: 12px;
   position: absolute;
-  top: auto; /* Anula o valor do Figma que empurrava para baixo */
-  bottom: 80px; /* Aumentei de 40px para 80px. Se precisar subir mais, mude para 100px ou 120px */
+  top: auto; 
+  bottom: 40px; /* Aumentado de 20px para 40px para não encostar nos botões de cima */
   left: 80px;
   z-index: 10;
   text-decoration: none;
