@@ -152,6 +152,17 @@ html {
   gap: 34px;
   position: relative;
   flex: 0 0 auto;
+  
+  /* Remove margens, paddings e as bolinhas (bullets) da lista padrão do HTML */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.frame .links li {
+  margin: 0;
+  padding: 0;
+  display: block; /* Mantém o comportamento de bloco para o link dentro dele */
 }
 
 .frame .text-wrapper {
@@ -1562,4 +1573,36 @@ text-align: left;
 /* --- A linha escondida cresce ao passar o rato --- */
 .frame .links .text-wrapper:hover::after {
   width: 100%;
+}
+
+/* --- 1. Prepara os cartões para a animação e muda o cursor --- */
+.frame .div-2,
+.frame .minesweeper {
+  cursor: pointer !important; /* Muda o rato para a mão indicando que é clicável */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; /* Curva elástica */
+}
+
+/* --- 2. O Efeito Hover Principal (Pulo e Brilho Ciano) --- */
+.frame .div-2:hover,
+.frame .minesweeper:hover {
+  border-color: #65fff0 !important; /* A borda acende */
+  transform: translateY(-8px) !important; /* O cartão levanta em direção ao utilizador */
+  
+  /* Sombra brilhante externa e um leve reflexo interno */
+  box-shadow: 
+    0 16px 32px rgba(101, 255, 240, 0.15),
+    inset 0 0 16px rgba(101, 255, 240, 0.05) !important;
+}
+
+/* --- 3. Toque Premium: Zoom suave na imagem ao passar o rato no cartão --- */
+.frame .visual-do-projeto,
+.frame .img,
+.frame .visual-do-projeto-2 {
+  transition: transform 0.6s ease !important; /* Transição lenta e suave para a imagem */
+}
+
+.frame .div-2:hover .visual-do-projeto,
+.frame .div-2:hover .img,
+.frame .minesweeper:hover .visual-do-projeto-2 {
+  transform: scale(1.06) !important; /* A imagem aproxima-se levemente sem sair da caixa */
 }

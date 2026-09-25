@@ -1,0 +1,401 @@
+/* =========================================================================
+   ESTILO DA PÁGINA DE DETALHES DO PROJETO (style-projeto.css)
+   ========================================================================= */
+
+/* --- 0. Override Global: Desativa o Scroll Magnético apenas para esta página --- */
+html {
+  scroll-snap-type: none !important;
+}
+
+.pagina-projeto-wrapper {
+  height: auto !important;
+  overflow: visible !important;
+  background-color: #02090d;
+}
+
+.projeto-drone-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  
+  /* A MAGIA AQUI: Muda para visible para a coruja poder invadir a secção de baixo */
+  overflow: visible !important; 
+  overflow-x: clip !important; /* Continua a impedir o scroll horizontal indesejado */
+}
+
+.hero-projeto {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start !important; 
+  min-height: 90vh;
+  
+  /* O SEGREDO ESTÁ AQUI: O primeiro valor (80px) é o espaço no topo. 
+     Aumente este número para empurrar todo o bloco de texto mais para baixo! */
+  padding: 55px 120px 80px 100px !important; 
+  
+  position: relative;
+  overflow: visible !important;
+  z-index: 10 !important;
+}
+
+.bg-coruja-1 {
+  position: absolute !important;
+  left: -3% !important;
+  /* Reduzido de -15% para -8% para descer a ilustração na medida certa */
+  top: -7% !important; 
+  width: 65% !important;
+  min-width: 800px !important;
+  height: auto !important;
+  
+  z-index: 1 !important; 
+  opacity: 1 !important;
+  
+  -webkit-mask-image: linear-gradient(to right, black 65%, rgba(0, 0, 0, 0.15) 100%) !important;
+  mask-image: linear-gradient(to right, black 65%, rgba(0, 0, 0, 0.15) 100%) !important;
+  
+  pointer-events: none !important;
+}
+
+.hero-text-container {
+  position: relative;
+  z-index: 10 !important; /* Aumentado significativamente para garantir sobreposição */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  max-width: 620px !important;
+  gap: 16px !important;
+}
+
+.tag-topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tag-topo .linha-ciano {
+  width: 32px;
+  height: 2px;
+  background-color: #65fff0;
+}
+
+.tag-topo span {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  color: #8fa8b0;
+  letter-spacing: 2px;
+}
+
+.titulo-principal {
+  font-family: "Roboto Condensed", Helvetica, sans-serif !important;
+  font-weight: 800 !important;
+  color: #ddecf0 !important;
+  font-size: 64px !important;
+  line-height: 0.95 !important;
+  letter-spacing: -1.28px !important;
+  /* Aumentado de 550px para 600px para evitar a quebra excessiva */
+  width: 600px !important; 
+  margin: 0;
+}
+
+.descricao-principal {
+  font-family: "Inter", Helvetica, sans-serif !important;
+  font-weight: 400 !important;
+  color: #8fa8b0 !important;
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  width: 476px !important; /* Medida exata do Figma */
+  margin: 0;
+}
+
+.botoes-acao {
+  display: flex;
+  gap: 16px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  position: relative; /* IMPORTANTE: Serve de âncora para a seta */
+}
+
+.btn-primario, .btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Aumentado de 38px para 48px para bater com a página principal */
+  height: 48px !important; 
+  padding: 0 28px !important; 
+  
+  border-radius: 4px !important;
+  font-family: 'Roboto Mono', monospace !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  cursor: pointer;
+  
+  /* Reset absoluto: Ambos com fundo transparente e a EXATA mesma borda */
+  background-color: transparent !important;
+  color: #65fff0 !important;
+  border: 1px solid rgba(101, 255, 240, 0.5) !important; 
+  box-shadow: none !important;
+}
+
+.btn-primario:hover, .btn-secundario:hover {
+  background-color: #65fff0 !important;
+  color: #02090d !important;
+  border-color: #65fff0 !important; /* Borda 100% sólida no hover */
+  box-shadow: 0 0 20px rgba(101, 255, 240, 0.4) !important;
+  transform: translateY(-3px) !important;
+}
+
+.tecnologias-usadas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 0 !important;
+}
+
+.tech-tag {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  color: #65fff0;
+  background-color: rgba(101, 255, 240, 0.05);
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(101, 255, 240, 0.2);
+}
+
+.funcionalidades-projeto {
+  /* O tom de fundo alternativo usado na página principal */
+  background-color: #071118 !important; 
+  
+  /* Mantém este bloco numa camada inferior à do Hero (para as garras da coruja passarem por cima) */
+  position: relative;
+  z-index: 5; 
+  
+  /* Garante um bom respiro (espaçamento) no topo e no fundo */
+  padding-top: 120px !important; 
+  padding-bottom: 120px !important;
+}
+
+.header-funcionalidades {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 48px;
+}
+
+header nav ul.links li a {
+  /* Usamos a declaração exata da primeira página, sem Roboto Mono-Bold misturada */
+  font-family: "Space Grotesk", Helvetica, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: #ddecf0 !important;
+  text-decoration: none !important;
+  display: block; /* Garante que o hover e click area cobrem todo o espaço */
+  padding: 8px 4px !important; /* Copiado exatamente do estilo original da home */
+}
+
+header .nome {
+  font-family: "Roboto Condensed-Bold", Helvetica !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  color: #ddecf0 !important;
+}
+
+.titulo-secao, .titulo-secao-esq {
+  font-family: "Roboto Condensed", Helvetica, sans-serif !important;
+  font-weight: 700;
+  font-size: 42px;
+  
+  /* A MUDANÇA: Branco gelo brilhante e estaladiço */
+  color: #f4f9fa !important; 
+  
+  margin: 0;
+  padding-right: 120px;
+}
+
+.lista-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.card-feature {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  background-color: #0c202a;
+  border: 1px solid #173a43;
+  border-radius: 12px;
+  padding: 32px;
+  gap: 32px;
+  transition: all 0.3s ease;
+}
+
+.card-feature:hover {
+  border-color: #65fff0;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(101, 255, 240, 0.05);
+}
+
+.card-numero {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 24px;
+  font-weight: 700;
+  color: #65fff0;
+  opacity: 0.8;
+  align-self: flex-end; /* Coloca o número no fundo do texto como no Figma */
+}
+
+.card-texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-texto h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ddecf0;
+  margin: 0;
+}
+
+.card-texto p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #8fa8b0;
+  margin: 0;
+}
+
+.card-img {
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --- 3. ARQUITETURA E COMANDOS (Fundo) --- */
+.arquitetura-projeto {
+  display: flex;
+  min-height: 90vh;
+  padding: 100px;
+  position: relative;
+  align-items: center;
+}
+
+.arq-text-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 500px;
+}
+
+.comandos-grid p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #8fa8b0;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.maos-galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.maos-galeria img {
+  height: 60px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.bg-coruja-2 {
+  position: absolute;
+  right: -5%;
+  bottom: 0;
+  height: 95%;
+  object-fit: contain;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.creditos-arte {
+  position: absolute;
+  bottom: 40px;
+  right: 100px;
+  text-align: right;
+  z-index: 3;
+}
+
+.creditos-arte p {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  color: #8fa8b0;
+  margin: 4px 0;
+  opacity: 0.6;
+}
+
+/* Responsividade Básica */
+@media (max-width: 1100px) {
+  .card-feature { flex-direction: column; align-items: flex-start; }
+  .card-img { width: 100%; height: auto; }
+  .card-numero { align-self: flex-start; }
+  .bg-coruja-1, .bg-coruja-2 { opacity: 0.3; } /* Esmaece as corujas em telas menores */
+  .hero-projeto { justify-content: flex-start; text-align: left; }
+  .hero-text-container { align-items: flex-start; text-align: left; }
+  .tecnologias-usadas { justify-content: flex-start; }
+}
+
+.indicador-scroll {
+  position: absolute;
+  /* Atira a seta para fora da caixa dos botões, à direita */
+  right: -40px; 
+  /* Centraliza com o meio do botão */
+  top: 50%; 
+  margin-top: 25px; /* Compensa a altura para ficar no centro perfeito */
+  
+  width: 14px; 
+  height: 14px;
+  
+  border-right: 2px solid rgba(101, 255, 240, 0.6);
+  border-bottom: 2px solid rgba(101, 255, 240, 0.6);
+  transform: rotate(45deg); 
+  
+  animation: flutuarSeta 2s infinite ease-in-out;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Classe que será ativada pelo JavaScript para esconder a seta */
+.indicador-scroll.escondido {
+  opacity: 0 !important;
+  visibility: hidden;
+}
+
+/* A magia da levitação (compensa os 45 graus da rotação original) */
+@keyframes flutuarSeta {
+  0%, 100% {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  50% {
+    /* Move na diagonal devido à rotação, parecendo ir reto para baixo */
+    transform: rotate(45deg) translate(6px, 6px); 
+  }
+}
