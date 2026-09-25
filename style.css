@@ -184,6 +184,7 @@ html {
   z-index: 11;
 }
 
+/* 1. Devolve o bloco de texto para a posição original e segura */
 .frame .contedo-do-hero {
   display: flex;
   flex-direction: column;
@@ -192,7 +193,8 @@ html {
   align-items: flex-start;
   gap: 22px; /* Define um espaçamento uniforme e confortável entre as linhas de texto */
   position: absolute;
-  top: 22vh; /* Mantém a altura original do seu código que enquadrou bem na tela */
+  top: 22vh !important; 
+  transform: none !important;
   left: 80px;
   z-index: 10;
 }
@@ -233,62 +235,79 @@ html {
   letter-spacing: 0;
 }
 
-.frame .aes {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 16px; 
-  position: relative;
-  flex: 0 0 auto;
-  margin-top: 0; /* Remove a margem extra, deixando apenas o espaçamento natural do bloco */
-}
-
-/* 1. Estado Base para AMBOS os botões (Apagado / Transparente) */
+/* --- 1. RESTAURA A FORMA E AS BORDAS DE TODOS OS BOTÕES --- */
 .frame .ao,
 .frame .div {
-  display: inline-flex;
-  height: 52px;
-  align-items: center;
-  justify-content: center;
-  padding: 0px 32px;
-  background-color: transparent; /* Fundo invisível por padrão */
-  border-radius: 6px;
-  border: 1px solid #65fff0; /* Apenas a linha externa */
-  box-shadow: none; /* Sem brilho inicial */
-  transition: all 0.3s ease; /* Deixa a animação suave */
-  text-decoration: none;
-  cursor: pointer;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  height: 52px !important;
+  width: fit-content !important; /* O botão abraça o texto e o ícone perfeitamente */
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0px 32px !important; /* Devolve o respiro lateral da Foto 1 */
+  gap: 12px !important; /* Espaço exato entre o texto e o ícone */
+  background-color: transparent !important; /* Fundo invisível padrão */
+  border-radius: 6px !important;
+  border: 1px solid #65fff0 !important; /* Restaura a borda ciano */
+  box-shadow: none !important; 
+  transition: all 0.3s ease !important; 
+  text-decoration: none !important;
+  cursor: pointer !important;
 }
 
-/* 2. Cor do texto para AMBOS os botões no Estado Base */
-.frame .r-tulo,
-.frame .r-tulo-2 {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Mono", Helvetica, monospace;
-  font-weight: 700;
-  color: #65fff0; /* Texto ciano por padrão */
-  font-size: 13px;
-  letter-spacing: 0.1px;
-  line-height: normal;
-  transition: color 0.3s ease; /* Anima a cor do texto também */
-}
-
-/* 3. Estado HOVER (Quando passa o rato por cima - Aceso / Brilhante) */
+/* --- 2. RESTAURA O EFEITO DE BRILHO (HOVER) --- */
 .frame .ao:hover,
 .frame .div:hover,
 .frame .ao:focus-visible,
 .frame .div:focus-visible {
-  background-color: #65fff0; /* Preenche com a cor sólida */
-  box-shadow: 0px 0px 20px rgba(101, 255, 240, 0.4); /* Adiciona o brilho / glow */
-  filter: none; /* Remove qualquer filtro antigo */
+  background-color: #65fff0 !important; /* Preenche com ciano */
+  box-shadow: 0px 0px 20px rgba(101, 255, 240, 0.4) !important; /* Brilho externo */
 }
 
-/* 4. Muda a cor do texto para escuro quando o botão está aceso */
+/* --- 3. FIXA OS TEXTOS PARA NÃO QUEBRAREM LINHA --- */
+.frame .r-tulo,
+.frame .r-tulo-2,
+.frame .r-tulo-3 {
+  position: relative !important;
+  width: auto !important;
+  white-space: nowrap !important; /* Impede que "ENVIAR EMAIL" fique em duas linhas */
+  font-family: "Roboto Mono", Helvetica, monospace !important;
+  font-weight: 700 !important;
+  color: #65fff0 !important; /* Cor ciano padrão */
+  font-size: 13px !important;
+  letter-spacing: 0.1px !important;
+  line-height: normal !important;
+  transition: color 0.3s ease !important;
+  margin: 0 !important;
+}
+
+/* Garante que o texto (incluindo o do GitHub) fique escuro quando o botão acender */
 .frame .ao:hover .r-tulo,
 .frame .div:hover .r-tulo-2,
+.frame .div:hover .r-tulo-3,
 .frame .ao:focus-visible .r-tulo,
-.frame .div:focus-visible .r-tulo-2 {
-  color: #02090d; /* O texto fica escuro para dar contraste com o fundo ciano */
+.frame .div:focus-visible .r-tulo-2,
+.frame .div:focus-visible .r-tulo-3 {
+  color: #02090d !important; 
+}
+
+/* --- 4. ORGANIZAÇÃO DOS GRUPOS DE BOTÕES --- */
+/* Regra geral: botões lado a lado, quebrando linha apenas se faltar espaço */
+.frame .aes {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important; 
+  align-items: center !important;
+  gap: 16px !important; 
+  position: relative !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+}
+
+/* Regra específica para o Contato: força uma grade de 2 em 2 empurrando os últimos para baixo */
+.frame .convite .aes {
+  max-width: 480px !important;
+  margin-top: 16px !important;
 }
 
 .frame .leitura-biomtrica {
@@ -511,11 +530,11 @@ html {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center; 
-  min-height: 100vh; /* Substitui height: 100vh */
-  height: auto;
+  height: 100vh; /* Forçamos a altura de exatamente 1 tela */
+  min-height: auto; 
   scroll-snap-align: start; 
-  gap: 54px;
-  padding: 104px 80px;
+  gap: 32px; /* Reduzido de 54px para dar mais espaço aos cartões */
+  padding: 60px 80px; /* Reduzido o padding vertical (topo/baixo) que era de 104px */
   position: relative;
   align-self: stretch;
   width: 100%;
@@ -568,48 +587,63 @@ html {
 
 .frame .lista-de-projetos {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch; /* Faz os cards terem a mesma altura */
   gap: 18px;
   position: relative;
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
-  overflow: hidden;
+  overflow: visible; /* Mudado de hidden para visible, para evitar cortes */
 }
 
 .frame .div-2 {
   display: flex;
   flex-direction: column;
-  height: 538px;
+  /* height: 538px;  <-- APAGUE OU COMENTE ESTA LINHA */
+  min-height: 500px; /* Adicione um min-height para manter o visual */
   align-items: flex-start;
   position: relative;
-  flex: 1;
-  flex-grow: 1;
+  flex: 1; /* Isto faz com que todos os cards dividam o espaço igualmente (33% cada) */
   background-color: #0b2028;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid;
   border-color: #173a43;
-}
+} 
 
-.frame .visual-do-projeto {
+/* Regras gerais para as três imagens (tamanho e preenchimento) */
+.frame .visual-do-projeto,
+.frame .img,
+.frame .visual-do-projeto-2 {
+  height: 170px;
   position: relative;
   align-self: stretch;
   width: 100%;
-  height: 255px;
   object-fit: cover;
 }
 
-.frame .contedo {
+/* 1. Primeira imagem (Drone) centralizada no meio */
+.frame .visual-do-projeto {
+  object-position: center center;
+}
+
+/* 2. Segunda (App Vet) e Terceira (Minesweeper) imagem presas no topo para não cortar os títulos */
+.frame .img,
+.frame .visual-do-projeto-2 {
+  object-position: top center;
+}
+
+.frame .contedo,
+.frame .contedo-2 {
   display: flex;
   flex-direction: column;
+  flex-grow: 1; 
   align-items: flex-start;
-  gap: 16px;
-  padding: 26px;
+  gap: 12px; /* Reduzido de 16px */
+  padding: 20px; /* Reduzido de 26px */
   position: relative;
   align-self: stretch;
   width: 100%;
-  flex: 0 0 auto;
 }
 
 .frame .metadados {
@@ -640,7 +674,7 @@ html {
   font-family: "Space Grotesk-Bold", Helvetica;
   font-weight: 700;
   color: #e9fbf8;
-  font-size: 28px;
+  font-size: 24px; /* Reduzido de 28px para evitar quebra de linha excessiva */
   letter-spacing: 0;
   line-height: normal;
 }
@@ -651,9 +685,9 @@ html {
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
   color: #82a4a8;
-  font-size: 15px;
+  font-size: 14px; /* Reduzido de 15px */
   letter-spacing: 0;
-  line-height: 23.2px;
+  line-height: 1.4; /* Ajustado para melhor fluidez */
 }
 
 .frame .m-trica {
@@ -667,63 +701,19 @@ html {
   line-height: normal;
 }
 
-.frame .img {
-  height: 256px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  object-fit: cover;
-}
-
 .frame .minesweeper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  flex: 1;
-  flex-grow: 1;
+  /* height: 538px; <-- Se existir, apague */
+  min-height: 500px; /* Adicione um min-height */
+  flex: 1; /* O mesmo aqui, força a dividir o espaço igualmente */
   background-color: #0b2028;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid;
   border-color: #173a43;
-}
-
-.frame .visual-do-projeto-2 {
-  height: 257px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  object-fit: cover;
-}
-
-.frame .contedo-2 {
-  display: flex;
-  flex-direction: column;
-  height: 280px;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 26px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-}
-
-.frame .competncias {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center; 
-  min-height: 100vh; /* Substitui height: 100vh */
-  height: auto;
-  scroll-snap-align: start; 
-  gap: 48px;
-  padding: 104px 80px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-  background-color: #07161c;
 }
 
 .frame .ttulo-da-seo-2 {
@@ -747,30 +737,56 @@ html {
   line-height: 19.2px;
 }
 
-.frame .grade-de-competncias {
+/* 1. Ajuste a tela para caber perfeitamente na janela e parar de pular */
+.frame .competncias {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 12px 12px;
+  justify-content: center; 
+  height: 100vh; /* Crava a altura em 1 tela */
+  min-height: auto;
+  scroll-snap-align: start; 
+  gap: 32px; /* Diminui o espaço entre o título e as caixas */
+  padding: 60px 80px; /* Reduz o espaçamento no topo e na base */
   position: relative;
   align-self: stretch;
   width: 100%;
-  flex: 0 0 auto;
+  background-color: #07161c;
 }
 
+/* 2. Mantém a grade de forma segura */
+.frame .grade-de-competncias {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 16px; /* Espaçamento seguro */
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+/* 3. Trava a largura dos cartões (3 colunas perfeitas) para não encostarem nas bordas */
 .frame .competncia {
   display: flex;
   flex-direction: column;
-  width: 410px;
+  width: calc(33.333% - 12px); /* Força a ter exatamente 3 colunas */
+  flex: none; /* Impede que eles fiquem gigantes e estiquem demais */
   align-items: flex-start;
-  gap: 14px;
-  padding: 24px;
+  justify-content: center; 
+  gap: 12px; 
+  padding: 24px; /* Retorna o respiro interno para um tamanho elegante */
   position: relative;
   background-color: #0b2028;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #173a43;
+  border-radius: 8px;
+  border: 1px solid #173a43;
+  transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o rato (Hover) */
+.frame .competncia:hover {
+  border-color: #65fff0;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(101, 255, 240, 0.1);
 }
 
 .frame .t-tulo-4 {
@@ -801,11 +817,11 @@ html {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center; 
-  min-height: 100vh; /* Substitui height: 100vh */
-  height: auto;
+  height: 100vh; /* Crava a altura exata num ecrã */
+  min-height: auto;
   scroll-snap-align: start; 
-  gap: 58px;
-  padding: 104px 80px;
+  gap: 36px; /* Reduzido de 58px para aproximar o cabeçalho dos cartões e da lista */
+  padding: 60px 80px; /* Reduzido de 104px para dar mais espaço útil */
   position: relative;
   align-self: stretch;
   width: 100%;
@@ -827,8 +843,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
-  padding: 22px;
+  gap: 12px; /* Reduzido ligeiramente de 14px */
+  padding: 18px; /* Reduzido de 22px para encolher a altura da caixa */
   position: relative;
   flex: 1;
   flex-grow: 1;
@@ -836,6 +852,7 @@ html {
   overflow: hidden;
   border: 1px solid;
   border-color: #173a43;
+  transition: all 0.3s ease; /* Adicionando transição caso queira pôr hover aqui também! */
 }
 
 .frame .t-tulo-5 {
@@ -874,7 +891,7 @@ html {
   display: flex;
   align-items: center;
   gap: 30px;
-  padding: 20px 0px;
+  padding: 16px 0px; /* Reduzido de 20px para aproximar mais as linhas */
   position: relative;
   align-self: stretch;
   width: 100%;
@@ -946,25 +963,26 @@ html {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between; 
-  min-height: 100vh; /* Substitui height: 100vh */
-  height: auto;
+  height: 100vh; /* Crava exatamente em 1 tela */
+  min-height: auto;
   scroll-snap-align: start; 
   position: relative;
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
   background-color: #07161c;
+  overflow: hidden; /* Garante que nada vai vazar dessa tela */
 }
 
 .frame .contato {
   display: flex;
-  align-items: flex-start;
-  gap: 80px;
-  padding: 104px 80px;
+  align-items: center; /* Centraliza o texto e o terminal na vertical */
+  gap: 60px; /* Reduzido de 80px para aproximar o terminal do texto */
+  padding: 60px 80px; /* Reduzido de 104px para não espremer o conteúdo */
   position: relative;
   align-self: stretch;
   width: 100%;
-  flex: 0 0 auto;
+  flex: 1; /* Faz esta área ocupar o espaço central disponível */
 }
 
 .frame .convite {
@@ -1033,33 +1051,23 @@ html {
 
 .frame .barra-do-terminal {
   display: flex;
-  align-items: flex-start;
+  align-items: center; 
   justify-content: space-between;
-  padding: 16px;
+  padding: 12px 16px; /* Tamanho confortável */
   position: relative;
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
   background-color: #0b2028;
+  border-bottom: 1px solid #173a43; 
 }
 
-.frame .estado {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  position: relative;
-  flex: 0 0 auto;
-}
-
+/* Oculta o falso cursor da barra de título do terminal */
 .frame .indicador-2 {
-  position: relative;
-  width: 7px;
-  height: 7px;
-  background-color: #65fff0;
-  border-radius: 3.5px;
-  box-shadow: 0px 0px 20px #65fff044;
+  display: none !important;
 }
 
+/* 3. Estilizar os botões de controlo (— □ ×) para terem o espaçamento correto */
 .frame .text-wrapper-2 {
   position: relative;
   width: fit-content;
@@ -1067,9 +1075,29 @@ html {
   font-family: "Roboto Mono-Regular", Helvetica;
   font-weight: 400;
   color: #82a4a8;
-  font-size: 11px;
-  letter-spacing: 0;
+  font-size: 13px;
+  letter-spacing: 16px; /* Afasta os símbolos para parecerem botões individuais */
+  margin-right: -16px; /* Compensa o espaçamento extra à direita do '×' */
   line-height: normal;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.frame .estado .text-wrapper-2 {
+  letter-spacing: 0 !important; 
+}
+
+.frame .barra-do-terminal > .text-wrapper-2 {
+  letter-spacing: 10px !important; /* Espaçamento ajustado apenas para os botões */
+  margin-right: -10px; /* Compensa o último espaço */
+  font-size: 13px;
+  cursor: pointer;
+  color: #82a4a8;
+  transition: color 0.2s ease;
+}
+
+.frame .barra-do-terminal > .text-wrapper-2:hover {
+  color: #e9fbf8;
 }
 
 .frame .corpo-do-terminal {
@@ -1097,7 +1125,7 @@ html {
 
 .frame .rodap {
   display: flex;
-  height: 120px;
+  height: 80px; /* Reduzido de 120px */
   align-items: center;
   justify-content: space-between;
   padding: 0px 80px;
@@ -1134,16 +1162,15 @@ html {
 
 .frame .nota-5 {
   position: absolute;
-  top: 482px;
-  left: 1180px;
-  width: 176px;
+  bottom: 96px; /* Fica logo acima da linha do rodapé (que tem 80px) */
+  right: 80px; /* Alinhado perfeitamente com a margem direita */
+  top: auto; /* Remove o valor antigo que quebrava o layout */
+  left: auto; /* Remove o valor antigo */
+  width: auto;
   color: #8fa8b0;
-  font-size: 13px;
+  font-size: 12px;
   text-align: right;
-  letter-spacing: 0;
-  line-height: normal;
-  font-family: "Roboto Mono-Regular", Helvetica;
-  font-weight: 400;
+  z-index: 10;
 }
 
 .frame .span {
