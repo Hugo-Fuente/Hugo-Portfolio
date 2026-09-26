@@ -1612,80 +1612,97 @@ text-align: left;
 }
 
 /* =========================================================================
-   RESPONSIVIDADE FORÇADA: LIMPEZA PROFUNDA DO FIGMA (PÁGINA INICIAL)
+   RESPONSIVIDADE FORÇADA: LIMPEZA PROFUNDA E CARTÕES FLUIDOS
    ========================================================================= */
 
 @media (max-width: 768px) {
-  /* 1. Fundo base e Reset da Tela */
+  /* 1. Base da Tela */
   body, html {
     background-color: #040d12 !important;
     overflow-x: hidden !important;
     margin: 0 !important; 
     padding: 0 !important;
+    width: 100vw !important;
   }
 
-  /* 2. Força o container principal do Figma a ser uma coluna fluida */
-  .frame, .portflio-cyber-de {
+  /* 2. Todos os blocos principais viram colunas 100% fluidas */
+  .frame, .portflio-cyber-de, .abertura {
     display: flex !important;
     flex-direction: column !important;
-    width: 100vw !important;
+    width: 100% !important;
     height: auto !important;
-    background-color: #040d12 !important;
+    overflow-x: hidden !important;
   }
 
-  /* 3. ANULAÇÃO TOTAL: Todo e qualquer elemento perde o "position: absolute" do Figma */
-  .frame *, .portflio-cyber-de * {
+  /* 3. A Grande Anulação: Removemos posições fixas E LARGURAS FIXAS */
+  .frame *, .portflio-cyber-de *, .abertura * {
     position: relative !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
     bottom: auto !important;
     transform: none !important;
-    width: 100% !important; /* Tudo ocupa a largura da tela */
+    
+    /* A MAGIA PARA OS CARTÕES NÃO VAZAREM: */
+    width: 100% !important; 
     max-width: 100% !important;
+    min-width: 0 !important; /* Anula qualquer min-width do Figma */
+    
     height: auto !important;
     box-sizing: border-box !important;
-    white-space: normal !important; /* Permite quebrar linha naturalmente */
+    white-space: normal !important;
   }
 
-  /* 4. Corrige a quebra de palavra bizarra (Arqui / tetura) */
-  p, span, div[class*="text"], div[class*="titulo"], div[class*="p-"] {
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
+  /* 4. Resolução Definitiva do Texto Quebrado (Arquitetura e Terminal) */
+  p, span, div[class*="text"], div[class*="titulo"], div[class*="p-"], .terminal, .terminal-text {
+    word-break: normal !important; /* Para a quebra por letra */
+    word-wrap: normal !important;
+    overflow-wrap: break-word !important; /* Só quebra linha se a palavra inteira for maior que a tela */
+    white-space: normal !important; /* Impede o efeito "escadinha" do Terminal */
     text-align: left !important;
-    padding: 0 20px !important; /* Espaço nas laterais para não colar na borda do ecrã */
+    padding: 0 20px !important;
   }
 
-  /* 5. Domando o tamanho do Título Gigante para caber na tela */
-  div[class*="text-wrapper-2"], /* Classe comum de título no Figma */
-  h1,
-  .titulo-principal {
-    font-size: 36px !important; /* Reduz de gigante para um tamanho legível */
+  /* 5. Títulos (com ajustes para caberem de certeza) */
+  div[class*="text-wrapper-2"], h1, .titulo-principal {
+    font-size: 32px !important; /* Ligeiramente menor para garantir que "Arquitetura" não vaza */
     line-height: 1.2 !important;
     margin-top: 40px !important;
     margin-bottom: 20px !important;
+    padding: 0 20px !important;
   }
 
-  /* 6. Ajustando os textos menores e descrições */
-  p, div[class*="text-wrapper"], .descricao, div[class*="p-"] {
+  /* 6. Textos secundários e Terminal */
+  p, div[class*="text-wrapper"], .descricao, div[class*="p-"], .terminal-text {
     font-size: 16px !important;
     line-height: 1.5 !important;
     margin-bottom: 24px !important;
   }
+  
+  /* Ajuste específico para a caixa preta do Terminal */
+  .terminal-e-contato, [class*="terminal"] {
+     padding: 20px !important;
+     display: flex !important;
+     flex-direction: column !important;
+  }
 
-  /* 7. Arrumando as imagens (como a sua foto) para não vazarem da tela */
-  img {
+  /* 7. Arrumação de Imagens e Cartões de Projetos/Competências */
+  img, div[class*="cartao"], div[class*="card"], div[class*="projeto"] {
     max-width: 100% !important;
+    width: 100% !important; /* Força os cartões a encolherem para caber na tela */
     height: auto !important;
-    object-fit: contain !important;
-    padding: 0 20px !important;
+    padding: 0 !important;
     margin-bottom: 20px !important;
   }
 
-  /* 8. Esconde blocos invisíveis que o Figma cria apenas para atrapalhar */
-  div:empty {
-    display: none !important;
+  /* Imagens específicas */
+  img {
+    object-fit: contain !important;
+    padding: 0 20px !important;
   }
+
+  /* 8. Limpa o lixo invisível */
+  div:empty { display: none !important; }
 }
 /* =========================================================================
    PALETA DE 3 TONS (FUNDO DO SITE)
