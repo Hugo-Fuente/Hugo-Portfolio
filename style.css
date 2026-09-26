@@ -248,24 +248,17 @@ html {
   margin-bottom: 32px !important; /* Empurra os botões bem para baixo */
 }
 
-/* --- 1. RESTAURA A FORMA E AS BORDAS DE TODOS OS BOTÕES --- */
 .frame .ao,
 .frame .div {
-  display: inline-flex !important;
-  flex-direction: row !important;
-  height: 52px !important;
-  width: fit-content !important; /* O botão abraça o texto e o ícone perfeitamente */
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0px 32px !important; /* Devolve o respiro lateral da Foto 1 */
-  gap: 12px !important; /* Espaço exato entre o texto e o ícone */
-  background-color: transparent !important; /* Fundo invisível padrão */
-  border-radius: 6px !important;
-  border: 1px solid #65fff0 !important; /* Restaura a borda ciano */
-  box-shadow: none !important; 
-  transition: all 0.3s ease !important; 
-  text-decoration: none !important;
-  cursor: pointer !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: 14px;
+  padding: 16px 18px;
+  min-height: 52px;
 }
 
 /* --- 2. RESTAURA O EFEITO DE BRILHO (HOVER) --- */
@@ -1379,7 +1372,7 @@ html {
     min-height: auto;
     padding: 20px 18px 24px;
     box-sizing: border-box;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .frame .abertura {
@@ -1437,7 +1430,7 @@ html {
     position: relative;
     left: 0;
     top: 0;
-    margin-top: 0;
+    margin-top: 32px; /* Empurra o bloco de texto para baixo */
   }
 
   .frame .microcopy {
@@ -1456,14 +1449,14 @@ html {
     display: block;
     width: 100%;
     max-width: 100%;
-    font-size: clamp(2.1rem, 8vw, 3.2rem) !important;
-    line-height: 0.96;
-    letter-spacing: -0.06em;
+    font-size: clamp(1.8rem, 8vw, 2.5rem) !important; /* Reduzido levemente */
+    line-height: 1.1; /* Aumentado para o texto respirar */
+    letter-spacing: -0.03em;
     white-space: normal;
     overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-    margin: 0 0 12px;
+    word-break: normal; /* Evita quebra agressiva no meio da palavra */
+    hyphens: none; /* Desativa a hifenização automática */
+    margin: 0 0 16px;
   }
 
   .frame .apresentao {
@@ -1529,23 +1522,21 @@ html {
     max-width: 100%;
   }
 
-  .frame .ao,
-  .frame .div,
   .frame .indicador,
   .frame .div-2,
   .frame .minesweeper,
   .frame .competncia,
   .frame .etapa {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 100%;
     max-width: 100%;
-    min-width: 0;
     box-sizing: border-box;
+    padding: 20px !important;
     margin: 0;
-    border-radius: 14px;
-    padding: 16px 18px;
+    border-radius: 12px;
   }
 
   .frame .ao,
