@@ -1340,6 +1340,25 @@ html {
   color: #65fff0 !important;
 }
 
+/* =========================================================================
+   SUBLINHADO ANIMADO (CRESCE E SOME NO HOVER)
+   ========================================================================= */
+.frame .links .text-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #65fff0;
+  transition: width 0.3s ease-in-out;
+}
+
+.frame .links .text-wrapper:hover::after,
+.frame .links .text-wrapper:focus-visible::after {
+  width: 100%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
