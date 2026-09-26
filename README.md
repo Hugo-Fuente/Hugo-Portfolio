@@ -20,7 +20,7 @@ Antes de escrever a primeira linha de código, o projeto passou por uma etapa ri
 <details>
   <summary>👁️ Clique aqui para visualizar a estrutura do protótipo no Figma</summary>
 
-  ![Protótipo no Figma](figmaprototipo.jpeg)
+  ![Protótipo no Figma](img/figmaprototipo.jpeg)
 
 </details>
 
