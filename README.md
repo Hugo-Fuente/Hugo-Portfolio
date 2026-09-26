@@ -17,7 +17,7 @@ Antes de escrever a primeira linha de código, o projeto passou por uma etapa ri
 
 *(🔗 [Acesse o protótipo completo no Figma](https://www.figma.com/proto/nK4Q4y1YIZUqLCnrv2VkZW/Sem-t%C3%ADtulo?node-id=92-10&p=f&t=zl2VTGpHJdsdrcXa-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=92%3A10))*
 
-![Protótipo no Figma](img/figmaprojeto.jpeg)
+![Protótipo no Figma](img/figmaprototipo.jpeg)
 
 ## 🚀 Funcionalidades e Destaques Técnicos
 
