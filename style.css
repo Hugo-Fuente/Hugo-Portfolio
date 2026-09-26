@@ -1368,71 +1368,44 @@ html {
   }
 
   .frame .abertura {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    height: auto !important;
     min-height: 100vh !important;
+    height: auto !important;
     padding: 0 !important;
-    justify-content: flex-start !important;
-    overflow: hidden !important;
   }
 
   .frame .retrato-principal-de {
-    position: absolute !important;
-    right: -22% !important;
-    width: 140% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center center !important;
+    right: -30% !important;
+    width: 160% !important;
     opacity: 0.22 !important;
-    z-index: 0 !important;
-  }
-
-  .frame .vu-cinematogrfico,
-  .frame .gradiente-inferior,
-  .frame .leitura-biomtrica,
-  .frame .ndice-de-rolagem,
-  .frame .status,
-  .frame .links {
-    display: none !important;
   }
 
   .frame .navegao {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
     height: auto !important;
     min-height: 72px !important;
     padding: 16px 20px !important;
-    box-sizing: border-box !important;
+  }
+
+  .frame .links,
+  .frame .status,
+  .frame .leitura-biomtrica,
+  .frame .ndice-de-rolagem,
+  .frame .vu-cinematogrfico,
+  .frame .gradiente-inferior {
+    display: none !important;
   }
 
   .frame .assinatura {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
     gap: 10px !important;
-    width: auto !important;
-    min-width: 0 !important;
   }
 
   .frame .circle-x,
   .frame .vector {
     width: 22px !important;
     height: 22px !important;
-    min-width: 22px !important;
-    min-height: 22px !important;
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
   }
 
   .frame .nome {
     font-size: 17px !important;
-    line-height: 1 !important;
     white-space: nowrap !important;
   }
 
@@ -1442,14 +1415,14 @@ html {
     top: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
-    margin-top: 28px !important;
-    padding: 0 20px 0 !important;
+    margin-top: 22px !important;
+    padding: 0 20px !important;
     box-sizing: border-box !important;
-    z-index: 10 !important;
+    z-index: 2 !important;
   }
 
   .frame .microcopy {
-    margin: 0 0 10px 0 !important;
+    margin: 0 0 10px !important;
     font-size: 11px !important;
     letter-spacing: 1.5px !important;
     line-height: 1.4 !important;
@@ -1458,10 +1431,10 @@ html {
   .frame .t-tulo {
     width: 100% !important;
     max-width: 100% !important;
-    font-size: clamp(2.4rem, 8vw, 3.5rem) !important;
-    line-height: 1.04 !important;
+    font-size: clamp(2.7rem, 12vw, 5rem) !important;
+    line-height: 0.93 !important;
     letter-spacing: -1px !important;
-    margin: 0 0 14px 0 !important;
+    margin: 0 0 16px !important;
   }
 
   .frame .descri-o {
@@ -1469,10 +1442,10 @@ html {
     max-width: 100% !important;
     font-size: 16px !important;
     line-height: 1.6 !important;
-    margin: 0 0 24px 0 !important;
+    margin: 0 0 22px !important;
   }
 
-  .frame .aes {
+  .frame .abertura .aes {
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
@@ -1481,8 +1454,8 @@ html {
     margin: 0 !important;
   }
 
-  .frame .ao,
-  .frame .div {
+  .frame .abertura .ao,
+  .frame .abertura .div {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
@@ -1494,11 +1467,11 @@ html {
     box-sizing: border-box !important;
   }
 
-  .frame .ao span,
-  .frame .div span,
-  .frame .r-tulo,
-  .frame .r-tulo-2,
-  .frame .r-tulo-3 {
+  .frame .abertura .ao span,
+  .frame .abertura .div span,
+  .frame .abertura .r-tulo,
+  .frame .abertura .r-tulo-2,
+  .frame .abertura .r-tulo-3 {
     display: inline-block !important;
     width: auto !important;
     min-width: 0 !important;
@@ -1506,16 +1479,49 @@ html {
     white-space: normal !important;
   }
 
-  .frame .titulo-da-seo,
-  .frame .ttulo-da-seo,
-  .frame .ttulo-da-seo-2,
-  .frame .competncias,
   .frame .apresentao,
   .frame .meus-projetos,
-  .frame .experncia-e {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    box-sizing: border-box !important;
+  .frame .competncias,
+  .frame .experncia-e,
+  .frame .terminal-e-contato {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 40px 20px !important;
+    gap: 24px !important;
+  }
+
+  .frame .apresentao {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .frame .manifesto,
+  .frame .texto,
+  .frame .ttulo-da-seo,
+  .frame .ttulo-da-seo-2,
+  .frame .lista-de-projetos,
+  .frame .grade-de-competncias,
+  .frame .processo,
+  .frame .marco-profissional {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .frame .p,
+  .frame .t-tulo-2,
+  .frame .t-tulo-3,
+  .frame .t-tulo-4,
+  .frame .t-tulo-5,
+  .frame .t-tulo-6 {
+    font-size: clamp(2.2rem, 10vw, 4rem) !important;
+    line-height: 0.96 !important;
+    letter-spacing: -1px !important;
+  }
+
+  .frame .indicadores {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
   }
 
   .frame .lista-de-projetos,
@@ -1534,5 +1540,35 @@ html {
     min-width: 0 !important;
     max-width: 100% !important;
     margin: 0 !important;
+  }
+
+  .frame .ttulo-da-seo,
+  .frame .ttulo-da-seo-2,
+  .frame .marco-profissional {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .frame .nota-2,
+  .frame .nota-3,
+  .frame .per-odo,
+  .frame .cargo,
+  .frame .cargo-2,
+  .frame .resumo,
+  .frame .resumo-2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  .frame .contato {
+    padding: 20px !important;
+    gap: 20px !important;
+  }
+
+  .frame .convite {
+    width: 100% !important;
   }
 }
