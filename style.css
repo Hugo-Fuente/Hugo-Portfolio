@@ -1612,96 +1612,97 @@ text-align: left;
 }
 
 /* =========================================================================
-   RESPONSIVIDADE FORÇADA: LIMPEZA PROFUNDA E CARTÕES FLUIDOS
+   RESPONSIVIDADE FORÇADA: O RESET DEFINITIVO PARA MOBILE
    ========================================================================= */
 
 @media (max-width: 768px) {
-  /* 1. Base da Tela */
-  body, html {
-    background-color: #040d12 !important;
-    overflow-x: hidden !important;
-    margin: 0 !important; 
-    padding: 0 !important;
-    width: 100vw !important;
-  }
-
-  /* 2. Todos os blocos principais viram colunas 100% fluidas */
-  .frame, .portflio-cyber-de, .abertura {
-    display: flex !important;
-    flex-direction: column !important;
+  /* 1. Reset da base */
+  html, body {
     width: 100% !important;
-    height: auto !important;
+    max-width: 100vw !important;
     overflow-x: hidden !important;
+    background-color: #040d12 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  /* 3. A Grande Anulação: Removemos posições fixas E LARGURAS FIXAS */
-  .frame *, .portflio-cyber-de *, .abertura * {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    
-    /* A MAGIA PARA OS CARTÕES NÃO VAZAREM: */
-    width: 100% !important; 
-    max-width: 100% !important;
-    min-width: 0 !important; /* Anula qualquer min-width do Figma */
-    
-    height: auto !important;
+  /* 2. Todos os elementos perdem posições fixas E larguras microscópicas */
+  * {
     box-sizing: border-box !important;
     white-space: normal !important;
   }
 
-  /* 4. Resolução Definitiva do Texto Quebrado (Arquitetura e Terminal) */
-  p, span, div[class*="text"], div[class*="titulo"], div[class*="p-"], .terminal, .terminal-text {
-    word-break: normal !important; /* Para a quebra por letra */
-    word-wrap: normal !important;
-    overflow-wrap: break-word !important; /* Só quebra linha se a palavra inteira for maior que a tela */
-    white-space: normal !important; /* Impede o efeito "escadinha" do Terminal */
-    text-align: left !important;
-    padding: 0 20px !important;
+  .frame, .portflio-cyber-de, .abertura,
+  div[class*="overlap"], div[class*="group"], div[class*="frame-"] {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 100% !important; /* DESTRÓI as caixas finas que empilhavam as letras */
+    max-width: 100% !important;
+    height: auto !important;
+    top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+    transform: none !important;
+    padding: 0 !important;
+    margin: 0 0 30px 0 !important; /* Dá espaço entre as secções */
   }
 
-  /* 5. Títulos (com ajustes para caberem de certeza) */
-  div[class*="text-wrapper-2"], h1, .titulo-principal {
-    font-size: 32px !important; /* Ligeiramente menor para garantir que "Arquitetura" não vaza */
+  /* 3. A CORREÇÃO DEFINITIVA DO TEXTO (Quebras e Alinhamentos) */
+  p, span, h1, h2, h3, a, li,
+  [class*="text-wrapper"], [class*="p-"], [class*="titulo"], .terminal-text {
+    position: relative !important;
+    display: block !important; /* Tira o formato de tabela/inline que estragava as listas */
+    width: 100% !important;
+    min-width: 100% !important; /* Garante que o texto tem o ecrã todo para se esticar */
+    height: auto !important;
+    
+    /* Regras restritas para as palavras não se partirem ao meio: */
+    word-break: normal !important; 
+    word-wrap: normal !important;
+    overflow-wrap: break-word !important; 
+    
+    text-align: left !important;
+    padding: 0 20px !important; /* Margem segura para não tocar no vidro do ecrã */
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* 4. Tipografia profissional para telemóvel */
+  h1, .titulo-principal, div[class*="text-wrapper-2"] {
+    font-size: 32px !important;
     line-height: 1.2 !important;
     margin-top: 40px !important;
-    margin-bottom: 20px !important;
-    padding: 0 20px !important;
-  }
-
-  /* 6. Textos secundários e Terminal */
-  p, div[class*="text-wrapper"], .descricao, div[class*="p-"], .terminal-text {
-    font-size: 16px !important;
-    line-height: 1.5 !important;
     margin-bottom: 24px !important;
-  }
-  
-  /* Ajuste específico para a caixa preta do Terminal */
-  .terminal-e-contato, [class*="terminal"] {
-     padding: 20px !important;
-     display: flex !important;
-     flex-direction: column !important;
+    letter-spacing: -1px !important;
   }
 
-  /* 7. Arrumação de Imagens e Cartões de Projetos/Competências */
-  img, div[class*="cartao"], div[class*="card"], div[class*="projeto"] {
-    max-width: 100% !important;
-    width: 100% !important; /* Força os cartões a encolherem para caber na tela */
-    height: auto !important;
-    padding: 0 !important;
-    margin-bottom: 20px !important;
+  p, span, .descricao, div[class*="p-"] {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    color: #ddecf0 !important; /* Garante boa leitura no fundo escuro */
   }
 
-  /* Imagens específicas */
+  /* 5. Correção dos Cartões de Competências e Projetos */
+  /* Dá uma margem e uma linha discreta para separar as secções como cartões reais */
+  div[class*="box"], div[class*="card"], div[class*="cartao"], div[class*="border"] {
+     width: calc(100% - 40px) !important; /* 100% menos o padding lateral */
+     margin: 0 20px 30px 20px !important;
+     padding: 20px 0 !important;
+     border: 1px solid rgba(255, 255, 255, 0.1) !important;
+     border-radius: 8px !important;
+  }
+
+  /* 6. Imagens */
   img {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
     object-fit: contain !important;
     padding: 0 20px !important;
+    margin-bottom: 24px !important;
   }
 
-  /* 8. Limpa o lixo invisível */
   div:empty { display: none !important; }
 }
 /* =========================================================================
