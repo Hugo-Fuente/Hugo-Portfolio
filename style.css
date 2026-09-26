@@ -1612,78 +1612,65 @@ text-align: left;
 }
 
 /* =========================================================================
-   RESPONSIVIDADE FORÇADA: SMARTPHONES (Anula bloqueios do Figma)
+   RESPONSIVIDADE FORÇADA: ANULAÇÃO TOTAL DO FIGMA
    ========================================================================= */
 
 @media (max-width: 768px) {
-  /* 1. Reset Global do Mobile: Quebra a rigidez do Figma */
+  /* 1. Reset Global do Ecrã */
   html, body {
-    overflow-x: hidden !important;
     width: 100vw !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* 2. Anula larguras fixas e posicionamentos absolutos do Figma */
-  .frame, 
-  .frame div, /* Pega em todas as caixas dentro do frame principal */
-  .abertura {
+  /* 2. Destrói TODOS os posicionamentos absolutos e caixas fixas geradas pelo Figma */
+  .frame, .frame *, .abertura, .abertura * {
     position: relative !important;
     left: auto !important;
     top: auto !important;
     transform: none !important;
     width: 100% !important;
     max-width: 100vw !important;
-    height: auto !important; /* Deixa a altura crescer conforme o texto */
+    height: auto !important;
     box-sizing: border-box !important;
   }
 
-  /* 3. Transforma o layout para uma coluna vertical flexível */
-  .abertura, .frame {
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 24px !important;
-    overflow-x: hidden !important;
-  }
-
-  /* 4. Corrige o Texto Gigante e a quebra de linha maluca */
-  h1, 
-  .text-wrapper-2,
-  .titulo-principal,
-  [class*="text-wrapper"] { /* Pega qualquer classe de texto do Figma */
-    position: relative !important;
-    font-size: 32px !important; /* Tamanho seguro para telemóvel */
-    line-height: 1.3 !important;
-    white-space: normal !important; /* FORÇA o texto a quebrar a linha na palavra certa */
-    word-break: normal !important;
+  /* 3. Resolve o corte nas palavras ("Arquitet ura") e alinhamentos */
+  h1, h2, p, [class*="text-wrapper"], [class*="titulo"], .p, .descricao {
+    white-space: normal !important;
+    word-break: normal !important; /* Impede que corte a meio das palavras */
+    overflow-wrap: break-word !important;
+    font-size: 32px !important; 
+    line-height: 1.2 !important;
     text-align: left !important;
     margin-bottom: 16px !important;
+    padding: 0 20px !important; /* Dá um respiro lateral seguro */
   }
 
-  /* 5. Ajuste do Terminal e Textos Secundários */
-  p, 
-  .p,
-  .descricao,
-  .terminal {
-    position: relative !important;
+  /* 4. Ajuste dos parágrafos menores */
+  p, .p, .descricao {
     font-size: 16px !important;
-    white-space: normal !important;
-    width: 100% !important;
-    margin-bottom: 24px !important;
   }
 
-  /* 6. Ajeita a foto de fundo para não estourar o ecrã */
-  .retrato-principal,
-  .bg-image {
-    position: absolute !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    opacity: 0.3; /* Deixa a sua foto como fundo suave para não brigar com o texto */
-    z-index: -1 !important;
+  /* 5. Organiza a página numa coluna vertical (Flexbox) */
+  .abertura, .frame, .overlap, .overlap-group, .overlap-group-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+  }
+
+  /* 6. Ajeita o menu de topo (para não cortar o "HUGO.DEV_") */
+  nav, .cabecalho {
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: row !important; /* Mantém o logo e botões lado a lado, se couberem */
+    flex-wrap: wrap !important;
   }
 }
-
 /* =========================================================================
    PALETA DE 3 TONS (FUNDO DO SITE)
    ========================================================================= */
