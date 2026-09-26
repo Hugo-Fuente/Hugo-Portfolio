@@ -1517,25 +1517,42 @@ html {
     margin: 0 !important;
   }
 
-  .frame .abertura {
-    padding-top: 0 !important; 
-    justify-content: flex-start !important;
-  }
-
-  /* Puxa o bloco de texto para cima, logo abaixo da linha do menu */
+  /* --- 11. AJUSTES FINOS DO TOPO (ESPAÇAMENTO E LOGOTIPO) --- */
+  
+  /* Mata o espaçamento gigante do ecrã de computador */
   .frame .contedo-do-hero {
-    margin-top: 32px !important; /* Espaço exato de respiro entre a linha e o texto */
+    position: relative !important;
+    top: 0 !important; /* É isto que vai puxar o texto para cima */
+    margin-top: 32px !important; /* Deixa apenas um respiro de 2 dedos abaixo da linha */
     padding-top: 0 !important;
   }
 
-  /* Garante que o texto verde [ SYSTEMS ] não empurra o título para baixo */
-  .frame .microcopy {
-    margin-top: 0 !important;
-    margin-bottom: 16px !important;
+  /* Garante que o fundo não distribui o espaço de forma estranha */
+  .frame .abertura {
+    height: auto !important;
+    min-height: 100vh !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Corrige o logotipo (X) e HUGO.DEV_ para ficarem lado a lado */
+  .frame .assinatura {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
   }
   
-  /* Remove margens teimosas do título "Arquitetura" */
-  .frame .t-tulo {
-    margin-top: 0 !important;
+  .frame .circle-x, .frame .nome {
+    display: inline-block !important; /* Devolve o comportamento lado-a-lado */
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Ajusta o ícone X para o tamanho certo */
+  .frame .circle-x, .frame .vector {
+    width: 24px !important;
+    height: 24px !important;
   }
 }
