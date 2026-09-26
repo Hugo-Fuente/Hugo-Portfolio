@@ -539,3 +539,80 @@ teclas-dpad {
 .funcionalidades-projeto {
   background-color: #07161c !important; 
 }
+
+/* =========================================================================
+   RESPONSIVIDADE: TABLETS E SMARTPHONES
+   ========================================================================= */
+
+@media (max-width: 992px) {
+  
+  /* 1. Ajustes do Hero (Topo) */
+  .hero-projeto {
+    padding: 80px 20px 40px 20px !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .hero-text-container {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .titulo-principal {
+    font-size: 40px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .descricao-principal {
+    width: 100% !important;
+  }
+
+  .tecnologias-usadas {
+    justify-content: center !important;
+  }
+
+  /* 2. Ajustes dos Títulos */
+  .titulo-secao-esq, .titulo-secao {
+    font-size: 36px !important;
+    padding-right: 0 !important;
+    text-align: center;
+  }
+
+  /* 3. Empilhar a Secção de Arquitetura e Comandos */
+  .arquitetura-projeto {
+    padding: 60px 20px !important;
+  }
+
+  .painel-comandos {
+    /* Muda de duas colunas para UMA coluna que ocupa 100% do espaço */
+    grid-template-columns: 1fr !important; 
+    grid-template-areas: 
+      "fechada"
+      "aberta"
+      "rock"
+      "paz"
+      "cruz" !important; /* A cruz vai para o fundo de tudo */
+    justify-items: center; /* Centraliza tudo */
+    gap: 32px !important;
+  }
+
+  .cmd-item {
+    align-items: center !important; /* Centraliza texto e imagens */
+    text-align: center;
+  }
+
+  /* 4. Encolher a Cruz de Navegação para caber no ecrã */
+  .cruz-navegacao {
+    /* Usamos o transform: scale para encolher a cruz inteira proporcionalmente */
+    transform: scale(0.75);
+    transform-origin: center top;
+    margin: 20px auto 0 auto !important;
+  }
+
+  /* 5. Esmaecer as corujas para não bloquearem a leitura no ecrã pequeno */
+  .bg-coruja-1, .bg-coruja-2 {
+    opacity: 0.15 !important;
+    right: -20% !important;
+  }
+}
