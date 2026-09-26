@@ -1435,6 +1435,29 @@ html {
     line-height: 0.93 !important;
     letter-spacing: -1px !important;
     margin: 0 0 16px !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  .frame .p,
+  .frame .t-tulo-2,
+  .frame .t-tulo-3,
+  .frame .t-tulo-4,
+  .frame .t-tulo-5,
+  .frame .t-tulo-6,
+  .frame .descri-o,
+  .frame .descri-o-2,
+  .frame .descri-o-3,
+  .frame .descri-o-4,
+  .frame .cargo,
+  .frame .cargo-2,
+  .frame .resumo,
+  .frame .resumo-2 {
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
   }
 
   .frame .descri-o {
