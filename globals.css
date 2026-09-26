@@ -8,6 +8,7 @@ html,
 body {
   margin: 0px;
   min-height: 100%;
+  background-color: #02090d !important; /* Pinta a raiz absoluta do site de escuro */
 }
 
 /* Garanta que o html mantém o snap ativado: */

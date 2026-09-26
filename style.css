@@ -11,10 +11,9 @@ html {
   gap: 10px;
   padding: 0;
   position: relative;
-  
-  /* Novas regras para evitar scroll lateral sem quebrar o imã: */
   width: 100%;
   overflow-x: clip;
+  background-color: #02090d; /* Pinta as laterais que sobram nos monitores grandes */
 }
 
 .frame .portflio-cyber-de {
@@ -1121,17 +1120,6 @@ html {
   line-height: 50.9px;
 }
 
-.frame .descri-o-5 {
-  width: 560px;
-  color: #82a4a8;
-  font-size: 17px;
-  line-height: 27.2px;
-  position: relative;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  letter-spacing: 0;
-}
-
 .frame .image {
   position: relative;
   width: 24px;
@@ -1426,7 +1414,7 @@ html {
     width: 100%;
     max-width: 100%;
     overflow-x: clip !important;
-    background: #02090d;
+    background-color: #02090d !important;
     margin: 0;
     padding: 0;
   }
@@ -1769,97 +1757,76 @@ html {
   }
 
   /* =========================================================================
-     CORREÇÃO DAS TELAS DE EXPERIÊNCIA E CONTATO (MOBILE)
+     CORREÇÃO DEFINITIVA: CONTATO E TERMINAL (MOBILE)
      ========================================================================= */
-  .frame .experncia-e {
-    padding: 60px 20px !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    min-height: 100vh !important;
-    height: auto !important;
-    box-sizing: border-box !important;
-    overflow-x: hidden !important;
-  }
 
-  .frame .experncia-e * {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .frame .processo {
-    flex-direction: column !important;
-    gap: 16px !important;
-  }
-
-  .frame .etapa {
-    width: 100% !important;
-  }
-
-  .frame .marco-profissional {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-    padding: 24px 0 !important;
-  }
-
-  .frame .per-odo,
-  .frame .cargo,
-  .frame .cargo-2 {
-    width: 100% !important;
-    white-space: normal !important;
-    height: auto !important;
-  }
-
+  /* 1. Força a secção inteira a não ultrapassar o ecrã */
   .frame .terminal-e-contato {
-    padding: 60px 20px 0 !important;
+    padding: 60px 20px 40px !important;
     width: 100vw !important;
     max-width: 100vw !important;
-    min-height: 100vh !important;
     height: auto !important;
+    min-height: 100vh !important;
     box-sizing: border-box !important;
     overflow-x: hidden !important;
   }
 
-  .frame .contato {
-    flex-direction: column !important;
-    gap: 40px !important;
-    padding: 0 !important;
-    width: 100% !important;
+  /* 2. A MÁGICA: Proíbe QUALQUER texto, botão ou caixa de vazar da tela */
+  .frame .terminal-e-contato * {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
   }
 
-  .frame .convite .aes {
+  /* 3. Empilha o texto de convite e o terminal */
+  .frame .contato {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 32px !important;
   }
 
+  .frame .convite {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* 4. Força a quebra de linha no título e no texto descritivo */
+  .frame .t-tulo-6 {
+    font-size: 32px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+  }
+
+  .frame .descri-o-5 {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 5. Ajusta o Terminal para ficar flexível e sem espaços bizarros */
   .frame .terminal {
     width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .frame .corpo-do-terminal {
     height: auto !important;
+    padding: 20px !important;
   }
 
   .frame .sess-o {
-    white-space: pre-wrap !important;
-    word-break: break-all !important;
-  }
-
-  .frame .rodap {
-    padding: 20px !important;
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 12px !important;
-    height: auto !important;
-  }
-
-  .frame .nota-5 {
-    position: relative !important;
-    bottom: auto !important;
-    right: auto !important;
-    text-align: center !important;
-    margin-top: 20px !important;
-    margin-bottom: 20px !important;
+    white-space: normal !important; 
+    word-break: normal !important; /* Desliga quebras no meio das palavras */
+    overflow-wrap: break-word !important; /* Quebra APENAS o e-mail se não couber */
+    line-height: 1.5 !important; /* Altura de linha clássica de terminal */
+    text-align: left !important;
   }
 }
