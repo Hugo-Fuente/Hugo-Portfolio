@@ -1622,51 +1622,45 @@ html {
   }
 
   /* =========================================================================
-     CORREÇÃO DA TELA DE PERFIL (MOBILE) - FORÇA A QUEBRA DE LINHA E ENCOLHIMENTO
+     CORREÇÃO DEFINITIVA DA TELA DE PERFIL (MOBILE)
      ========================================================================= */
   .frame .apresentao {
     flex-direction: column !important;
     padding: 60px 20px !important;
-    gap: 32px !important;
-    height: auto !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
     min-height: 100vh !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .frame .apresentao * {
+    max-width: 100% !important;
+    min-width: 0 !important;
     box-sizing: border-box !important;
   }
 
   .frame .manifesto,
-  .frame .texto {
+  .frame .texto,
+  .frame .indicadores {
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
-    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     flex-shrink: 1 !important;
-    box-sizing: border-box !important;
   }
 
   .frame .p {
-    font-size: 36px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    white-space: normal !important;
+    font-size: 32px !important;
+    white-space: pre-wrap !important;
     word-wrap: break-word !important;
-    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
   }
 
   .frame .descri-o-2,
   .frame .complemento {
-    width: 100% !important;
-    max-width: 100% !important;
     white-space: normal !important;
-    box-sizing: border-box !important;
-  }
-
-  .frame .indicadores {
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 12px !important;
-  }
-
-  .frame .indicador {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
   }
 }
