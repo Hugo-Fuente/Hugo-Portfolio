@@ -20,7 +20,6 @@ const btnAbrir = document.getElementById('btnAbrirVideo');
 if (btnAbrir) {
   const modal = document.getElementById('modalVideo');
   const btnFechar = document.getElementById('btnFecharVideo');
-  const video = document.getElementById('videoDrone');
 
   // Abre o popup ao clicar em "ASSISTIR DEMONSTRAÇÃO"
   btnAbrir.addEventListener('click', function(event) {
@@ -28,16 +27,22 @@ if (btnAbrir) {
     modal.style.display = 'flex';
   });
 
-  // Função para fechar o popup e pausar o vídeo
+  // Função para fechar o popup e PARAR o vídeo do YouTube
   function fecharModal() {
     modal.style.display = 'none';
-    video.pause(); 
+    
+    // O truque: encontra o iframe e reinicia a sua fonte para cortar o som
+    const iframe = modal.querySelector('iframe');
+    if (iframe) {
+      const urlAtual = iframe.src;
+      iframe.src = urlAtual; 
+    }
   }
 
-  // Fecha ao clicar no 'X'
+  // Fecha ao clicar nos botões do terminal (— □ ×)
   btnFechar.addEventListener('click', fecharModal);
 
-  // Fecha ao clicar no fundo escuro fora do vídeo
+  // Fecha ao clicar na zona escura fora do vídeo
   window.addEventListener('click', function(event) {
     if (event.target === modal) {
       fecharModal();
