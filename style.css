@@ -1875,4 +1875,11 @@ html {
     line-height: 1.5 !important; /* Altura de linha clássica de terminal */
     text-align: left !important;
   }
+
+  .frame .experncia-e {
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
 }
