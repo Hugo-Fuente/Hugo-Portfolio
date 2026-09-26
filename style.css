@@ -1427,6 +1427,23 @@ html {
 }
 
 /* =========================================================================
+   CORREÇÃO DA LINHA DO TEMPO DE EXPERIÊNCIA (MOBILE)
+   ========================================================================= */
+.frame .marco-profissional {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  padding: 24px 0 !important;
+}
+
+.frame .resumo,
+.frame .resumo-2 {
+  width: 100% !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+/* =========================================================================
    RESPONSIVIDADE: RESET ABSOLUTO MOBILE (INCLUINDO FIXES DE TEXTO E TOPO)
    ========================================================================= */
 @media (max-width: 768px) {
