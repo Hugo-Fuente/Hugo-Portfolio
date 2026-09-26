@@ -606,14 +606,25 @@ teclas-dpad {
   }
 
   .cmd-item {
-    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100vw !important; /* Limita estritamente à largura do ecrã */
+    max-width: 100vw !important;
     align-items: center !important; 
     text-align: center !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important; /* Corta qualquer excesso teimoso */
   }
 
   .cmd-item p {
-    text-align: center !important;
+    text-align: center !important; 
     width: 100% !important;
+    max-width: 90vw !important; /* Dá uma margem de segurança respirável (5% de cada lado) */
+    padding: 0 !important;
+    white-space: normal !important; /* A MÁGICA: Obriga o texto longo a quebrar a linha */
+    overflow-wrap: break-word !important; 
+    word-break: break-word !important;
+    box-sizing: border-box !important;
   }
 
   /* 4. Encolher a Cruz de Navegação para caber no ecrã */
