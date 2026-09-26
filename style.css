@@ -861,9 +861,10 @@ html {
 
 .frame .grade-de-competncias {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important; /* Cria exatamente 3 colunas iguais */
-  gap: 24px !important; /* Espaçamento generoso e elegante entre os blocos */
-  align-items: stretch !important; /* Força todos os blocos a terem a altura do maior bloco da linha */
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-auto-rows: 1fr !important; /* A MÁGICA: Força TODAS as linhas a terem a mesma altura máxima */
+  gap: 24px !important; 
+  align-items: stretch !important; 
   position: relative !important;
   width: 100% !important;
 }
@@ -1726,5 +1727,44 @@ html {
     white-space: pre-wrap !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
+  }
+
+  /* =========================================================================
+     CORREÇÃO DA TELA DE COMPETÊNCIAS (MOBILE)
+     ========================================================================= */
+  .frame .competncias {
+    padding: 60px 20px !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .frame .competncias * {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .frame .grade-de-competncias {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 16px !important;
+  }
+
+  .frame .competncia {
+    width: 100% !important;
+    padding: 24px 20px !important;
+    margin: 0 !important;
+  }
+
+  .frame .tecnologias {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.5 !important;
   }
 }
