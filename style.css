@@ -1630,3 +1630,62 @@ text-align: left;
 .frame .rodap {
   background-color: #010304 !important;
 }
+
+/* =========================================================================
+   RESPONSIVIDADE: PÁGINA PRINCIPAL (SMARTPHONES E TABLETS)
+   ========================================================================= */
+
+@media (max-width: 768px) {
+  /* 1. Bloqueia a rolagem horizontal (o site não vai "dançar" para os lados) */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  /* 2. Adiciona margens de respiro nas laterais para o ecrã inteiro */
+  .frame, 
+  .portflio-cyber-de,
+  .abertura {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  /* 3. Reduz drasticamente o título gigante para caber no telemóvel */
+  h1, 
+  .text-wrapper-2,
+  .titulo-principal {
+    font-size: 36px !important; /* Reduz para um tamanho legível em mobile */
+    line-height: 1.2 !important;
+    width: 100% !important; /* Força o texto a quebrar de linha dentro do ecrã */
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    text-align: left !important;
+  }
+
+  /* 4. Ajusta o texto descritivo abaixo do título */
+  p, 
+  .p,
+  .descricao {
+    font-size: 16px !important;
+    width: 100% !important;
+    white-space: normal !important;
+    margin-top: 16px !important;
+  }
+
+  /* 5. Empilha os botões ("PROJETOS" e "CONTATO") */
+  .botoes-acao {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+  
+  .botoes-acao a, .btn-primario, .btn-secundario {
+    width: 100% !important; /* Botões ocupam a largura toda para toque fácil */
+    text-align: center !important;
+  }
+}
