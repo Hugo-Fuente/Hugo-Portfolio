@@ -931,150 +931,122 @@ html {
   line-height: 22.5px;
 }
 
+/* =========================================================================
+   FIX DEFINITIVO: EXPERIÊNCIA COMPACTA (100VH + 1 LINHA POR MARCO)
+   ========================================================================= */
+
 .frame .experncia-e {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center; 
-  height: 100vh; /* Crava a altura exata num ecrã */
-  min-height: auto;
-  scroll-snap-align: start; 
-  gap: 36px; /* Reduzido de 58px para aproximar o cabeçalho dos cartões e da lista */
-  padding: 60px 80px; /* Reduzido de 104px para dar mais espaço útil */
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-  background-color: #02090d;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  padding: 24px 80px !important;
+  gap: 16px !important;
+  background-color: #02090d !important;
+  scroll-snap-align: start !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.frame .experncia-e .t-tulo-2 {
+  font-size: 36px !important;
+  line-height: 1.1 !important;
 }
 
 .frame .processo {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  gap: 16px !important;
+  width: 100% !important;
 }
 
 .frame .etapa {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px; /* Reduzido ligeiramente de 14px */
-  padding: 18px; /* Reduzido de 22px para encolher a altura da caixa */
-  position: relative;
-  flex: 1;
-  flex-grow: 1;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid;
-  border-color: #173a43;
-  transition: all 0.3s ease; /* Adicionando transição caso queira pôr hover aqui também! */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  flex: 1 !important;
+  padding: 10px 14px !important;
+  gap: 6px !important;
+  box-sizing: border-box !important;
+  border-radius: 6px !important;
+  border: 1px solid #173a43 !important;
+  background-color: transparent !important;
 }
 
 .frame .t-tulo-5 {
-  position: relative;
-  width: fit-content;
-  font-family: "Space Grotesk-Bold", Helvetica;
-  font-weight: 700;
-  color: #e9fbf8;
-  font-size: 22px;
-  letter-spacing: 0;
-  line-height: normal;
+  font-family: "Space Grotesk", Helvetica, sans-serif !important;
+  font-weight: 700 !important;
+  color: #e9fbf8 !important; /* Branco gelo brilhante */
+  font-size: 18px !important;
+  margin: 0 !important;
 }
 
 .frame .descri-o-4 {
-  align-self: stretch;
-  color: #82a4a8;
-  font-size: 14px;
-  line-height: 21px;
-  position: relative;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  letter-spacing: 0;
+  font-family: "Inter", Helvetica, sans-serif !important;
+  font-weight: 400 !important;
+  color: #82a4a8 !important; /* Cinza azulado clássico do seu tema */
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
 }
 
 .frame .experincia {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  gap: 0 !important;
 }
 
 .frame .marco-profissional {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  padding: 16px 0px; /* Reduzido de 20px para aproximar mais as linhas */
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-color: #173a43;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 20px !important;
+  padding: 8px 0 !important;
+  width: 100% !important;
+  border-top: 1px solid #173a43 !important;
 }
 
 .frame .per-odo {
-  position: relative;
-  width: 180px;
-  font-family: "Roboto Mono-Regular", Helvetica;
-  font-weight: 400;
-  color: #65fff0;
-  font-size: 11px;
-  letter-spacing: 0;
-  line-height: normal;
+  width: 130px !important;
+  min-width: 130px !important;
+  max-width: 130px !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  font-family: "Roboto Mono", monospace !important;
+  color: #65fff0 !important;
+  font-size: 11px !important;
 }
 
-.frame .cargo {
-  position: relative;
-  width: 390px;
-  font-family: "Space Grotesk-Bold", Helvetica;
-  font-weight: 700;
-  color: #e9fbf8;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.frame .resumo {
-  position: relative;
-  flex: 1;
-  margin-top: -1px;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #82a4a8;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
+.frame .cargo,
 .frame .cargo-2 {
-  position: relative;
-  width: 390px;
-  margin-top: -1px;
-  font-family: "Space Grotesk-Bold", Helvetica;
-  font-weight: 700;
-  color: #e9fbf8;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
+  width: 310px !important;
+  min-width: 310px !important;
+  max-width: 310px !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+  font-family: "Space Grotesk", sans-serif !important;
+  font-weight: 700 !important;
+  color: #e9fbf8 !important;
+  font-size: 15px !important;
+  white-space: normal !important;
 }
 
+.frame .resumo,
 .frame .resumo-2 {
-  position: relative;
-  flex: 1;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #82a4a8;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: normal;
+  flex: 1 !important;
+  display: block !important;
+  margin: 0 !important;
+  font-family: "Inter", sans-serif !important;
+  color: #82a4a8 !important;
+  font-size: 12px !important;
+  line-height: 1.3 !important;
 }
 
 .frame .terminal-e-contato {
@@ -1424,6 +1396,39 @@ html {
   width: 100% !important;
   max-width: 560px !important;
   white-space: normal !important;
+}
+
+/* =========================================================================
+   RESTAURAÇÃO DA LINHA DO TEMPO (DESKTOP) - LADO A LADO
+   ========================================================================= */
+.frame .marco-profissional {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 30px !important;
+  padding: 16px 0px !important;
+  width: 100% !important;
+}
+
+.frame .per-odo {
+  width: 180px !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+}
+
+.frame .cargo,
+.frame .cargo-2 {
+  width: 390px !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+  white-space: normal !important;
+}
+
+.frame .resumo,
+.frame .resumo-2 {
+  flex: 1 !important;
+  width: auto !important;
+  display: block !important;
 }
 
 /* =========================================================================
