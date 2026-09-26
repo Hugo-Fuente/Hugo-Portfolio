@@ -253,16 +253,13 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 100%;
+  width: fit-content !important; /* Conserta o desktop: o botão terá apenas o tamanho do texto */
+  padding: 16px 32px !important; /* Dá um respiro lateral elegante para o botão */
   box-sizing: border-box;
   border-radius: 14px;
-  padding: 16px 18px;
   min-height: 52px;
 }
 
-/* --- 2. RESTAURA O EFEITO DE BRILHO (HOVER) --- */
-/* --- 1. Efeito de Pulo e Vidro nos Botões Iniciais --- */
 .frame .contedo-do-hero .ao,
 .frame .contedo-do-hero .div {
   background: rgba(101, 255, 240, 0.04) !important;
