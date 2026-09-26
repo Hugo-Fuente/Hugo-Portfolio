@@ -1413,6 +1413,20 @@ html {
 }
 
 /* =========================================================================
+   RESTAURAÇÃO DO TEXTO DE CONTATO (DESKTOP)
+   ========================================================================= */
+.frame .descri-o-5 {
+  font-family: "Inter-Regular", "Inter", Helvetica, Arial, sans-serif !important;
+  color: #82a4a8 !important;
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+  width: 100% !important;
+  max-width: 560px !important;
+  white-space: normal !important;
+}
+
+/* =========================================================================
    RESPONSIVIDADE: RESET ABSOLUTO MOBILE (INCLUINDO FIXES DE TEXTO E TOPO)
    ========================================================================= */
 @media (max-width: 768px) {
@@ -1807,14 +1821,16 @@ html {
     word-wrap: break-word !important;
   }
 
-  .frame .descri-o-5 {
+  .frame .descri-o-5,
+  .frame .descri-o-5 p,
+  .frame .descri-o-5 span {
     font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    color: #8a9a9d !important; /* Devolve a cor cinza claro/azulado */
+    color: #8a9a9d !important; /* Cor cinza claro */
     font-size: 18px !important;
     line-height: 1.6 !important;
     font-weight: 400 !important;
     width: 100% !important;
-    max-width: 560px !important; /* Mantém o texto alinhado no desktop */
+    max-width: 560px !important;
     white-space: normal !important;
   }
 
