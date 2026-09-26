@@ -1383,8 +1383,8 @@ html {
   }
 
   .frame .abertura {
-    min-height: 100svh;
-    padding-bottom: 32px;
+    min-height: auto;
+    padding-bottom: 0;
   }
 
   .frame .retrato-principal-de {
@@ -1437,7 +1437,7 @@ html {
     position: relative;
     left: 0;
     top: 0;
-    margin-top: 22px;
+    margin-top: 0;
   }
 
   .frame .microcopy {
@@ -1456,7 +1456,7 @@ html {
     display: block;
     width: 100%;
     max-width: 100%;
-    font-size: clamp(2.4rem, 9vw, 3.9rem) !important;
+    font-size: clamp(2.1rem, 8vw, 3.2rem) !important;
     line-height: 0.96;
     letter-spacing: -0.06em;
     white-space: normal;
@@ -1464,6 +1464,29 @@ html {
     word-break: break-word;
     hyphens: auto;
     margin: 0 0 12px;
+  }
+
+  .frame .apresentao {
+    padding: 12px 18px 22px !important;
+    gap: 12px !important;
+  }
+
+  .frame .manifesto {
+    gap: 14px !important;
+  }
+
+  .frame .texto {
+    gap: 18px !important;
+  }
+
+  .frame .indicadores {
+    display: grid !important;
+    gap: 12px !important;
+  }
+
+  .frame .indicador {
+    padding: 18px 14px !important;
+    border-radius: 12px !important;
   }
 
   .frame .descri-o,
@@ -1548,12 +1571,62 @@ html {
     gap: 0;
   }
 
+  .frame .meus-projetos,
+  .frame .competncias,
+  .frame .experncia-e {
+    padding: 20px 18px 26px !important;
+    height: auto !important;
+    min-height: auto !important;
+    gap: 18px !important;
+  }
+
   .frame .ttulo-da-seo,
   .frame .ttulo-da-seo-2,
   .frame .marco-profissional {
-    display: block;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
     width: 100%;
     max-width: 100%;
+    gap: 8px !important;
+  }
+
+  .frame .nota-2,
+  .frame .nota-3 {
+    width: 100% !important;
+    text-align: left !important;
+    max-width: 100% !important;
+  }
+
+  .frame .lista-de-projetos,
+  .frame .grade-de-competncias,
+  .frame .processo {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .frame .div-2,
+  .frame .minesweeper,
+  .frame .competncia,
+  .frame .etapa {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 12px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .frame .contedo,
+  .frame .contedo-2 {
+    padding: 16px !important;
+    gap: 10px !important;
+  }
+
+  .frame .visual-do-projeto,
+  .frame .img,
+  .frame .visual-do-projeto-2 {
+    height: 170px !important;
   }
 
   .frame .contato {
