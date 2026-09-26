@@ -15,6 +15,10 @@ Antes de escrever a primeira linha de código, o projeto passou por uma etapa ri
 - **Tipografia e Hierarquia:** Uso estratégico de fontes monoespaçadas para exibir dados técnicos e de leitura rápida, combinadas com fontes robustas nos títulos para criar impacto editorial.
 - **Prototipação Responsiva:** Criação de wireframes adaptáveis e testes mobile-first para garantir que as caixas biométricas flutuantes e a navegação magnética não quebrassem a usabilidade em telas menores (smartphones e tablets).
 
+*(🔗 [Acesse o protótipo completo no Figma](https://www.figma.com/proto/nK4Q4y1YIZUqLCnrv2VkZW/Sem-t%C3%ADtulo?node-id=92-10&p=f&t=zl2VTGpHJdsdrcXa-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=92%3A10))*
+
+![Protótipo no Figma](img/figmaprojeto.jpeg)
+
 ## 🚀 Funcionalidades e Destaques Técnicos
 
 - **Design "Cyber/Terminal":** Interface escura (Dark Mode nativo) com destaques em ciano e efeitos de desfoque de fundo (Glassmorphism/`backdrop-filter`).
