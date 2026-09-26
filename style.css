@@ -1385,7 +1385,7 @@ html {
     white-space: nowrap;
   }
 
-  /* 3. PUXA O TEXTO "SISTEMAS/DADOS" LÁ PARA CIMA */
+  /* 3. PUXA O TEXTO "SISTEMAS/DADOS" LÁ PARA CIMA E ALINHA NA ESQUERDA */
   .frame .contedo-do-hero {
     display: block;
     width: 100% !important;
@@ -1393,8 +1393,10 @@ html {
     box-sizing: border-box !important;
     position: relative !important;
     top: 0 !important; 
-    margin-top: 10px !important;
+    left: 0 !important; /* <--- ESTA É A MÁGICA QUE RESOLVE O RECUO! */
+    margin-top: 24px !important;
     padding: 0 20px !important;
+    transform: none !important;
   }
 
   .frame .microcopy {
