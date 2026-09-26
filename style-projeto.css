@@ -582,24 +582,38 @@ teclas-dpad {
   /* 3. Empilhar a Secção de Arquitetura e Comandos */
   .arquitetura-projeto {
     padding: 60px 20px !important;
+    justify-content: center !important;
+  }
+
+  /* Força o contentor principal a ocupar tudo e centralizar */
+  .arq-text-container {
+    width: 100% !important;
+    align-items: center !important;
+    margin: 0 auto !important;
   }
 
   .painel-comandos {
-    /* Muda de duas colunas para UMA coluna que ocupa 100% do espaço */
+    width: 100% !important;
     grid-template-columns: 1fr !important; 
     grid-template-areas: 
       "fechada"
       "aberta"
       "rock"
       "paz"
-      "cruz" !important; /* A cruz vai para o fundo de tudo */
-    justify-items: center; /* Centraliza tudo */
-    gap: 32px !important;
+      "cruz" !important; 
+    justify-items: center !important;
+    gap: 40px !important;
   }
 
   .cmd-item {
-    align-items: center !important; /* Centraliza texto e imagens */
-    text-align: center;
+    width: 100% !important;
+    align-items: center !important; 
+    text-align: center !important;
+  }
+
+  .cmd-item p {
+    text-align: center !important;
+    width: 100% !important;
   }
 
   /* 4. Encolher a Cruz de Navegação para caber no ecrã */
