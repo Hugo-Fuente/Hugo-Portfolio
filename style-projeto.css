@@ -641,32 +641,32 @@ teclas-dpad {
   }
 
   /* =========================================================================
-     FIX DEFINITIVO DOS CANTOS DA CRUZ DIRECIONAL (MOBILE)
+     FIX REAL DA CRUZ DIRECIONAL (MOBILE) - ESCALA PERFEITA
      ========================================================================= */
   
-  /* Reduz a escala ligeiramente para garantir que cabe em qualquer ecrã */
+  /* Encolhe e centraliza a grelha inteira sem lhe partir a estrutura */
   .cruz-navegacao {
     display: grid !important;
     margin: 0 auto !important;
     justify-content: center !important;
-    align-content: center !important;
-    transform: scale(0.70) !important; /* Ajustado para 0.70 para dar margem de segurança */
-    transform-origin: center top !important; /* Mantém a cruz colada aos elementos de cima ao encolher */
+    width: max-content !important; /* Faz a caixa abraçar a grelha para o margin auto funcionar perfeitamente */
+    transform: scale(0.60) !important; /* Encolhimento exato para caber de ponta a ponta no mobile */
+    transform-origin: top center !important;
   }
 
-  /* Empilha as setas de rotação e as mãos para não vazarem para os lados */
+  /* Devolve o alinhamento horizontal (lado a lado), mas com menos espaço */
   .cruz-celula.giro {
     display: flex !important;
-    flex-direction: column !important; /* A MÁGICA: Coloca a seta e a mão numa coluna */
+    flex-direction: row !important; /* Volta a pôr a seta ao lado da mão */
     align-items: center !important;
     justify-content: center !important;
-    gap: 16px !important;
+    gap: 8px !important; /* Aproxima a seta da mão */
   }
 
-  /* Ajusta o tamanho das setas circulares para uma proporção perfeita */
+  /* Reduz o tamanho da seta azul para não alargar a grelha */
   .icone-girar {
+    height: 28px !important; 
     margin: 0 !important;
-    height: 36px !important;
   }
 
   /* 5. Esmaecer as corujas para não bloquearem a leitura no ecrã pequeno */
