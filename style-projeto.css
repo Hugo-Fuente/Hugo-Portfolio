@@ -640,14 +640,33 @@ teclas-dpad {
     padding: 0 !important;
   }
 
-  /* Corrige o eixo da Cruz Direcional para não fugir para a direita */
+  /* =========================================================================
+     FIX DEFINITIVO DOS CANTOS DA CRUZ DIRECIONAL (MOBILE)
+     ========================================================================= */
+  
+  /* Reduz a escala ligeiramente para garantir que cabe em qualquer ecrã */
   .cruz-navegacao {
     display: grid !important;
     margin: 0 auto !important;
     justify-content: center !important;
     align-content: center !important;
-    transform: scale(0.85) !important; 
-    transform-origin: center center !important; /* A MÁGICA 2: Força o encolhimento a partir do centro exato! */
+    transform: scale(0.70) !important; /* Ajustado para 0.70 para dar margem de segurança */
+    transform-origin: center top !important; /* Mantém a cruz colada aos elementos de cima ao encolher */
+  }
+
+  /* Empilha as setas de rotação e as mãos para não vazarem para os lados */
+  .cruz-celula.giro {
+    display: flex !important;
+    flex-direction: column !important; /* A MÁGICA: Coloca a seta e a mão numa coluna */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+  }
+
+  /* Ajusta o tamanho das setas circulares para uma proporção perfeita */
+  .icone-girar {
+    margin: 0 !important;
+    height: 36px !important;
   }
 
   /* 5. Esmaecer as corujas para não bloquearem a leitura no ecrã pequeno */
