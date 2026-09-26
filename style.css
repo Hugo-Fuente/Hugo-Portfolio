@@ -441,23 +441,18 @@ html {
 }
 
 .frame .apresentao {
-  display: flex;
-  align-items: center; 
-  justify-content: space-between !important; 
-  gap: 60px !important; 
-  padding: 0px 80px !important; 
-  
-  /* Força a secção a ter exatamente 1 ecrã de altura */
-  height: 100vh !important; 
-  min-height: 100vh !important;
-  overflow: hidden !important; /* Corta vazamentos invisíveis que quebram o scroll */
-  
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  background-color: #07161c;
-  scroll-snap-align: start;
-}
+    display: flex !important;
+    flex-direction: column !important; /* Força os elementos a empilharem verticalmente */
+    justify-content: flex-start !important;
+    gap: 32px !important; /* Dá um respiro entre o título e o texto */
+    padding: 60px 20px !important; /* Garante 20px de margem de segurança nas laterais */
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: auto !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important; /* Corta qualquer vazamento extra */
+  }
 
 .frame .manifesto {
   display: flex;
@@ -1326,6 +1321,25 @@ html {
   color: #e9fbf8;
 }
 
+/* =========================================================================
+   EFEITO HOVER PROFISSIONAL DO MENU (DESKTOP)
+   ========================================================================= */
+.frame .links .text-wrapper {
+  transition: all 0.3s ease !important;
+}
+
+.frame .links .text-wrapper:hover,
+.frame .links .text-wrapper:focus-visible {
+  color: #65fff0 !important;
+  text-shadow: 0 0 10px rgba(101, 255, 240, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+.frame .text-wrapper-3:hover,
+.frame .text-wrapper-3:focus-visible {
+  color: #65fff0 !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1557,6 +1571,70 @@ html {
     padding: 18px 0 0 !important;
     gap: 20px;
     width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* =========================================================================
+     CORREÇÃO DA SEGUNDA TELA (PERFIL) - IMPEDE O CORTE DE TEXTOS E CAIXAS
+     ========================================================================= */
+  .frame .apresentao {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 32px !important;
+    padding: 60px 20px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    min-height: auto !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .frame .manifesto,
+  .frame .texto {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 1 !important;
+  }
+
+  .frame .p {
+    font-size: 32px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    box-sizing: border-box !important;
+    margin-bottom: 0 !important;
+  }
+
+  .frame .descri-o-2,
+  .frame .complemento {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
+
+  .frame .indicadores {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 16px !important;
+    padding: 0 !important;
+    margin-top: 16px !important;
+  }
+
+  .frame .indicador {
+    width: 100% !important;
+    max-width: 100% !important;
     box-sizing: border-box !important;
   }
 }
