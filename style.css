@@ -512,6 +512,45 @@ html {
   line-height: 26.4px;
 }
 
+/* =========================================================================
+   RESTAURAÇÃO DO DESKTOP - SEGUNDA TELA LADO A LADO E COM ÍMÃ
+   ========================================================================= */
+.frame .apresentao {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 60px !important;
+  padding: 0px 80px !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  position: relative;
+  width: 100%;
+  background-color: #07161c;
+  scroll-snap-align: start !important;
+  scroll-snap-stop: always !important;
+}
+
+.frame .manifesto {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  max-width: 540px !important;
+  gap: 24px !important;
+  flex-shrink: 0 !important;
+}
+
+.frame .texto {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  max-width: 560px !important;
+  gap: 32px !important;
+  flex-shrink: 0 !important;
+}
+
 .frame .indicadores {
   display: flex;
   align-items: stretch; /* Faz com que todos os cartões cresçam até à mesma altura máxima */
@@ -1582,66 +1621,4 @@ html {
     box-sizing: border-box !important;
   }
 
-  .frame .apresentao {
-  display: flex;
-  align-items: center; 
-  justify-content: space-between !important; /* Mantém os itens lado a lado no desktop */
-  gap: 60px !important; 
-  padding: 0px 80px !important; 
-  height: 100vh !important; /* Força a tela a ter exatamente 100% da altura para o ímã funcionar */
-  min-height: 100vh !important;
-  overflow: hidden !important; 
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  background-color: #07161c;
-  scroll-snap-align: start; /* Trava a rolagem */
-}
-
-  .frame .manifesto,
-  .frame .texto {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    flex-shrink: 1 !important;
-  }
-
-  .frame .p {
-    font-size: 32px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    white-space: normal !important;
-    word-wrap: break-word !important;
-    box-sizing: border-box !important;
-    margin-bottom: 0 !important;
-  }
-
-  .frame .descri-o-2,
-  .frame .complemento {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    white-space: normal !important;
-  }
-
-  .frame .indicadores {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    gap: 16px !important;
-    padding: 0 !important;
-    margin-top: 16px !important;
-  }
-
-  .frame .indicador {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
 }
