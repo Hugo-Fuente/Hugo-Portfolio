@@ -1376,7 +1376,7 @@ html {
   html, body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip !important;
     background: #02090d;
     margin: 0;
     padding: 0;
@@ -1386,7 +1386,7 @@ html {
   .frame .portflio-cyber-de {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip !important;
   }
 
   /* 1. ESCONDE OS LINKS DO DESKTOP PARA NÃO QUEBRAR A TELA */
@@ -1523,14 +1523,17 @@ html {
   .frame .competncias,
   .frame .experncia-e,
   .frame .terminal-e-contato {
-    display: block;
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
     max-width: 100% !important;
-    min-height: auto !important;
+    min-height: 100vh !important;
     height: auto !important;
-    padding: 20px 20px 24px !important;
+    padding: 40px 20px !important;
     box-sizing: border-box !important;
-    overflow: hidden !important;
+    overflow-x: clip !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
   }
 
   .frame .abertura {
@@ -1599,15 +1602,16 @@ html {
   .frame .apresentao {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
     gap: 32px !important;
     padding: 60px 20px !important;
     width: 100% !important;
     max-width: 100vw !important;
     height: auto !important;
-    min-height: auto !important;
+    min-height: 100vh !important;
     box-sizing: border-box !important;
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
+    scroll-snap-align: start !important;
   }
 
   .frame .manifesto,
