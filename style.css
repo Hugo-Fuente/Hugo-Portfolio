@@ -1612,40 +1612,50 @@ text-align: left;
 }
 
 /* =========================================================================
-   RESPONSIVIDADE FORÇADA: "MARRETA" PARA LIMPAR O CÓDIGO DO FIGMA
+   RESPONSIVIDADE FORÇADA: FUNDO ESCURO E ESPAÇAMENTO ENTRE BLOCOS
    ========================================================================= */
 
 @media (max-width: 768px) {
-  /* 1. Impede que o ecrã balance para os lados */
+  /* 1. Tira as barras brancas e pinta o fundo do ecrã com o seu azul escuro */
   html, body {
+    background-color: #040d12 !important;
     width: 100vw !important;
-    max-width: 100% !important;
+    max-width: 100vw !important;
+    min-height: 100vh !important;
     overflow-x: hidden !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* 2. Destrói TODOS os contentores absolutos do Figma (overlap, group, etc.) */
+  /* 2. O frame principal também recebe o fundo escuro e preenche a tela */
+  .frame, .portflio-cyber-de {
+    background-color: #040d12 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  /* 3. Força as secções a empurrarem-se umas às outras (resolve a sobreposição) */
   div[class*="overlap"], 
   div[class*="group"], 
-  div[class*="frame"], 
-  .portflio-cyber-de,
-  .abertura {
+  div[class*="section"] {
     position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin-bottom: 60px !important; /* Cria um espaço grande entre cada bloco/secção */
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
     top: auto !important;
     left: auto !important;
     transform: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: auto !important;
-    display: flex !important;
-    flex-direction: column !important; /* Empilha tudo verticalmente */
-    padding: 10px 20px !important; /* Dá espaço nas laterais */
-    box-sizing: border-box !important;
   }
 
-  /* 3. A MAGIA PARA O TEXTO NÃO QUEBRAR NA VERTICAL */
+  /* 4. Separa os textos uns dos outros para que não fiquem colados */
   h1, h2, h3, p, span, 
   [class*="text-wrapper"], 
   [class*="titulo"], 
@@ -1654,34 +1664,26 @@ text-align: left;
     top: auto !important;
     left: auto !important;
     transform: none !important;
-    width: 100% !important; /* Força o texto a usar toda a largura do telemóvel */
+    width: 100% !important;
     height: auto !important;
     white-space: normal !important;
-    
-    /* Estas três linhas impedem a quebra vertical bizarra */
-    word-break: normal !important; 
-    word-wrap: normal !important;
-    overflow-wrap: normal !important; 
-    
+    word-break: normal !important;
+    margin-top: 0 !important;
+    margin-bottom: 24px !important; /* Afasta cada frase da frase seguinte */
     text-align: left !important;
+  }
+
+  /* 5. Ajustes de tamanho e imagens */
+  h1, .titulo-principal { font-size: 36px !important; line-height: 1.2 !important; }
+  h2, [class*="titulo-secao"] { font-size: 28px !important; }
+  p, .descricao { font-size: 16px !important; }
+  
+  img {
+    position: relative !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
     margin-bottom: 20px !important;
-  }
-
-  /* 4. Ajustes específicos de tamanho para os títulos não ficarem gigantes */
-  h1, .titulo-principal, [class*="titulo"] {
-    font-size: 40px !important;
-    line-height: 1.1 !important;
-  }
-
-  /* Textos normais e texto verde do terminal */
-  p, [class*="text-wrapper"], .terminal-text {
-    font-size: 16px !important;
-    line-height: 1.5 !important;
-  }
-
-  /* O texto estilo terminal precisa de quebrar linhas longas (como sublinhados) de forma segura */
-  .terminal, .terminal * {
-    overflow-wrap: break-word !important;
   }
 }
 /* =========================================================================
