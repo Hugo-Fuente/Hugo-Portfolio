@@ -1351,208 +1351,188 @@ html {
    ========================================================================= */
 
 @media (max-width: 768px) {
-  /* 1. Base do Ecrã */
   html, body {
-    width: 100vw !important;
+    width: 100% !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
-    background-color: #040d12 !important;
+    background: #040d12 !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* 2. O ESMAGADOR DE CAIXAS (Agora inclui ARTICLE, ASIDE e NAV) */
-  div, section, main, header, footer, article, aside, nav {
+  .frame,
+  .frame .portflio-cyber-de {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .frame .abertura {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
     height: auto !important;
-    min-height: auto !important;
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    margin: 0 !important;
+    min-height: 100vh !important;
     padding: 0 !important;
+    justify-content: flex-start !important;
+    overflow: hidden !important;
   }
 
-  /* 3. PROTEÇÃO DO TEXTO E DOS TÍTULOS (Inclui TIME e STRONG) */
-  p, span, h1, h2, h3, h4, a, li, time, strong,
-  .text-wrapper, .t-tulo, .p, .t-tulo-2, .descri-o, 
-  .r-tulo, .r-tulo-2, .r-tulo-3, .cargo, .per-odo {
-    display: block !important;
-    width: 100% !important;
-    min-width: 100% !important;
-    height: auto !important;
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    text-align: left !important;
-    padding: 0 !important;
-    margin: 0 0 16px 0 !important;
-    white-space: normal !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
+  .frame .retrato-principal-de {
+    position: absolute !important;
+    right: -22% !important;
+    width: 140% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    opacity: 0.22 !important;
+    z-index: 0 !important;
   }
 
-  /* 4. ESPAÇAMENTO GERAL DAS SECÇÕES */
-  section, .abertura, .contato {
-    padding: 60px 20px !important;
-    gap: 32px !important;
-  }
-
-  /* 5. AJEITAR OS CARTÕES E IMPEDIR QUE VAZEM DO ECRÃ */
-  .grade-de-competncias, .lista-de-projetos, .processo, .experincia {
-    gap: 24px !important;
-    padding: 0 !important;
-  }
-  
-  .competncia, .div-2, .minesweeper, .etapa, .marco-profissional, .corpo-do-terminal {
-    padding: 24px !important;
-    border: 1px solid #173a43 !important;
-    border-radius: 8px !important;
-    background-color: #0b2028 !important;
-    margin-bottom: 24px !important;
-  }
-
-  .marco-profissional {
-    align-items: flex-start !important; /* Alinha o texto à esquerda */
-  }
-
-  /* 6. TAMANHOS DE FONTE SEGUROS E LEGÍVEIS */
-  .t-tulo, .p, .t-tulo-2, .t-tulo-6 { 
-    font-size: 32px !important; 
-    line-height: 1.2 !important; 
-  }
-  .descri-o, .descri-o-2, .complemento, .descri-o-5, .sess-o { 
-    font-size: 16px !important; 
-    line-height: 1.5 !important; 
-  }
-
-  /* 7. CORREÇÃO DEFINITIVA DOS BOTÕES (Resolve a Imagem 69) */
-  /* Força a grelha de contacto a ser uma coluna simples */
-  .aes, .botoes-acao, .frame .convite .aes {
-    display: flex !important;
-    flex-direction: column !important; 
-    gap: 16px !important;
-    padding: 0 !important;
-    margin-top: 24px !important;
-    width: 100% !important;
-  }
-  
-  /* Mantém o ícone e o texto do botão lado a lado horizontalmente */
-  .frame .ao, .frame .div, .frame .convite .ao, .frame .convite .div {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 16px !important;
-    text-align: center !important;
-    border-radius: 6px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: auto !important;
-    gap: 12px !important;
-  }
-  
-  /* Impede que o texto dentro do botão ocupe o ecrã todo */
-  .ao span, .div span, .r-tulo, .r-tulo-2, .r-tulo-3 {
-    width: auto !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    display: inline-block !important;
-  }
-
-  /* 8. SALVAR O MENU SUPERIOR */
-  .navegao {
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    padding: 20px !important;
-  }
-  .assinatura {
-    flex-direction: row !important;
-    width: auto !important;
-    min-width: 0 !important;
-    align-items: center !important;
-  }
-  .circle-x, .vector {
-    width: 32px !important;
-    min-width: 32px !important;
-    height: 32px !important;
-  }
-
-  /* 9. OCULTAR LIXO VISUAL DO FIGMA */
-  .leitura-biomtrica, .ndice-de-rolagem, .status, .links,
-  .vu-cinematogrfico, .gradiente-inferior {
+  .frame .vu-cinematogrfico,
+  .frame .gradiente-inferior,
+  .frame .leitura-biomtrica,
+  .frame .ndice-de-rolagem,
+  .frame .status,
+  .frame .links {
     display: none !important;
   }
 
-  /* 10. IMAGENS */
-  .retrato-principal-de {
-    position: absolute !important;
+  .frame .navegao {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    opacity: 0.15 !important;
-    z-index: 0 !important;
-  }
-  
-  .visual-do-projeto, .img, .visual-do-projeto-2 {
-    width: 100% !important;
-    min-width: 100% !important;
     height: auto !important;
-    object-fit: cover !important;
-    margin-bottom: 20px !important;
-    border-radius: 6px !important;
-  }
-  
-  .image {
-    width: 24px !important;
-    min-width: 24px !important;
-    height: 24px !important;
-    margin: 0 !important;
+    min-height: 72px !important;
+    padding: 16px 20px !important;
+    box-sizing: border-box !important;
   }
 
-  /* --- 11. AJUSTES FINOS DO TOPO (ESPAÇAMENTO E LOGOTIPO) --- */
-  
-  /* Mata o espaçamento gigante do ecrã de computador */
-  .frame .contedo-do-hero {
-    position: relative !important;
-    top: 0 !important; /* É isto que vai puxar o texto para cima */
-    margin-top: 32px !important; /* Deixa apenas um respiro de 2 dedos abaixo da linha */
-    padding-top: 0 !important;
-  }
-
-  /* Garante que o fundo não distribui o espaço de forma estranha */
-  .frame .abertura {
-    height: auto !important;
-    min-height: 100vh !important;
-    justify-content: flex-start !important;
-  }
-
-  /* Corrige o logotipo (X) e HUGO.DEV_ para ficarem lado a lado */
   .frame .assinatura {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 10px !important;
+    width: auto !important;
+    min-width: 0 !important;
   }
-  
-  .frame .circle-x, .frame .nome {
-    display: inline-block !important; /* Devolve o comportamento lado-a-lado */
+
+  .frame .circle-x,
+  .frame .vector {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .frame .nome {
+    font-size: 17px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .frame .contedo-do-hero {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 28px !important;
+    padding: 0 20px 0 !important;
+    box-sizing: border-box !important;
+    z-index: 10 !important;
+  }
+
+  .frame .microcopy {
+    margin: 0 0 10px 0 !important;
+    font-size: 11px !important;
+    letter-spacing: 1.5px !important;
+    line-height: 1.4 !important;
+  }
+
+  .frame .t-tulo {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(2.4rem, 8vw, 3.5rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -1px !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  .frame .descri-o {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    margin: 0 0 24px 0 !important;
+  }
+
+  .frame .aes {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
+    margin: 0 !important;
+  }
+
+  .frame .ao,
+  .frame .div {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 16px 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  .frame .ao span,
+  .frame .div span,
+  .frame .r-tulo,
+  .frame .r-tulo-2,
+  .frame .r-tulo-3 {
+    display: inline-block !important;
     width: auto !important;
     min-width: 0 !important;
     margin: 0 !important;
-    padding: 0 !important;
+    white-space: normal !important;
   }
-  
-  /* Ajusta o ícone X para o tamanho certo */
-  .frame .circle-x, .frame .vector {
-    width: 24px !important;
-    height: 24px !important;
+
+  .frame .titulo-da-seo,
+  .frame .ttulo-da-seo,
+  .frame .ttulo-da-seo-2,
+  .frame .competncias,
+  .frame .apresentao,
+  .frame .meus-projetos,
+  .frame .experncia-e {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .frame .lista-de-projetos,
+  .frame .grade-de-competncias,
+  .frame .processo {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+
+  .frame .div-2,
+  .frame .minesweeper,
+  .frame .competncia,
+  .frame .etapa {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
   }
 }
