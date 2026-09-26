@@ -641,32 +641,40 @@ teclas-dpad {
   }
 
   /* =========================================================================
-     FIX REAL DA CRUZ DIRECIONAL (MOBILE) - ESCALA PERFEITA
+     FIX CIRÚRGICO DA CRUZ DIRECIONAL E SETAS (MOBILE)
      ========================================================================= */
   
-  /* Encolhe e centraliza a grelha inteira sem lhe partir a estrutura */
   .cruz-navegacao {
     display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important; /* A MÁGICA 1: Força 3 colunas perfeitamente iguais */
+    width: 100% !important;
+    max-width: 380px !important; /* Trava a largura total para manter a grelha compacta */
     margin: 0 auto !important;
     justify-content: center !important;
-    width: max-content !important; /* Faz a caixa abraçar a grelha para o margin auto funcionar perfeitamente */
-    transform: scale(0.60) !important; /* Encolhimento exato para caber de ponta a ponta no mobile */
+    justify-items: center !important;
+    align-items: center !important;
+    transform: scale(0.70) !important;
     transform-origin: top center !important;
   }
 
-  /* Devolve o alinhamento horizontal (lado a lado), mas com menos espaço */
-  .cruz-celula.giro {
+  .cruz-celula {
     display: flex !important;
-    flex-direction: row !important; /* Volta a pôr a seta ao lado da mão */
-    align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important; /* Aproxima a seta da mão */
+    align-items: center !important;
+    width: 100% !important;
   }
 
-  /* Reduz o tamanho da seta azul para não alargar a grelha */
+  /* Mantém as setas lado a lado com as mãos, sem partir a grelha */
+  .cruz-celula.giro {
+    flex-direction: row !important;
+    gap: 8px !important;
+  }
+
   .icone-girar {
-    height: 28px !important; 
+    height: 24px !important;
+    width: 24px !important;
     margin: 0 !important;
+    flex-shrink: 0 !important; /* Impede que a seta seja esmagada */
   }
 
   /* 5. Esmaecer as corujas para não bloquearem a leitura no ecrã pequeno */
