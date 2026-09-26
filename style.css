@@ -1612,102 +1612,125 @@ text-align: left;
 }
 
 /* =========================================================================
-   RESPONSIVIDADE FORÇADA: O RESET DEFINITIVO PARA MOBILE
+   RESPONSIVIDADE: LIMPEZA TOTAL FIGMA (SMARTPHONES E TABLETS)
    ========================================================================= */
 
 @media (max-width: 768px) {
   /* 1. Reset da base */
   html, body {
-    width: 100% !important;
-    max-width: 100vw !important;
+    width: 100vw !important;
+    max-width: 100% !important;
     overflow-x: hidden !important;
     background-color: #040d12 !important;
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* 2. Todos os elementos perdem posições fixas E larguras microscópicas */
-  * {
-    box-sizing: border-box !important;
-    white-space: normal !important;
-  }
-
+  /* 2. Contentores Principais em Coluna Vertical */
   .frame, .portflio-cyber-de, .abertura,
-  div[class*="overlap"], div[class*="group"], div[class*="frame-"] {
-    position: relative !important;
+  main, section, header, footer, 
+  .contedo-do-hero, .manifesto, .texto, .contato {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
-    min-width: 100% !important; /* DESTRÓI as caixas finas que empilhavam as letras */
     max-width: 100% !important;
     height: auto !important;
-    top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+    min-height: auto !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
     transform: none !important;
-    padding: 0 !important;
-    margin: 0 0 30px 0 !important; /* Dá espaço entre as secções */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Secções precisam de espaçamento no topo/fundo */
+  section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+    gap: 32px !important;
   }
 
-  /* 3. A CORREÇÃO DEFINITIVA DO TEXTO (Quebras e Alinhamentos) */
-  p, span, h1, h2, h3, a, li,
-  [class*="text-wrapper"], [class*="p-"], [class*="titulo"], .terminal-text {
-    position: relative !important;
-    display: block !important; /* Tira o formato de tabela/inline que estragava as listas */
-    width: 100% !important;
-    min-width: 100% !important; /* Garante que o texto tem o ecrã todo para se esticar */
-    height: auto !important;
-    
-    /* Regras restritas para as palavras não se partirem ao meio: */
-    word-break: normal !important; 
-    word-wrap: normal !important;
-    overflow-wrap: break-word !important; 
-    
-    text-align: left !important;
-    padding: 0 20px !important; /* Margem segura para não tocar no vidro do ecrã */
-    margin-top: 0 !important;
-    margin-bottom: 12px !important;
+  /* 3. A CORREÇÃO DO "h/u/g/o": Protege os textos inline */
+  span, a, .text-wrapper, .r-tulo, .r-tulo-2, .r-tulo-3, .tech-tag {
+    display: inline-block !important;
+    width: auto !important; /* Devolve a largura natural à palavra */
+    min-width: 0 !important;
+    white-space: normal !important;
   }
 
-  /* 4. Tipografia profissional para telemóvel */
-  h1, .titulo-principal, div[class*="text-wrapper-2"] {
-    font-size: 32px !important;
-    line-height: 1.2 !important;
-    margin-top: 40px !important;
-    margin-bottom: 24px !important;
-    letter-spacing: -1px !important;
-  }
-
-  p, span, .descricao, div[class*="p-"] {
-    font-size: 16px !important;
-    line-height: 1.6 !important;
-    color: #ddecf0 !important; /* Garante boa leitura no fundo escuro */
-  }
-
-  /* 5. Correção dos Cartões de Competências e Projetos */
-  /* Dá uma margem e uma linha discreta para separar as secções como cartões reais */
-  div[class*="box"], div[class*="card"], div[class*="cartao"], div[class*="border"] {
-     width: calc(100% - 40px) !important; /* 100% menos o padding lateral */
-     margin: 0 20px 30px 20px !important;
-     padding: 20px 0 !important;
-     border: 1px solid rgba(255, 255, 255, 0.1) !important;
-     border-radius: 8px !important;
-  }
-
-  /* 6. Imagens */
-  img {
-    position: relative !important;
+  /* 4. Títulos e Parágrafos: A CORREÇÃO DO "Arquit/etura" */
+  h1, h2, h3, p, .t-tulo, .p, .t-tulo-2, .descri-o, .descri-o-2, .complemento {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-    object-fit: contain !important;
-    padding: 0 20px !important;
-    margin-bottom: 24px !important;
+    white-space: normal !important;
+    word-break: break-word !important; /* Só quebra se a palavra inteira for maior que o ecrã */
+    overflow-wrap: break-word !important;
+    text-align: left !important;
+    position: relative !important;
   }
 
-  div:empty { display: none !important; }
+  /* Reduz o tamanho de letra especificamente para telemóvel para não esmagar */
+  .t-tulo { font-size: 32px !important; line-height: 1.2 !important; margin-top: 40px !important; }
+  .p, .t-tulo-2, .t-tulo-6 { font-size: 28px !important; line-height: 1.2 !important; }
+  .descri-o, .descri-o-2, .complemento, .descri-o-5 { font-size: 16px !important; line-height: 1.5 !important; }
+
+  /* 5. Grelha de Competências e Projetos em Coluna Única */
+  .grade-de-competncias {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .competncia {
+    width: 100% !important;
+    padding: 24px !important;
+  }
+  
+  .lista-de-projetos {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .div-2, .minesweeper {
+    width: 100% !important;
+    min-height: auto !important;
+  }
+
+  /* 6. Contacto e Terminal */
+  .aes {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .convite .aes {
+    display: flex !important; /* Desativa a grelha fixa do Figma no telemóvel */
+  }
+  .ao, .div { width: 100% !important; text-align: center !important; }
+  
+  .terminal {
+    width: 100% !important;
+    margin-top: 32px !important;
+  }
+  .corpo-do-terminal {
+    padding: 16px !important;
+  }
+  .sess-o { font-size: 13px !important; word-break: break-all !important; } /* Permite que os links no terminal quebrem */
+
+  /* 7. Imagens e Limpeza Visual */
+  .retrato-principal-de {
+    position: absolute !important;
+    width: 150% !important;
+    height: 100% !important;
+    left: -20% !important;
+    opacity: 0.15 !important; /* Muito subtil para não interferir com a leitura */
+  }
+  
+  /* Esconde elementos estéticos que sobrecarregam o mobile */
+  .leitura-biomtrica, .ndice-de-rolagem, .status {
+    display: none !important;
+  }
 }
-/* =========================================================================
-   PALETA DE 3 TONS (FUNDO DO SITE)
-   ========================================================================= */
 
 /* 1. Azul Escuro (Fundo Base do Site e Secções Principais) */
 .frame .portflio-cyber-de,
