@@ -43,8 +43,8 @@ html {
   width: 100%;
   background-color: #02090d;
   
-  /* MUDANÇA AQUI: Troque 'hidden' por 'visible' para desativar a "tesoura" do navegador */
-  overflow: visible; 
+  /* A MÁGICA: Corta a parte da foto que tenta invadir a próxima secção */
+  overflow: hidden; 
   
   scroll-snap-align: start; 
 }
