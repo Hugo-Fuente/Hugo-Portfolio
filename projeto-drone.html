@@ -49,8 +49,8 @@
             <p class="descricao-principal">Sistema de Interface Humano-Máquina (IHM) para o drone DJI Tello EDU. Uma alternativa de pilotagem intuitiva e acessível que substitui controles tradicionais por interações com gestos manuais e modos de voo autônomos utilizando MediaPipe e OpenCV.</p>
             
             <div class="botoes-acao">
-              <a href="#" class="btn-primario">ASSISTIR DEMONSTRAÇÃO</a>
-              <a href="#" class="btn-secundario">VER NO GITHUB</a>
+              <a href="#" id="btnAbrirVideo" class="btn-primario">ASSISTIR DEMONSTRAÇÃO</a>
+              <a href="https://github.com/Hugo-Fuente/DroneGestureControl" target="_blank" rel="noopener noreferrer" class="btn-secundario">VER NO GITHUB</a>
               <div class="indicador-scroll" id="indicadorScroll"></div>
             </div>
             
@@ -193,5 +193,25 @@
 
     </div>
   </div>
+
+  <!-- Modal do Vídeo de Demonstração (Estilo Terminal) -->
+<div id="modalVideo" class="modal-demo">
+  <div class="modal-conteudo terminal-video">
+    
+    <!-- Barra superior do Terminal -->
+    <div class="barra-do-terminal">
+      <span class="titulo-janela">hugo@drone-demo:~</span>
+      <!-- O ID btnFecharVideo está agora a envolver os botões do terminal -->
+      <span class="botoes-controle" id="btnFecharVideo" title="Fechar Vídeo">
+        — □ <span style="position: relative; top: 2px;">×</span>
+      </span>
+    </div>
+    
+    <!-- Corpo onde fica o vídeo -->
+    <div class="corpo-do-terminal-video" style="aspect-ratio: 16/9;">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/K33G5tc2ukA" title="Demonstração do Drone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 0 0 12px 12px;"></iframe>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

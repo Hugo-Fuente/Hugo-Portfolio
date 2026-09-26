@@ -683,3 +683,93 @@ teclas-dpad {
     right: -20% !important;
   }
 }
+
+/* =========================================================================
+   POPUP / MODAL DE VÍDEO
+   ========================================================================= */
+.modal-demo {
+  display: none; /* Mantém o popup invisível até clicarmos */
+  position: fixed;
+  z-index: 9999; /* Coloca o vídeo por cima de TUDO no site */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 9, 13, 0.9); /* Fundo escuro quase opaco para destacar o vídeo */
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================================
+   POPUP / MODAL DE VÍDEO (ESTILO TERMINAL)
+   ========================================================================= */
+.modal-demo {
+  display: none; 
+  position: fixed;
+  z-index: 9999; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 9, 13, 0.9); 
+  align-items: center;
+  justify-content: center;
+}
+
+/* A estrutura do terminal */
+.terminal-video {
+  width: 90%;
+  max-width: 800px;
+  background-color: #02090d;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(101, 255, 240, 0.4);
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.9);
+  /* Reutiliza a animação de pulso que já existe no seu CSS principal */
+  animation: cyberPulse 3s infinite; 
+}
+
+/* A barra superior */
+.terminal-video .barra-do-terminal {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #0b2028;
+  border-bottom: 1px solid #173a43; 
+}
+
+.terminal-video .titulo-janela {
+  font-family: "Roboto Mono", monospace;
+  color: #82a4a8;
+  font-size: 13px;
+}
+
+/* Os botões de fechar com a mesma correção visual do index */
+.terminal-video .botoes-controle {
+  font-family: Arial, sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 10px;
+  margin-right: -10px;
+  cursor: pointer;
+  color: #82a4a8;
+  transition: color 0.2s ease;
+}
+
+.terminal-video .botoes-controle:hover {
+  color: #e9fbf8; /* Acende ao passar o rato */
+}
+
+/* Onde o vídeo fica alojado */
+.corpo-do-terminal-video {
+  padding: 0; 
+  display: flex;
+  background-color: #000; /* Fundo totalmente negro atrás do vídeo */
+}
+
+.corpo-do-terminal-video video {
+  width: 100%;
+  display: block;
+  border-radius: 0 0 12px 12px; /* Mantém os cantos arredondados na base */
+}

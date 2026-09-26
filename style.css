@@ -1173,9 +1173,14 @@ html {
 }
 
 .frame .barra-do-terminal > .text-wrapper-2 {
-  letter-spacing: 10px !important; /* Espaçamento ajustado apenas para os botões */
-  margin-right: -10px; /* Compensa o último espaço */
-  font-size: 13px;
+  letter-spacing: 10px !important; 
+  margin-right: -10px; 
+  
+  font-family: Arial, sans-serif !important; /* A MÁGICA: Muda a fonte apenas para estes 3 símbolos */
+  font-size: 16px !important; /* Tamanho ligeiramente maior para compensar a Arial */
+  font-weight: 400 !important; 
+  transform: translateY(-2px) !important; /* Sobe um bocadinho para centralizar perfeitamente */
+  
   cursor: pointer;
   color: #82a4a8;
   transition: color 0.2s ease;
