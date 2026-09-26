@@ -1516,4 +1516,26 @@ html {
     height: 24px !important;
     margin: 0 !important;
   }
+
+  .frame .abertura {
+    padding-top: 0 !important; 
+    justify-content: flex-start !important;
+  }
+
+  /* Puxa o bloco de texto para cima, logo abaixo da linha do menu */
+  .frame .contedo-do-hero {
+    margin-top: 32px !important; /* Espaço exato de respiro entre a linha e o texto */
+    padding-top: 0 !important;
+  }
+
+  /* Garante que o texto verde [ SYSTEMS ] não empurra o título para baixo */
+  .frame .microcopy {
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+  }
+  
+  /* Remove margens teimosas do título "Arquitetura" */
+  .frame .t-tulo {
+    margin-top: 0 !important;
+  }
 }
