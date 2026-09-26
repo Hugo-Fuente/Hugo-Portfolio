@@ -1346,9 +1346,13 @@ html {
   }
 }
 
-@media (max-width: 900px) {
-  .frame {
-    padding: 0;
+@media (max-width: 768px) {
+  /* 1. Reset Global do Mobile: Quebra a rigidez do Figma */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .frame .navegao {
@@ -1605,6 +1609,79 @@ text-align: left;
 .frame .div-2:hover .img,
 .frame .minesweeper:hover .visual-do-projeto-2 {
   transform: scale(1.06) !important; /* A imagem aproxima-se levemente sem sair da caixa */
+}
+
+/* =========================================================================
+   RESPONSIVIDADE FORÇADA: SMARTPHONES (Anula bloqueios do Figma)
+   ========================================================================= */
+
+@media (max-width: 768px) {
+  /* 1. Reset Global do Mobile: Quebra a rigidez do Figma */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 2. Anula larguras fixas e posicionamentos absolutos do Figma */
+  .frame, 
+  .frame div, /* Pega em todas as caixas dentro do frame principal */
+  .abertura {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important; /* Deixa a altura crescer conforme o texto */
+    box-sizing: border-box !important;
+  }
+
+  /* 3. Transforma o layout para uma coluna vertical flexível */
+  .abertura, .frame {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 24px !important;
+    overflow-x: hidden !important;
+  }
+
+  /* 4. Corrige o Texto Gigante e a quebra de linha maluca */
+  h1, 
+  .text-wrapper-2,
+  .titulo-principal,
+  [class*="text-wrapper"] { /* Pega qualquer classe de texto do Figma */
+    position: relative !important;
+    font-size: 32px !important; /* Tamanho seguro para telemóvel */
+    line-height: 1.3 !important;
+    white-space: normal !important; /* FORÇA o texto a quebrar a linha na palavra certa */
+    word-break: normal !important;
+    text-align: left !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* 5. Ajuste do Terminal e Textos Secundários */
+  p, 
+  .p,
+  .descricao,
+  .terminal {
+    position: relative !important;
+    font-size: 16px !important;
+    white-space: normal !important;
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* 6. Ajeita a foto de fundo para não estourar o ecrã */
+  .retrato-principal,
+  .bg-image {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    opacity: 0.3; /* Deixa a sua foto como fundo suave para não brigar com o texto */
+    z-index: -1 !important;
+  }
 }
 
 /* =========================================================================
