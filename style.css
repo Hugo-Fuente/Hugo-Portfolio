@@ -1344,99 +1344,17 @@ html {
    ========================================================================= */
 
 @media (max-width: 768px) {
-  html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    background: #02090d;
-    margin: 0;
-    padding: 0;
-  }
-
-  .frame,
-  .frame .portflio-cyber-de {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .frame .abertura,
-  .frame .apresentao,
-  .frame .meus-projetos,
-  .frame .competncias,
-  .frame .experncia-e,
-  .frame .terminal-e-contato {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-height: auto;
-    padding: 20px 18px 24px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .frame .abertura {
-    min-height: auto;
-    padding-bottom: 0;
-  }
-
-  .frame .retrato-principal-de {
-    right: -18%;
-    width: 150%;
-    opacity: 0.22;
-  }
-
   .frame .navegao {
-    min-height: 68px;
-    padding: 14px 18px;
-    gap: 12px;
-  }
-
-  .frame .links,
-  .frame .status,
-  .frame .leitura-biomtrica,
-  .frame .ndice-de-rolagem,
-  .frame .vu-cinematogrfico,
-  .frame .gradiente-inferior {
-    display: none !important;
-  }
-
-  .frame .circle-x,
-  .frame .vector {
-    width: 22px;
-    height: 22px;
-  }
-
-  .frame .nome {
-    font-size: 16px;
-    white-space: nowrap;
-  }
-
-  .frame .contedo-do-hero,
-  .frame .manifesto,
-  .frame .texto,
-  .frame .ttulo-da-seo,
-  .frame .ttulo-da-seo-2,
-  .frame .convite {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-    padding: 0;
+    padding: 16px 20px !important;
+    height: auto !important;
+    border-bottom: none !important;
   }
 
   .frame .contedo-do-hero {
-    position: relative;
-    left: 0;
-    top: 0;
-    margin-top: 32px; /* Empurra o bloco de texto para baixo */
-  }
-
-  .frame .microcopy {
-    margin: 0 0 12px;
-    font-size: 10px;
-    letter-spacing: 0.18em;
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 10px !important;
+    padding: 0 20px !important;
   }
 
   .frame .t-tulo,
@@ -1446,182 +1364,52 @@ html {
   .frame .t-tulo-4,
   .frame .t-tulo-5,
   .frame .t-tulo-6 {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    font-size: clamp(1.8rem, 8vw, 2.5rem) !important; /* Reduzido levemente */
-    line-height: 1.1; /* Aumentado para o texto respirar */
-    letter-spacing: -0.03em;
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: normal; /* Evita quebra agressiva no meio da palavra */
-    hyphens: none; /* Desativa a hifenização automática */
-    margin: 0 0 16px;
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.5px !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
-  .frame .apresentao {
-    padding: 12px 18px 22px !important;
-    gap: 12px !important;
-  }
-
-  .frame .manifesto {
-    gap: 14px !important;
-  }
-
+  .frame .manifesto,
   .frame .texto {
-    gap: 18px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
 
-  .frame .indicadores {
-    display: grid !important;
+  .frame .apresentao,
+  .frame .meus-projetos,
+  .frame .competncias,
+  .frame .experncia-e,
+  .frame .terminal-e-contato {
+    padding: 60px 20px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .frame .retrato-principal-de {
+    opacity: 0.15 !important;
+    object-position: 70% top !important;
+  }
+
+  .frame .aes {
+    flex-direction: column !important;
+    width: 100% !important;
     gap: 12px !important;
-  }
-
-  .frame .indicador {
-    padding: 18px 14px !important;
-    border-radius: 12px !important;
-  }
-
-  .frame .descri-o,
-  .frame .descri-o-2,
-  .frame .descri-o-3,
-  .frame .descri-o-4,
-  .frame .complemento,
-  .frame .nota-2,
-  .frame .nota-3,
-  .frame .cargo,
-  .frame .cargo-2,
-  .frame .resumo,
-  .frame .resumo-2,
-  .frame .per-odo {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    font-size: 15px;
-    line-height: 1.6;
-    margin: 0 0 16px;
-  }
-
-  .frame .descri-o {
-    max-width: 100%;
-  }
-
-  .frame .aes,
-  .frame .indicadores,
-  .frame .lista-de-projetos,
-  .frame .grade-de-competncias,
-  .frame .processo {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .frame .indicador,
-  .frame .div-2,
-  .frame .minesweeper,
-  .frame .competncia,
-  .frame .etapa {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 20px !important;
-    margin: 0;
-    border-radius: 12px;
   }
 
   .frame .ao,
   .frame .div {
-    min-height: 52px;
-  }
-
-  .frame .ao span,
-  .frame .div span,
-  .frame .r-tulo,
-  .frame .r-tulo-2,
-  .frame .r-tulo-3 {
-    display: inline-block;
-    width: auto;
-    min-width: 0;
-    margin: 0;
-    white-space: normal;
-    text-align: center;
-  }
-
-  .frame .apresentao {
-    justify-content: flex-start;
-    gap: 0;
-  }
-
-  .frame .meus-projetos,
-  .frame .competncias,
-  .frame .experncia-e {
-    padding: 20px 18px 26px !important;
-    height: auto !important;
-    min-height: auto !important;
-    gap: 18px !important;
-  }
-
-  .frame .ttulo-da-seo,
-  .frame .ttulo-da-seo-2,
-  .frame .marco-profissional {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    width: 100%;
-    max-width: 100%;
-    gap: 8px !important;
-  }
-
-  .frame .nota-2,
-  .frame .nota-3 {
     width: 100% !important;
-    text-align: left !important;
-    max-width: 100% !important;
-  }
-
-  .frame .lista-de-projetos,
-  .frame .grade-de-competncias,
-  .frame .processo {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
-
-  .frame .div-2,
-  .frame .minesweeper,
-  .frame .competncia,
-  .frame .etapa {
-    width: 100% !important;
-    max-width: 100% !important;
-    border-radius: 12px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .frame .contedo,
-  .frame .contedo-2 {
-    padding: 16px !important;
-    gap: 10px !important;
-  }
-
-  .frame .visual-do-projeto,
-  .frame .img,
-  .frame .visual-do-projeto-2 {
-    height: 170px !important;
-  }
-
-  .frame .contato {
-    padding: 18px 18px 0;
-    gap: 20px;
   }
 }
