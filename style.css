@@ -1208,38 +1208,48 @@ html {
   line-height: 22.8px;
 }
 
+/* =========================================================================
+   RESTAURAÇÃO DO RODAPÉ (DESKTOP) - LADO A LADO
+   ========================================================================= */
 .frame .rodap {
-    flex-direction: column !important;
-    height: auto !important;
-    padding: 32px 20px !important;
-    gap: 12px !important;
-    text-align: center !important;
-    justify-content: center !important;
-  }
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 80px !important;
+  min-height: 80px !important;
+  padding: 0px 80px !important;
+  width: 100% !important;
+  background-color: #02090d !important;
+  border-top: 1px solid #173a43 !important;
+}
 
 .frame .marca {
-  position: relative;
-  width: fit-content;
-  font-family: "Roboto Mono-Bold", Helvetica;
-  font-weight: 700;
-  color: #e9fbf8;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: normal;
+  text-align: left !important;
+  font-family: "Roboto Mono-Bold", Helvetica, sans-serif !important;
+  font-weight: 700 !important;
+  color: #e9fbf8 !important;
+  font-size: 14px !important;
 }
 
 .frame .nota-4 {
-    text-align: center !important;
-    line-height: 1.5 !important;
-  }
+  text-align: right !important;
+  color: #82a4a8 !important;
+  font-family: "Roboto Mono-Regular", Helvetica, sans-serif !important;
+  font-size: 10px !important;
+  white-space: nowrap !important;
+  margin-right: 180px !important; /* Empurra a frase para a esquerda, fugindo do logo do Netlify */
+}
 
 .frame .nota-5 {
-  position: relative !important; /* Desliga a flutuação que causava a colisão */
-  bottom: auto !important;
-  right: auto !important;
-  text-align: center !important;
-  padding-bottom: 40px !important;
-  margin: 16px auto 0 !important;
+  position: absolute !important;
+  bottom: 96px !important; 
+  right: 80px !important;  
+  text-align: right !important;
+  width: auto !important;
+  color: #8fa8b0 !important;
+  font-family: "Roboto Mono-Regular", Helvetica, sans-serif !important;
+  font-size: 13px !important;
 }
 
 .frame .span {
@@ -1250,8 +1260,12 @@ html {
   letter-spacing: 0;
 }
 
+/* Força a hiperligação a herdar a cor correta e a fonte */
+.frame .nota-5 a, 
 .frame .text-wrapper-3 {
-  text-decoration: underline;
+  color: #8fa8b0 !important;
+  font-family: "Roboto Mono-Regular", Helvetica, sans-serif !important;
+  text-decoration: underline !important;
 }
 
 /* Original style.css is preserved above this accessibility and interaction layer. */
