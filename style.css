@@ -1606,3 +1606,27 @@ text-align: left;
 .frame .minesweeper:hover .visual-do-projeto-2 {
   transform: scale(1.06) !important; /* A imagem aproxima-se levemente sem sair da caixa */
 }
+
+/* =========================================================================
+   PALETA DE 3 TONS (FUNDO DO SITE)
+   ========================================================================= */
+
+/* 1. Azul Escuro (Fundo Base do Site e Secções Principais) */
+.frame .portflio-cyber-de,
+.frame .abertura,
+.frame .meus-projetos,
+.frame .experncia-e {
+  background-color: #040d12 !important;
+}
+
+/* 2. Azul Claro (Secções Alternadas) */
+.frame .apresentao,
+.frame .competncias,
+.frame .terminal-e-contato {
+  background-color: #07161c !important;
+}
+
+/* 3. O Mais Escuro (Apenas para o Rodapé) */
+.frame .rodap {
+  background-color: #010304 !important;
+}

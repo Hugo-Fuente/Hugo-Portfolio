@@ -13,7 +13,7 @@
     <div class="portflio-cyber-de pagina-projeto-wrapper">
       
       <!-- Barra de Navegação Global -->
-      <nav class="navegao" style="position: sticky; top: 0; background-color: #02090d; z-index: 100;" aria-label="Navegação principal">
+      <nav class="navegao" style="position: sticky; top: 0; background-color: #040d12; z-index: 100;" aria-label="Navegação principal">
         <a class="assinatura" href="index.html" aria-label="Hugo.dev, início">
           <span class="circle-x" aria-hidden="true">
             <img class="vector" src="img/vector.svg" alt="Logo">
@@ -69,71 +69,111 @@
           </div>
           
           <div class="lista-cards">
-            <!-- Card 01 -->
-            <article class="card-feature">
-              <div class="card-numero">01</div>
+            <!-- CARTÃO 01: Controle por Gestos -->
+            <div class="card-feature">
+              <span class="card-numero">01</span>
               <div class="card-texto">
                 <h3>Controle por Gestos e Navegação.</h3>
                 <p>Pilotagem completa (decolagem, pouso, eixos dimensionais e rotações) utilizando mapeamento de mãos em tempo real. Inclui travas de segurança para ativações acidentais.</p>
               </div>
-              <img class="card-img" src="img/visual-do-projeto.png" alt="Controle por gestos" />
-            </article>
+              <!-- Imagem corrigida -->
+              <img class="card-img" src="img/reconhece_mao.png" alt="Mapeamento de gestos com MediaPipe">
+            </div>
 
-            <!-- Card 02 -->
-            <article class="card-feature">
-              <div class="card-numero">02</div>
+            <!-- CARTÃO 02: Rastreamento Autônomo -->
+            <div class="card-feature">
+              <span class="card-numero">02</span>
               <div class="card-texto">
                 <h3>Rastreamento Autônomo ("Me Siga").</h3>
                 <p>O drone utiliza a própria câmera e algoritmos de detecção facial para centralizar o usuário e manter uma distância constante de forma autônoma.</p>
               </div>
-              <img class="card-img" src="img/visual-do-projeto-2.png" alt="Rastreamento autônomo" />
-            </article>
+              <!-- Imagem corrigida -->
+              <img class="card-img" src="img/drone_segue.png" alt="Ilustração do rastreamento autônomo">
+            </div>
 
-            <!-- Card 03 -->
-            <article class="card-feature">
-              <div class="card-numero">03</div>
+            <!-- CARTÃO 03: Scan de Rostos 360º -->
+            <div class="card-feature">
+              <span class="card-numero">03</span>
               <div class="card-texto">
                 <h3>Scan de Rostos 360º.</h3>
                 <p>Execução de varredura panorâmica automática, detectando e contabilizando o número de faces presentes no ambiente mapeado.</p>
               </div>
-              <img class="card-img" src="img/image.png" alt="Scan 360" />
-            </article>
+              <!-- Imagem corrigida -->
+              <img class="card-img" src="img/drone_scan360.png" alt="Ilustração de scan 360 graus">
+            </div>
           </div>
         </section>
 
         <!-- SECÇÃO 3: ARQUITETURA E COMANDOS (Fundo) -->
         <section class="arquitetura-projeto">
           <div class="arq-text-container">
-            <h2 class="titulo-secao-esq">Arquitetura e Comandos.</h2>
+            <h2 class="titulo-secao-esq">Arquitetura e Comandos</h2>
             
-            <div class="comandos-grid">
-              <div class="comando-item">
-                <p>Mão Fechada: Decolar / Armar.</p>
-                <p>Mão Aberta: Pousar.</p>
-                <p>“Símbolo do Rock”: Modo Controle por Gestos.</p>
-                <p>“Sinal de Paz”: Modo de Comandos Especiais.</p>
-              </div>
+            <div class="painel-comandos">
               
-              <!-- Agrupamento das imagens das mãos -->
-              <div class="maos-galeria">
-                <img src="img/image-11.png" alt="Mão">
-                <img src="img/image-6.png" alt="Mão">
-                <img src="img/image-7.png" alt="Mão">
-                <img src="img/image-12.png" alt="Mão">
-                <img src="img/image-13.png" alt="Mão">
-                <img src="img/image-8.png" alt="Mão">
-                <img src="img/image-9.png" alt="Mão">
-                <img src="img/image-10.png" alt="Mão">
-                <img src="img/image-5.png" alt="Mão">
-                <img src="img/image-4.png" alt="Mão">
-                <img src="img/image-15.png" alt="Mão">
-                <img src="img/image-16.png" alt="Mão">
+              <!-- Mão Fechada -->
+              <div class="cmd-item fechada">
+                <p>• Mão Fechada: Decolar / Armar.</p>
+                <img src="img/fechada.png" alt="Mão Fechada"> 
               </div>
+
+              <!-- Mão Aberta -->
+              <div class="cmd-item aberta">
+                <p>• Mão Aberta: Pousar.</p>
+                <img src="img/aberta.png" alt="Mão Aberta">
+              </div>
+
+              <!-- Símbolo Rock -->
+              <div class="cmd-item rock">
+                <p>• "Símbolo do Rock": Modo Controle por Gestos.</p>
+                <img src="img/rock.png" alt="Símbolo Rock">
+              </div>
+
+              <!-- Sinal de Paz -->
+              <div class="cmd-item paz">
+                <p>• "Sinal de Paz": Modo de Comandos Especiais.</p>
+                <img src="img/paz.png" alt="Sinal de Paz">
+              </div>
+
+              <!-- CRUZ DE NAVEGAÇÃO -->
+              <div class="cruz-navegacao">
+                
+                <div class="cruz-celula top">
+                  <img src="img/4dedo.png" alt="Frente">
+                </div>
+                
+                <div class="cruz-celula left">
+                  <img src="img/minimo.png" alt="Esquerda">
+                </div>
+                
+                <div class="cruz-celula center">
+                  <img src="img/D-PAD.png" alt="Teclas Direcionais">
+                </div>
+                
+                <div class="cruz-celula right">
+                  <img src="img/minimo.png" alt="Direita">
+                </div>
+                
+                <div class="cruz-celula bottom-left giro">
+                  <img src="img/turn_left.png" class="icone-girar" alt="Girar Esq">
+                  <img src="img/image-12.png" alt="3 Dedos">
+                </div>
+                
+                <div class="cruz-celula bottom">
+                  <img src="img/L.png" alt="Trás">
+                </div>
+                
+                <div class="cruz-celula bottom-right giro">
+                  <img src="img/hangloose.png" alt="Hang Loose">
+                  <img src="img/turn_right.png" class="icone-girar" alt="Girar Dir">
+                </div>
+
+              </div> <!-- Fim da Cruz -->
+
             </div>
           </div>
           
-          <!-- Ilustração Coruja 2 -->
-          <img class="bg-coruja-2" src="img/image-2-2.png" alt="Ilustração Coruja Drone">
+          <img class="bg-coruja-2" src="img/image 2.png" alt="Ilustração Coruja Drone">
           
           <div class="creditos-arte">
             <p>Desenhos feitos por: Uncle_Zah</p>

@@ -210,16 +210,24 @@ header .nome {
   color: #ddecf0 !important;
 }
 
-.titulo-secao, .titulo-secao-esq {
-  font-family: "Roboto Condensed", Helvetica, sans-serif !important;
-  font-weight: 700;
-  font-size: 42px;
-  
-  /* A MUDANÇA: Branco gelo brilhante e estaladiço */
-  color: #f4f9fa !important; 
-  
+.titulo-secao-esq {
+  font-family: 'Space Grotesk', Helvetica, sans-serif !important; /* Fonte encorpada */
+  font-weight: 700 !important;
+  font-size: 48px !important; /* Tamanho ligeiramente maior para impacto */
+  color: #ddecf0 !important; /* Branco acinzentado/azulado */
+  letter-spacing: -1px !important; /* Aproxima ligeiramente as letras */
   margin: 0;
-  padding-right: 120px;
+  padding-right: 0; /* Remove padding desnecessário que possa afetar o alinhamento */
+}
+
+.titulo-secao {
+  font-family: 'Space Grotesk', Helvetica, sans-serif !important; /* Fonte encorpada */
+  font-weight: 700 !important;
+  font-size: 48px !important;
+  color: #ddecf0 !important; /* Branco puro para maior contraste no fundo claro */
+  letter-spacing: -1px !important;
+  margin: 0;
+  padding-right: 120px; /* Mantém o padding original caso afete o layout dos cartões */
 }
 
 .lista-cards {
@@ -288,13 +296,14 @@ header .nome {
   border: 1px solid rgba(255,255,255,0.05);
 }
 
-/* --- 3. ARQUITETURA E COMANDOS (Fundo) --- */
 .arquitetura-projeto {
   display: flex;
   min-height: 90vh;
   padding: 100px;
   position: relative;
   align-items: center;
+  z-index: 10 !important; /* Coloca esta secção por cima do fundo escuro anterior */
+  overflow: visible !important; /* Impede o corte da asa */
 }
 
 .arq-text-container {
@@ -314,27 +323,143 @@ header .nome {
   line-height: 1.5;
 }
 
-.maos-galeria {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 32px;
+/* =========================================================================
+   LAYOUT DO PAINEL DE COMANDOS (MATCH DA IMAGEM 4 - CORREÇÃO DE COLISÃO)
+   ========================================================================= */
+
+.painel-comandos {
+  display: grid;
+  /* Reduzimos a largura máxima da coluna da cruz (de 'auto' para '420px') para não bater na coruja */
+  grid-template-columns: 280px 420px; 
+  grid-template-areas: 
+    "fechada aberta"
+    "rock    cruz"
+    "paz     cruz";
+  gap: 32px 40px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+  
+  /* Impede que o painel cresça infinitamente para a direita */
+  max-width: 800px; 
 }
 
-.maos-galeria img {
-  height: 60px;
-  object-fit: contain;
-  opacity: 0.8;
+/* Associando os blocos às áreas da grelha */
+.fechada { grid-area: fechada; }
+.aberta  { grid-area: aberta; }
+.rock    { grid-area: rock; }
+.paz     { grid-area: paz; }
+
+.cmd-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: fit-content; /* A MAGIA AQUI: O bloco passa a ter a largura exata da frase */
 }
+
+.cmd-item p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #8fa8b0;
+  margin: 0;
+  line-height: 1.5;
+  width: 100%; /* Garante que o texto ocupa toda a largura disponível */
+}
+
+.cmd-item img {
+  height: 110px;
+  object-fit: contain;
+  border-radius: 6px;
+  align-self: center; /* Agora centraliza em relação ao texto, e não à coluna inteira */
+}
+
+.cruz-celula img {
+  height: 105px;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.3s ease; /* Efeito suave extra */
+}
+
+.cruz-celula.center img {
+  height: 140px !important;
+  width: 140px !important;
+  padding: 0 !important; 
+}
+
+.cruz-navegacao {
+  grid-area: cruz;
+  display: grid;
+  /* Coluna e linha centrais mais largas/altas para acomodar o D-PAD gigante */
+  grid-template-columns: 100px 140px 100px;
+  grid-template-rows: 100px 140px 100px;
+  gap: 12px; /* Reduzimos o espaço para as mãos "tocarem" no D-PAD */
+  justify-content: start;
+  align-content: start;
+  margin-left: 0; 
+}
+
+.cruz-celula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Posicionamento exato na mini-grelha 3x3 */
+.top          { grid-column: 2; grid-row: 1; }
+.left         { grid-column: 1; grid-row: 2; }
+.center       { grid-column: 2; grid-row: 2; }
+.right        { grid-column: 3; grid-row: 2; }
+.bottom-left  { grid-column: 1; grid-row: 3; }
+.bottom       { grid-column: 2; grid-row: 3; }
+.bottom-right { grid-column: 3; grid-row: 3; }
+
+/* Bloco das setas de rotação (Girar) */
+.giro {
+  display: flex;
+  gap: 16px; 
+  align-items: flex-end;
+}
+
+.icone-girar {
+  height: 48px !important; 
+  margin-bottom: 12px;
+}
+
+/* --- AS TECLAS DO D-PAD (Feitas em CSS) --- */
+teclas-dpad {
+  display: grid;
+  grid-template-columns: 32px 32px 32px;
+  grid-template-rows: 32px 32px;
+  gap: 4px;
+}
+
+.tecla {
+  background-color: #312936; /* Tom roxo escuro/acinzentado idêntico ao Figma */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.t-up    { grid-column: 2; grid-row: 1; }
+.t-left  { grid-column: 1; grid-row: 2; }
+.t-down  { grid-column: 2; grid-row: 2; }
+.t-right { grid-column: 3; grid-row: 2; }
 
 .bg-coruja-2 {
   position: absolute;
   right: -5%;
-  bottom: 0;
-  height: 95%;
+  bottom: -5%; /* Prende a coruja à base da secção */
+  height: 125%; /* Aumentado para 125%: o excesso vai vazar para o bloco de cima! */
   object-fit: contain;
   z-index: 1;
-  opacity: 0.9;
+  pointer-events: none; /* Garante que a asa não bloqueia cliques noutros elementos */
 }
 
 .creditos-arte {
@@ -398,4 +523,19 @@ header .nome {
     /* Move na diagonal devido à rotação, parecendo ir reto para baixo */
     transform: rotate(45deg) translate(6px, 6px); 
   }
+}
+
+/* =========================================================================
+   PALETA DE 3 TONS (PÁGINA DO PROJETO)
+   ========================================================================= */
+
+/* Azul Escuro (Fundo Geral, Hero e Arquitetura) */
+.pagina-projeto-wrapper,
+.arquitetura-projeto {
+  background-color: #040d12 !important;
+}
+
+/* Azul Claro (Secção de Funcionalidades) */
+.funcionalidades-projeto {
+  background-color: #07161c !important; 
 }
