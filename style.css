@@ -1337,63 +1337,224 @@ html {
 }
 
 /* =========================================================================
-   RESPONSIVIDADE: RESET ABSOLUTO (INCLUINDO ARTICLES E GRIDS)
+   RESPONSIVIDADE: RESET ABSOLUTO MOBILE (INCLUINDO FIXES DE TEXTO E TOPO)
    ========================================================================= */
-
-/* AJUSTES FINAIS APENAS PARA MOBILE */
 @media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: #02090d;
+    margin: 0;
+    padding: 0;
+  }
+
+  .frame,
+  .frame .portflio-cyber-de {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* 1. ESCONDE OS LINKS DO DESKTOP PARA NÃO QUEBRAR A TELA */
+  .frame .links,
+  .frame .status,
+  .frame .leitura-biomtrica,
+  .frame .ndice-de-rolagem,
+  .frame .vu-cinematogrfico,
+  .frame .gradiente-inferior {
+    display: none !important;
+  }
+
+  /* 2. CORRIGE O ESPAÇO GIGANTE NO TOPO DA NAVEGAÇÃO */
   .frame .navegao {
     padding: 16px 20px !important;
+    margin-bottom: 0 !important;
+    height: auto !important;
     border-bottom: none !important;
   }
 
+  .frame .circle-x,
+  .frame .vector {
+    width: 22px;
+    height: 22px;
+  }
+
+  .frame .nome {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  /* 3. PUXA O TEXTO "SISTEMAS/DADOS" LÁ PARA CIMA */
   .frame .contedo-do-hero {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    top: 0 !important; 
     margin-top: 10px !important;
     padding: 0 20px !important;
-    box-sizing: border-box !important;
   }
 
-  .frame .t-tulo {
-    font-size: 38px !important;
-    word-break: keep-all !important;
-    hyphens: none !important;
+  .frame .microcopy {
+    margin: 0 0 12px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
   }
 
+  /* 4. IMPEDE O TEXTO DE CORTAR OU FICAR HIFENIZADO ("SIS-TEMAS") */
   .frame .t-tulo,
   .frame .p,
   .frame .t-tulo-2,
   .frame .t-tulo-3,
   .frame .t-tulo-4,
   .frame .t-tulo-5,
-  .frame .t-tulo-6,
-  .frame .descri-o,
-  .frame .descri-o-2 {
+  .frame .t-tulo-6 {
+    display: block;
     width: 100% !important;
     max-width: 100% !important;
-    box-sizing: border-box !important;
+    font-size: 38px !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.03em !important;
     white-space: normal !important;
     overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: none !important;
+    margin: 0 0 16px;
+    box-sizing: border-box !important;
   }
 
-  .frame .contedo-do-hero .aes {
+  .frame .descri-o,
+  .frame .descri-o-2,
+  .frame .descri-o-3,
+  .frame .descri-o-4,
+  .frame .complemento,
+  .frame .nota-2,
+  .frame .nota-3,
+  .frame .cargo,
+  .frame .cargo-2,
+  .frame .resumo,
+  .frame .resumo-2,
+  .frame .per-odo {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 16px;
+    box-sizing: border-box !important;
+  }
+
+  /* 5. VOLTA A EMPILHAR OS BOTÕES E COLUNAS PARA O MOBILE */
+  .frame .aes,
+  .frame .indicadores,
+  .frame .lista-de-projetos,
+  .frame .grade-de-competncias,
+  .frame .processo {
     display: flex !important;
     flex-direction: column !important;
     gap: 12px !important;
-  }
-
-  .frame .contedo-do-hero .ao,
-  .frame .contedo-do-hero .div {
     width: 100% !important;
+    max-width: 100% !important;
   }
 
+  .frame .ao,
+  .frame .div {
+    width: 100% !important;
+    min-height: 52px;
+  }
+
+  .frame .ao span,
+  .frame .div span,
+  .frame .r-tulo,
+  .frame .r-tulo-2,
+  .frame .r-tulo-3 {
+    display: inline-block;
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* 6. GARANTE MARGENS LATERAIS EM TODAS AS TELAS */
+  .frame .abertura,
   .frame .apresentao,
   .frame .meus-projetos,
   .frame .competncias,
   .frame .experncia-e,
   .frame .terminal-e-contato {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 20px 20px 24px !important;
     box-sizing: border-box !important;
-    overflow-x: hidden !important;
+    overflow: hidden !important;
+  }
+
+  .frame .abertura {
+    padding-top: 0 !important;
+  }
+
+  /* Suaviza a foto de fundo para facilitar leitura */
+  .frame .retrato-principal-de {
+    right: -18%;
+    width: 150%;
+    opacity: 0.15 !important;
+  }
+  
+  /* Reset geral de caixas para não vazarem */
+  .frame .manifesto,
+  .frame .texto,
+  .frame .ttulo-da-seo,
+  .frame .ttulo-da-seo-2,
+  .frame .convite,
+  .frame .indicador,
+  .frame .div-2,
+  .frame .minesweeper,
+  .frame .competncia,
+  .frame .etapa {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+
+  .frame .div-2,
+  .frame .minesweeper,
+  .frame .competncia,
+  .frame .etapa,
+  .frame .indicador {
+    padding: 20px !important;
+    border-radius: 12px !important;
+  }
+  
+  .frame .contedo,
+  .frame .contedo-2 {
+    padding: 16px !important;
+    gap: 10px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .frame .visual-do-projeto,
+  .frame .img,
+  .frame .visual-do-projeto-2 {
+    height: 170px !important;
+  }
+  
+  .frame .contato {
+    padding: 18px 0 0 !important;
+    gap: 20px;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
