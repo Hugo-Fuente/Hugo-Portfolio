@@ -28,72 +28,78 @@ html {
   max-width: 1440px;
   margin: 0 auto;
   
-  /* AJUSTE AQUI: Troque 'hidden' por 'clip' */
-  overflow: clip; 
+  /* MUDANÇA AQUI: Troque 'clip' por 'visible' para permitir que a foto vaze para as bordas de monitores grandes */
+  overflow: visible; 
 }
 
 .frame .abertura {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Devolvido para 100vh para preencher o bloco inteiro */
+  height: 100vh;
   min-height: 650px; 
   align-items: flex-start;
   position: relative;
   align-self: stretch;
   width: 100%;
   background-color: #02090d;
-  overflow: hidden;
   
-  /* Adicionar a trava também neste primeiro bloco */
+  /* MUDANÇA AQUI: Troque 'hidden' por 'visible' para desativar a "tesoura" do navegador */
+  overflow: visible; 
+  
   scroll-snap-align: start; 
 }
 
 .frame .retrato-principal-de {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 750px; /* Aumentamos um pouco para recuperar espaço de manobra */
-  max-width: 150%; /* Permite que a foto avance mais para a esquerda do ecrã */
+  
+  /* MUDANÇAS AQUI: Cálculo que empurra a foto para a direita infinita do monitor e garante que ela não fique pequena */
+  right: calc(50% - 50vw); 
+  width: max(750px, 50vw); 
+  max-width: none; 
+  
   height: 115%;
   object-fit: cover;
-  
-  /* AJUSTE AQUI: Valores perto de 0% empurram a foto para a esquerda */
   object-position: 0% center; 
-  
   z-index: 0;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
   mask-image: linear-gradient(to right, transparent 0%, black 40%);
 }
 
-/* 2. O véu volta a ser apenas uma sombra suave para o texto */
 .frame .vu-cinematogrfico {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  
+  /* MUDANÇAS AQUI: Força o véu escuro a ter a largura exata da tela (100vw) e a alinhar-se à borda esquerda do monitor */
+  left: calc(50% - 50vw);
+  width: 100vw;
+  
   height: 100%;
   background: linear-gradient(
     90deg,
-    rgba(2, 9, 13, 0.95) 0%, /* Bem escuro atrás do texto */
-    rgba(2, 9, 13, 0.4) 45%, /* Suave no meio */
-    rgba(2, 9, 13, 0) 100%   /* 100% transparente no lado direito do seu rosto */
+    rgba(2, 9, 13, 0.95) 0%, 
+    rgba(2, 9, 13, 0.4) 45%, 
+    rgba(2, 9, 13, 0) 100%  
   );
   z-index: 1;
-  pointer-events: none; /* Garante que você pode clicar nos botões */
+  pointer-events: none; 
 }
 
 .frame .gradiente-inferior {
   position: absolute;
-  bottom: 0; /* Prende o gradiente no final (embaixo) do cabeçalho */
-  left: 0;
-  width: 100%;
-  height: 300px; /* Altura do esfumaçado */
+  bottom: 0; 
+  
+  /* MUDANÇAS AQUI: Estica a névoa inferior para a largura total da tela, igual ao véu cinematográfico */
+  left: calc(50% - 50vw);
+  width: 100vw;
+  
+  height: 300px; 
   background: linear-gradient(
     to top, 
-    rgba(2, 9, 13, 1) 0%, /* Sólido na base para fundir com a próxima seção */
-    rgba(2, 9, 13, 0) 100% /* Transparente no topo para mostrar seu rosto */
+    rgba(2, 9, 13, 1) 0%, 
+    rgba(2, 9, 13, 0) 100% 
   );
-  z-index: 1; /* Fica acima da foto, mas abaixo do texto */
+  z-index: 1; 
 }
 
 .frame .navegao {
@@ -1802,12 +1808,14 @@ html {
   }
 
   .frame .descri-o-5 {
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    color: #8a9a9d !important; /* Devolve a cor cinza claro/azulado */
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 560px !important; /* Mantém o texto alinhado no desktop */
     white-space: normal !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    box-sizing: border-box !important;
   }
 
   /* 5. Ajusta o Terminal para ficar flexível e sem espaços bizarros */
