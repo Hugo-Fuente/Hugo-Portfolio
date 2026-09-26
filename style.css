@@ -1882,4 +1882,45 @@ html {
     max-height: none !important;
     overflow-y: visible !important;
   }
+
+  /* =========================================================================
+     CORREÇÃO FINAL ABSOLUTA: RODAPÉ E CRÉDITOS (MOBILE)
+     ========================================================================= */
+  .frame .rodap {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    padding: 32px 20px 0px !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .frame .marca {
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 16px !important;
+  }
+
+  .frame .nota-4 {
+    width: 100% !important;
+    text-align: center !important;
+    white-space: normal !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  .frame .nota-5 {
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    left: auto !important;
+    top: auto !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 16px auto 40px auto !important;
+    padding: 0 !important;
+  }
 }
