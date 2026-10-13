@@ -59,7 +59,7 @@ html {
   max-width: 900px; /* Impede que fique gigante em monitores ultrawide */
   
   object-fit: cover;
-  object-position: center center; /* Mantém o seu rosto e ombros bem enquadrados */
+  object-position: center 45%;
   
   z-index: 0;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
