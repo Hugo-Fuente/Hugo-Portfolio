@@ -52,19 +52,14 @@ html {
 .frame .retrato-principal-de {
   position: absolute;
   top: 0;
+  right: 0; /* Cola a foto no canto direito absoluto da tela */
   
-  /* 1. Reduzimos a largura para a foto não invadir tanto o centro da tela */
-  right: calc(50% - 50vw); 
-  width: max(600px, 40vw); /* Antes era 750px e 50vw */
-  max-width: none; 
-  
-  /* 2. Reduzimos a altura (antes era 115%) para "afastar" o zoom do rosto */
+  width: 55vw; /* Ocupa um pouco mais da metade da tela, dando espaço para os ombros */
   height: 100%;
+  max-width: 900px; /* Impede que fique gigante em monitores ultrawide */
   
   object-fit: cover;
-  
-  /* 3. Centraliza a foto para mostrar mais do seu ombro/corpo e menos "só rosto" */
-  object-position: center center; 
+  object-position: center center; /* Mantém o seu rosto e ombros bem enquadrados */
   
   z-index: 0;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
@@ -1242,7 +1237,7 @@ html {
   font-family: "Roboto Mono-Regular", Helvetica, sans-serif !important;
   font-size: 10px !important;
   white-space: nowrap !important;
-  margin-right: 180px !important; /* Empurra a frase para a esquerda, fugindo do logo do Netlify */
+  margin-right: 0 !important;
 }
 
 .frame .nota-5 {
