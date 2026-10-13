@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sokopato AI - HUGO.DEV_</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="globals.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-projeto.css">
+
+  <style>
+    /* =====================================================================
+       LAYOUT DEFINITIVO: FEATURE CARDS COM MÉTRICAS E JANELAS NATIVAS
+       ===================================================================== */
+    
+    .sokopato-wrapper {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 40px 120px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 100px; 
+    }
+
+    /* --- 1. HERO --- */
+    .hero-compacto {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .botao-voltar {
+      position: absolute;
+      left: -150px; 
+      top: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #65fff0;
+      font-family: 'Roboto Mono', monospace;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: opacity 0.3s ease;
+    }
+    .botao-voltar:hover { opacity: 0.7; }
+
+    .tags-topo {
+      color: #8fa8b0;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .logo-titulo {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 32px;
+      filter: drop-shadow(0 0 30px rgba(101, 255, 240, 0.15));
+    }
+
+    .descricao-hero {
+      font-family: "Inter", sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #8fa8b0;
+      margin: 0;
+    }
+
+    /* --- 2. BLOCOS ASSIMÉTRICOS (Imagem + Texto) --- */
+    .feature-row {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 60px;
+      width: 100%;
+    }
+
+    .feature-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .feature-text {
+      flex: 1;
+      max-width: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .info-titulo {
+      font-family: 'Space Grotesk', sans-serif;
+      color: #ddecf0;
+      font-size: 32px;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .info-texto {
+      font-family: 'Inter', sans-serif;
+      color: #8fa8b0;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .creditos-box {
+      border-left: 2px solid #65fff0;
+      padding-left: 16px;
+    }
+    .creditos-box p {
+      margin: 0 0 8px 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #8fa8b0;
+    }
+    .creditos-box strong { color: #ddecf0; }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .stack-tags span {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      color: #65fff0;
+      background: rgba(101, 255, 240, 0.05);
+      border: 1px solid rgba(101, 255, 240, 0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+
+    /* CARTÕES DE MÉTRICA */
+    .metricas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .metrica-card {
+      background: rgba(11, 32, 40, 0.5);
+      border: 1px solid #173a43;
+      padding: 16px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .metrica-valor {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #65fff0;
+      line-height: 1;
+    }
+    
+    /* CORREÇÃO DO EXPOENTE */
+    .metrica-valor sup {
+      font-size: 14px; 
+      position: relative; /* OBRIGATÓRIO PARA O TOP FUNCIONAR */
+      top: -0.6em; /* Puxa o 'd' para cima virando expoente */
+    }
+    
+    .metrica-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      color: #8fa8b0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- 3. JANELAS --- */
+    .feature-media {
+      flex: 1;
+      max-width: 550px; 
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .barra-janela {
+      background: #0b2028;
+      border-bottom: 1px solid #173a43;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+
+    /* BROWSER (Estilo macOS) */
+    .browser-window {
+      background: #07161c;
+      border: 1px solid #173a43;
+    }
+    .botoes-mac {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .dot { 
+      width: 12px;
+      height: 12px; 
+      border-radius: 50%; 
+      display: inline-block;
+    }
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
+    
+    .url-input {
+      margin: 0 auto;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: #8fa8b0;
+      background: rgba(0,0,0,0.2);
+      padding: 4px 60px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* TERMINAL (Estilo Windows/Linux) */
+    .terminal-window {
+      background: #02090d;
+      border: 1px solid #173a43;
+    }
+    .barra-terminal {
+      justify-content: space-between;
+    }
+    .term-title { 
+      font-family: 'Roboto Mono', monospace; 
+      color: #8fa8b0; 
+      font-size: 11px; 
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .term-title::before {
+      content: '$_';
+      color: #65fff0;
+      font-weight: 700;
+    }
+    .term-controls { 
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .win-btn {
+      width: 12px;
+      height: 12px;
+      position: relative;
+    }
+    .btn-min::after { content: ''; position: absolute; bottom: 2px; left: 0; width: 100%; height: 1px; background: #8fa8b0; }
+    .btn-max::after { content: ''; position: absolute; top: 1px; left: 1px; width: 8px; height: 8px; border: 1px solid #8fa8b0; }
+    .btn-close::before, .btn-close::after { content: ''; position: absolute; top: 5px; left: -1px; width: 14px; height: 1px; background: #8fa8b0; }
+    .btn-close::before { transform: rotate(45deg); }
+    .btn-close::after { transform: rotate(-45deg); }
+
+    .conteudo-janela {
+      flex: 1;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+    }
+    .terminal-window .conteudo-janela { background: #000; }
+    
+    .conteudo-janela img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* CORREÇÃO DA ETIQUETA */
+    .bento-tag {
+      position: absolute;
+      bottom: 24px;
+      right: 16px; /* Ajustado para não cortar fora da div */
+      z-index: 20; /* Camada superior garantida */
+      background: #65fff0;
+      color: #02090d;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      box-shadow: 0 8px 16px rgba(101, 255, 240, 0.2);
+    }
+
+    /* Responsividade */
+    @media (max-width: 1100px) {
+      .botao-voltar { position: static; margin-bottom: 32px; }
+    }
+    @media (max-width: 900px) {
+      .sokopato-wrapper { gap: 60px; padding: 40px 20px 80px; }
+      .feature-row, .feature-row.reverse { flex-direction: column; gap: 40px; }
+      .feature-text { max-width: 100%; }
+      .feature-media { max-width: 100%; width: 100%; }
+      .url-input { display: none; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="frame">
+    <div class="portflio-cyber-de pagina-projeto-wrapper">
+      
+      <!-- NAVEGAÇÃO -->
+      <nav class="navegao" style="position: sticky; top: 0; background-color: #040d12; z-index: 100;" aria-label="Navegação principal">
+        <a class="assinatura" href="index.html" aria-label="Hugo.dev, início">
+          <span class="circle-x" aria-hidden="true"><img class="vector" src="img/vector.svg" alt="Logo"></span>
+          <span class="nome">HUGO.DEV_</span>
+        </a>
+        <ul class="links">
+            <li><a class="text-wrapper" href="index.html#perfil">SOBRE</a></li>
+            <li><a class="text-wrapper" href="index.html#projetos">PROJETOS</a></li>
+            <li><a class="text-wrapper" href="index.html#competencias">HABILIDADES</a></li>
+            <li><a class="text-wrapper" href="index.html#experiencia">EXPERIÊNCIA</a></li>
+            <li><a class="text-wrapper" href="index.html#contato">CONTATO</a></li>
+        </ul>
+        <p class="status" role="status">● DISPONÍVEL PARA MISSÕES</p>
+      </nav>
+
+      <main class="sokopato-wrapper">
+        
+        <!-- HERO -->
+        <header class="hero-compacto">
+          <a href="index.html#projetos" class="botao-voltar">← Voltar</a>
+          <div class="tags-topo">// IA · ALGORITMOS DE BUSCA</div>
+          <img src="img/sokopato-logo.png" alt="Sokopato AI Solver" class="logo-titulo">
+          <p class="descricao-hero">
+            O desafio deste projeto era desenvolver um <strong>Agente Inteligente</strong> capaz de encontrar autonomamente a sequência ótima de movimentos para resolver o jogo Sokoban, um problema clássico de complexidade PSPACE-completo.
+          </p>
+        </header>
+
+        <!-- SECÇÃO 1: Web / A* -->
+        <section class="feature-row">
+          
+          <div class="feature-text">
+            <h2 class="info-titulo">Lógica e Motor A*</h2>
+            <p class="info-texto">
+              Para resolver tabuleiros complexos onde a força bruta é inútil, implementamos o algoritmo de busca <strong>A* (A-Star)</strong>. Utilizando a Distância de Manhattan como heurística, a IA é guiada pelas rotas mais prováveis, aliada a um forte sistema de <i>deadlock detection</i> que descarta caminhos impossíveis.
+            </p>
+            
+            <div class="creditos-box">
+              <p><strong>Engenharia do Algoritmo A*:</strong> Yuri Tadeu Covo Zwaig</p>
+              <p><strong>Apoio Técnico & Documentação:</strong> Hugo Gomes e Letícia Wong</p>
+            </div>
+
+            <div class="metricas-grid">
+              <div class="metrica-card">
+                <span class="metrica-valor">85.382</span>
+                <span class="metrica-label">Nós Avaliados</span>
+              </div>
+              <div class="metrica-card">
+                <!-- Elevação matemática aplicada com sucesso -->
+                <span class="metrica-valor">O(b<sup>d</sup>)</span>
+                <span class="metrica-label">Complexidade</span>
+              </div>
+            </div>
+
+            <div class="stack-tags">
+              <span>Algoritmo A*</span>
+              <span>Distância de Manhattan</span>
+            </div>
+          </div>
+
+          <div class="feature-media browser-window">
+            <div class="barra-janela">
+              <div class="botoes-mac">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              </div>
+              <div class="url-input">sokopato.online</div>
+            </div>
+            <div class="conteudo-janela">
+              <img src="img/sokopato-web.jpg" alt="Interface Web Sokopato">
+            </div>
+            <!-- Etiqueta corrigida -->
+            <span class="bento-tag">Simulador Interativo</span>
+          </div>
+
+        </section>
+
+        <!-- SECÇÃO 2: Terminal / Debug -->
+        <section class="feature-row reverse">
+          
+          <div class="feature-text">
+            <h2 class="info-titulo">Depuração e Renderização</h2>
+            <p class="info-texto">
+              Antes de chegarmos à interface web polida, o motor foi intensivamente testado num ambiente isolado. Construímos uma camada de renderização crua focada unicamente na performance da matriz matemática. Cada movimento gera um novo estado que é validado em milissegundos.
+            </p>
+            
+            <div class="metricas-grid">
+              <div class="metrica-card" style="grid-column: span 2;">
+                <span class="metrica-valor" style="font-size: 18px; color: #ddecf0;">Deadlock Detection</span>
+                <span class="metrica-label">Sistema heurístico para abandono de rotas irrecuperáveis</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="feature-media terminal-window">
+            <div class="barra-janela barra-terminal">
+              <span class="term-title">motor-matriz</span>
+              <div class="term-controls">
+                <div class="win-btn btn-min"></div>
+                <div class="win-btn btn-max"></div>
+                <div class="win-btn btn-close"></div>
+              </div>
+            </div>
+            <div class="conteudo-janela">
+              <img src="img/sokopato-debug-mobile.jpg" alt="Debug Motor Sokopato">
+            </div>
+            <span class="bento-tag" style="background: #02090d; color: #65fff0; border: 1px solid #65fff0;">Raw View</span>
+          </div>
+
+        </section>
+
+      </main>
+
+      <footer class="rodap">
+        <div class="marca">HUGO.DEV_</div>
+        <p class="nota-4">PROJETADO COM CURIOSIDADE · OPERADO COM CUIDADO · © 2026</p>
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>

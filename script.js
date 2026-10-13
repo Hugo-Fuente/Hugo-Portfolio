@@ -49,3 +49,31 @@ if (btnAbrir) {
     }
   });
 }
+
+// =========================================================================
+// CARROSSEL: SCROLL COM RATO E FADE-OUT DINÂMICO
+// =========================================================================
+const carrosselProjetos = document.querySelector('.lista-de-projetos');
+const secaoProjetos = document.querySelector('.meus-projetos');
+
+if (carrosselProjetos && secaoProjetos) {
+  carrosselProjetos.addEventListener('wheel', function(e) {
+    if (window.innerWidth > 768) {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        carrosselProjetos.scrollBy({
+          left: e.deltaY > 0 ? 400 : -400,
+          behavior: 'smooth'
+        });
+      }
+    }
+  });
+
+  function atualizarFade() {
+    const chegouAoFim = carrosselProjetos.scrollWidth - carrosselProjetos.clientWidth <= carrosselProjetos.scrollLeft + 5;
+    secaoProjetos.style.setProperty('--fade-opacity', chegouAoFim ? '0' : '1');
+  }
+
+  carrosselProjetos.addEventListener('scroll', atualizarFade);
+  atualizarFade();
+}

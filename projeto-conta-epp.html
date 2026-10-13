@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>API de Governança EPP - HUGO.DEV_</title>
+  <link rel="stylesheet" href="globals.css">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Estilos específicos para a página da API */
+    .pagina-backend-wrapper {
+      background-color: #02090d;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      overflow-x: clip;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Hero Section - Ajustado para caber na primeira tela */
+    .hero-backend {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      min-height: calc(100vh - 100px);
+      padding: 20px 100px 40px 100px;
+      gap: 40px;
+      position: relative;
+    }
+
+    .hero-texto {
+      flex: 1;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 10;
+    }
+
+    .tag-topo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tag-topo .linha-ciano {
+      width: 32px;
+      height: 2px;
+      background-color: #65fff0;
+    }
+
+    .tag-topo span {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 12px;
+      color: #8fa8b0;
+      letter-spacing: 2px;
+    }
+
+    .titulo-principal {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      color: #ddecf0;
+      font-size: 50px;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin: 0;
+    }
+
+    .descricao-principal {
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      color: #8fa8b0;
+      font-size: 17px;
+      line-height: 1.5;
+      margin: 0 0 16px 0;
+    }
+
+    /* Link estilizado do Bootcamp */
+    .destaque-bootcamp {
+      color: #65fff0 !important;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .destaque-bootcamp:hover {
+      text-decoration: underline;
+      color: #4ade80 !important;
+    }
+
+    /* Botões com Outline */
+    .botoes-hero {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline-cyan {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
+      color: #65fff0 !important;
+      background: transparent;
+      border: 1px solid #65fff0;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-cyan:hover {
+      background-color: #65fff0 !important;
+      color: #02090d !important;
+      box-shadow: 0 0 20px rgba(101, 255, 240, 0.4);
+    }
+
+    /* O Visual Principal */
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+    }
+
+    .diagrama-container {
+      background-color: #0b2028;
+      border: 1px solid #173a43;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      position: relative;
+      cursor: zoom-in;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .diagrama-container:hover {
+      transform: translateY(-2px);
+      border-color: #65fff0;
+    }
+
+    .diagrama-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .legenda-img {
+      position: absolute;
+      bottom: -12px;
+      right: 24px;
+      background-color: #65fff0;
+      color: #02090d;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* Modal de Zoom */
+    #modal-zoom {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(2, 9, 13, 0.95);
+      backdrop-filter: blur(5px);
+      cursor: zoom-out;
+    }
+
+    #modal-zoom img {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90vh;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid #173a43;
+      box-shadow: 0 0 40px rgba(101, 255, 240, 0.15);
+      border-radius: 8px;
+    }
+
+    /* Seção de Arquitetura */
+    .arquitetura-backend {
+      background-color: #071118;
+      padding: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .grid-decisoes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card-decisao {
+      background: linear-gradient(145deg, rgba(11, 32, 40, 0.9) 0%, rgba(7, 22, 28, 0.9) 100%);
+      border: 1px solid #173a43;
+      border-top: 2px solid #173a43;
+      border-radius: 8px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .card-decisao:hover {
+      border-color: #65fff0;
+      border-top: 2px solid #65fff0;
+      transform: translateY(-4px);
+    }
+
+    .card-decisao h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      color: #ddecf0;
+      margin: 0;
+    }
+
+    .card-decisao p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #8fa8b0;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .icon-tech {
+      font-family: 'Roboto Mono', monospace;
+      color: #65fff0;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    /* Terminal de Execução */
+    .terminal-execucao {
+      width: 100%;
+      background-color: #02090d;
+      border-radius: 12px;
+      border: 1px solid rgba(101, 255, 240, 0.4);
+      overflow: hidden;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .terminal-header {
+      background-color: #0b2028;
+      border-bottom: 1px solid #173a43;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #82a4a8;
+      font-size: 13px;
+    }
+
+    /* Botões do Terminal Alinhados */
+    .terminal-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .terminal-controls span {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #82a4a8;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    .terminal-controls span:hover {
+      color: #65fff0;
+    }
+
+    .terminal-body {
+      padding: 16px 24px;
+      color: #65fff0;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .terminal-body .comando { color: #fff; }
+    .terminal-body .comentario { color: #82a4a8; }
+    .terminal-body .sucesso { color: #4ade80; }
+
+    /* SEÇÃO: Bootcamp QI Tech */
+    .bootcamp-section {
+      background-color: #040d12;
+      padding: 100px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 80px;
+      border-top: 1px solid #173a43;
+    }
+
+    .bootcamp-texto {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 12px; 
+    }
+
+    .bootcamp-visual {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      position: relative;
+    }
+
+    /* Contentor para alinhar os dois logótipos nas proporções originais */
+    .logos-bootcamp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .logo-qitech {
+      height: 24px;
+      width: auto;
+    }
+
+    .logo-bootcamp {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+    }
+
+    .foto-container {
+      position: relative;
+      border-radius: 8px;
+      padding: 16px;
+      background-color: #0b2028;
+      border: 1px solid #173a43;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .foto-guanabara {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 4px;
+      /* Aplica preto e branco e corrige a luz (menos brilho, mais contraste) */
+      filter: grayscale(100%) brightness(0.95) contrast(1.15);
+      transition: filter 0.4s ease;
+    }
+
+    /* Efeito: A foto ganha cor ao passar o mouse, mantendo a luz corrigida */
+    .foto-container:hover .foto-guanabara {
+      filter: grayscale(0%) brightness(0.95) contrast(1.15) saturate(1.1);
+    }
+
+    .btn-qitech {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
+      color: #02090d !important;
+      background-color: #65fff0;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 700;
+      transition: all 0.3s;
+      width: fit-content;
+      margin-top: 16px;
+    }
+
+    .btn-qitech:hover {
+      background-color: #4ade80;
+      box-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+    }
+
+    /* Responsividade */
+    @media (max-width: 1024px) {
+      .hero-backend, .bootcamp-section {
+        flex-direction: column;
+        padding: 60px 20px;
+        gap: 40px;
+      }
+      .grid-decisoes {
+        grid-template-columns: 1fr;
+      }
+      .arquitetura-backend {
+        padding: 60px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="pagina-backend-wrapper">
+      
+      <!-- Navbar -->
+      <nav class="navegao" style="position: sticky; top: 0; background-color: #040d12; z-index: 100;">
+        <a class="assinatura" href="index.html">
+          <span class="circle-x"><img class="vector" src="img/vector.svg" alt="Logo"></span>
+          <span class="nome">HUGO.DEV_</span>
+        </a>
+        <ul class="links">
+            <li><a class="text-wrapper" href="index.html#perfil">SOBRE</a></li>
+            <li><a class="text-wrapper" href="index.html#projetos">PROJETOS</a></li>
+            <li><a class="text-wrapper" href="index.html#competencias">HABILIDADES</a></li>
+            <li><a class="text-wrapper" href="index.html#experiencia">EXPERIÊNCIA</a></li>
+            <li><a class="text-wrapper" href="index.html#contato">CONTATO</a></li>
+        </ul>
+        <p class="status">● DISPONÍVEL PARA MISSÕES</p>
+      </nav>
+
+      <main>
+        <!-- SEÇÃO 1: HERO -->
+        <section class="hero-backend">
+          <div class="hero-texto">
+            <div class="tag-topo">
+              <div class="linha-ciano"></div>
+              <span>API REST · QI TECH BOOTCAMP 2026</span>
+            </div>
+            
+            <h1 class="titulo-principal">Conta Compartilhada para EPPs.</h1>
+            <p class="descricao-principal">
+              O dinheiro é da sociedade, não dos sócios. Desenvolvida como entrega final e protótipo bancário para o <a href="https://bootcamp.qitech.com.br/" target="_blank" class="destaque-bootcamp">Bootcamp QI Tech</a>, esta API resolve a gestão financeira paralela em Pequenas Empresas, criando uma conta única onde cada sócio opera com permissões estritas, limites de transação e regras dinâmicas de aprovação.
+            </p>
+            
+            <div class="botoes-hero">
+              <a href="https://github.com/Hugo-Fuente/Sistema-Bancario-QiTech-Bootcamp" target="_blank" class="btn-outline-cyan">CÓDIGO NO GITHUB</a>
+              <a href="https://github.com/Hugo-Fuente/Sistema-Bancario-QiTech-Bootcamp/blob/main/RFC_Bootcamp_v6.pdf" target="_blank" class="btn-outline-cyan">LER RFC (ARQUITETURA)</a>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;">
+              <span class="status" style="background: rgba(101,255,240,0.1); border: 1px solid rgba(101,255,240,0.3); border-radius: 20px; padding: 4px 12px;">Python 3.11</span>
+              <span class="status" style="background: rgba(101,255,240,0.1); border: 1px solid rgba(101,255,240,0.3); border-radius: 20px; padding: 4px 12px;">FastAPI</span>
+              <span class="status" style="background: rgba(101,255,240,0.1); border: 1px solid rgba(101,255,240,0.3); border-radius: 20px; padding: 4px 12px;">PostgreSQL 16</span>
+              <span class="status" style="background: rgba(101,255,240,0.1); border: 1px solid rgba(101,255,240,0.3); border-radius: 20px; padding: 4px 12px;">Pytest</span>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="diagrama-container" onclick="abrirModal()">
+              <img src="img/c4-diagram.png" alt="Diagrama C4 da Arquitetura do Sistema">
+              <div class="legenda-img">ARQUITETURA C4 🔍</div>
+            </div>
+
+            <!-- Terminal -->
+            <div class="terminal-execucao">
+              <div class="terminal-header">
+                <span>hugo@server:~/sistema-bancario</span>
+                <div class="terminal-controls">
+                  <span>&minus;</span>
+                  <span>&#9723;</span>
+                  <span>&times;</span>
+                </div>
+              </div>
+              <div class="terminal-body">
+                <span class="comentario"># Subindo a infraestrutura baseada no base-service da QI Tech</span><br>
+                <span class="comando">$ docker compose up -d</span><br>
+                <span class="sucesso">✔ Container postgres-db Started</span><br>
+                <span class="sucesso">✔ Container fastapi-app Started</span><br><br>
+                <span class="comentario"># Executando suíte de testes do protótipo bancário</span><br>
+                <span class="comando">$ pytest -q</span><br>
+                <span class="sucesso">148 passed, 2 warnings in 4.12s</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO 2: ARQUITETURA E SOLUÇÕES -->
+        <section class="arquitetura-backend">
+          <div>
+            <h2 class="titulo-principal" style="font-size: 40px;">Decisões de Engenharia.</h2>
+            <p class="descricao-principal" style="max-width: 700px; margin-top: 16px;">Garantir que o dinheiro não é criado do nada, perdido ou gasto duas vezes exige mais do que um CRUD simples. A API foi desenhada para suportar alta concorrência e falhas de rede.</p>
+          </div>
+
+          <div class="grid-decisoes">
+            <div class="card-decisao">
+              <span class="icon-tech">// CONCORRÊNCIA SEGURA</span>
+              <h3>Travas Pessimistas (Locking)</h3>
+              <p>Toda operação que altera saldo inicia com <code>SELECT ... FOR UPDATE</code> no banco, ordenado pelo ID da conta. Isso serializa as transações concorrentes na mesma linha, eliminando deadlocks e impedindo que dois Pix simultâneos gastem o mesmo saldo.</p>
+            </div>
+
+            <div class="card-decisao">
+              <span class="icon-tech">// RESILIÊNCIA DE REDE</span>
+              <h3>Idempotência Estrita</h3>
+              <p>Proteção contra "duplos cliques" e timeouts. As chaves de idempotência, combinadas com hash do corpo da requisição e constraints <code>UNIQUE</code> no banco de dados, garantem que reenvios legítimos não gerem cobranças duplicadas.</p>
+            </div>
+
+            <div class="card-decisao">
+              <span class="icon-tech">// INTEGRIDADE FINANCEIRA</span>
+              <h3>Fato x Intenção</h3>
+              <p>A entidade <code>TRANSACAO</code> é imutável (fato consumado). Pagamentos programados apenas movimentam o saldo de "Livre" para "Comprometido". O dinheiro nunca se sobrepõe e o saldo total é sempre reconstruível pelo extrato.</p>
+            </div>
+
+            <div class="card-decisao">
+              <span class="icon-tech">// GOVERNANÇA DINÂMICA</span>
+              <h3>Motor de Aprovações</h3>
+              <p>Em vez de "cargos fixos", o sistema lê dinamicamente as <code>REGRA_APROVACAO</code> baseadas em valor e meio de pagamento. Um Pix de R$ 5.000 pode interceptar automaticamente a transação e exigir votos de N sócios elegíveis antes da execução.</p>
+            </div>
+            
+            <div class="card-decisao">
+              <span class="icon-tech">// DESIGN PATTERNS</span>
+              <h3>Arquitetura em Camadas</h3>
+              <p>Estrutura estrita e unidirecional baseada no <i>base-service</i> do bootcamp. O fluxo atravessa Middlewares de segurança, Schemas de validação JSON, é orquestrado no Resource, validado no Controller e finalmente persistido através do Repository e Models.</p>
+            </div>
+
+            <div class="card-decisao">
+              <span class="icon-tech">// DESIGN DE SOFTWARE</span>
+              <h3>Monolito Modular</h3>
+              <p>O dinheiro de uma conta precisa ser serializado em uma única transação de banco. Separar serviços (como saldo e agendamentos) exigiria transações distribuídas (Padrão Saga) desnecessárias para o escopo, priorizando consistência imediata.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEÇÃO 3: BOOTCAMP QI TECH -->
+        <section class="bootcamp-section">
+          <div class="bootcamp-texto">
+            <h2 class="titulo-principal" style="font-size: 40px;">A Experiência no Bootcamp.</h2>
+            <p class="descricao-principal">
+              Participar do <strong>Bootcamp QI Tech</strong> foi uma imersão completa na realidade de engenharia de uma instituição financeira. O desafio ia muito além de codar um CRUD: o objetivo era projetar e construir as engrenagens de um protótipo bancário trabalhando em equipe, tendo como fundação um <a href="https://bootcamp.qitech.com.br/" target="_blank" class="destaque-bootcamp">Base Service</a> arquitetado em camadas rígidas de produção (Middlewares, Resources, Controllers e Repositories).
+            </p>
+            <p class="descricao-principal">
+              Foi através desse processo prático de desenhar a Request for Comments (RFC), planejar entidades de banco de dados e bater cabeça com testes de concorrência simultânea — em conjunto com <strong>Leandro Apolinário Leite</strong> e <strong>Mateus Carósio</strong> — que essa API nasceu. Ter a presença e os conselhos de gigantes da área, como <a href="https://www.instagram.com/cursoemvideo/" target="_blank" class="destaque-bootcamp">Gustavo Guanabara</a>, trouxe uma carga extra de peso, responsabilidade e ambição à qualidade técnica do projeto.
+            </p>
+            
+            <a href="https://bootcamp.qitech.com.br/" target="_blank" class="btn-qitech">CONHECER O BOOTCAMP ↗</a>
+          </div>
+
+          <div class="bootcamp-visual">
+            <div class="logos-bootcamp">
+              <img src="img/qitech-logo.png" alt="Logo QI Tech" class="logo-qitech">
+              <img src="img/bootcamp-logo.png" alt="Logo Bootcamp" class="logo-bootcamp">
+            </div>
+            
+            <div class="foto-container">
+              <img src="img/guanabara.png" alt="Professor Gustavo Guanabara" class="foto-guanabara">
+              <div class="legenda-img">EU E O MENTOR GUSTAVO GUANABARA</div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="rodap">
+        <div class="marca">HUGO.DEV_</div>
+        <p class="nota-4">PROJETADO COM CURIOSIDADE · OPERADO COM CUIDADO · © 2026</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Estrutura do Modal Oculto -->
+  <div id="modal-zoom" onclick="fecharModal()">
+    <img src="img/c4-diagram.png" alt="Diagrama Ampliado">
+  </div>
+
+  <!-- Lógica de Abrir/Fechar -->
+  <script>
+    function abrirModal() {
+      document.getElementById("modal-zoom").style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+    function fecharModal() {
+      document.getElementById("modal-zoom").style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  </script>
+</body>
+</html>

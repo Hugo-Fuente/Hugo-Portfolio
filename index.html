@@ -126,17 +126,17 @@
                 <p class="etiqueta">// 02 · SELECTED WORK</p>
                 <h2 class="t-tulo-2" id="titulo-projetos">Meus Projetos</h2>
               </div>
-              <p class="nota-2">SISTEMAS REAIS · DECISÕES RASTREÁVEIS · IMPACTO MENSURÁVEL</p>
+              <p class="nota-2">
+                SISTEMAS REAIS · DECISÕES RASTREÁVEIS · IMPACTO MENSURÁVEL
+              </p>
             </header>
             
+            <!-- Início do Carrossel -->
             <div class="lista-de-projetos">
+              
+              <!-- 01. DRONE -->
               <article class="div-2" style="cursor: pointer;" onclick="window.location.href='projeto-drone.html';">
-                <img
-                  class="visual-do-projeto"
-                  src="img/visual-do-projeto-2.png"
-                  alt="Interface do projeto Drone Gesture Control"
-                  loading="lazy"
-                >
+                <img class="visual-do-projeto" src="img/visual-do-projeto-2.png" alt="Interface do projeto Drone Gesture Control" loading="lazy">
                 <div class="contedo">
                   <div class="metadados">
                     <span class="text-wrapper">01</span>
@@ -144,54 +144,83 @@
                   </div>
                   <h3 class="t-tulo-3">Drone Gesture Control</h3>
                   <p class="descri-o-3">
-                    Sistema autônomo de controle para drones DJI Tello utilizando visão computacional
-                    (OpenCV) e reconhecimento de gestos (MediaPipe) em Python.
+                    Sistema autônomo de controle para drones DJI Tello utilizando visão computacional (OpenCV) e reconhecimento de gestos (MediaPipe) em Python.
                   </p>
-                  <span class="m-trica">TCC Unicamp</span>
+                  <span class="m-trica">Ver detalhes e arquitetura ↗</span>
                 </div>
               </article>
 
-              <article class="div-2">
-                <img
-                  class="img"
-                  src="img/visual-do-projeto.png"
-                  alt="Interface do aplicativo de clínica veterinária"
-                  loading="lazy"
-                >
+              <!-- 02. API QI TECH -->
+              <article class="div-2" style="cursor: pointer;" onclick="window.location.href='projeto-conta-epp.html';">
+                <img class="img" src="img/c4-diagram.png" alt="Arquitetura do sistema bancário" loading="lazy" style="object-position: top center; background-color: #0b2028;">
                 <div class="contedo">
                   <div class="metadados">
                     <span class="text-wrapper">02</span>
+                    <span class="tipo">BACKEND / ARQUITETURA</span>
+                  </div>
+                  <h3 class="t-tulo-3">API de Governança EPP</h3>
+                  <p class="descri-o-3">
+                    Protótipo de conta bancária compartilhada construído em Python e FastAPI. Arquitetura robusta focada em concorrência, idempotência e regras dinâmicas de negócio.
+                  </p>
+                  <span class="m-trica">Ver detalhes e RFC ↗</span>
+                </div>
+              </article>
+
+              <!-- NOVO PROJETO: SOKOPATO -->
+              <article class="div-2" style="cursor: pointer;" onclick="window.location.href='projeto-sokopato.html';">
+                <!-- Usando a tela da web do jogo como capa, chama muita atenção -->
+                <img class="img" src="img/sokopato-logo.jpg" alt="Interface Web da IA resolvendo o Sokoban" loading="lazy" style="object-position: center center;">
+                <div class="contedo">
+                  <div class="metadados">
+                    <!-- Atualize a numeração conforme a posição -->
+                    <span class="text-wrapper">03</span> 
+                    <span class="tipo">IA / ALGORITMOS / BUSCA</span>
+                  </div>
+                  <h3 class="t-tulo-3">Sokopato AI Solver</h3>
+                  <p class="descri-o-3">
+                    Estudo de Caso acadêmico: Gerador e solucionador de matrizes de Sokoban capaz de processar milhares de estados utilizando o algoritmo de busca heurística A* (A-Star).
+                  </p>
+                  <!-- Mudamos a métrica para indicar que é um estudo de caso e não um link para o github -->
+                  <span class="m-trica">Ler Estudo de Caso ↗</span>
+                </div>
+              </article>
+
+              <!-- 04. CLÍNICA VETERINÁRIA -->
+              <article class="div-2" style="cursor: pointer;" onclick="window.open('https://github.com/Hugo-Fuente', '_blank');">
+                <img class="img" src="img/visual-do-projeto.png" alt="Interface do aplicativo de clínica veterinária" loading="lazy">
+                <div class="contedo">
+                  <div class="metadados">
+                    <span class="text-wrapper">04</span>
                     <span class="tipo">BACKEND / JAVA / SQL</span>
                   </div>
                   <h3 class="t-tulo-3">App de Clínica Veterinária</h3>
                   <p class="descri-o-3">
-                    Aplicação desktop de gestão desenvolvida em Java, aplicando padrões de arquitetura MVC
-                    e DAO com persistência em banco de dados MySQL.
+                    Aplicação desktop de gestão desenvolvida em Java, aplicando padrões de arquitetura MVC e DAO com persistência em banco de dados MySQL.
                   </p>
-                  <span class="m-trica">Arquitetura MVC</span>
+                  <span class="m-trica">Ver repositório ↗</span>
                 </div>
               </article>
 
-              <article class="minesweeper">
-                <img
-                  class="visual-do-projeto-2"
-                  src="img/image.png"
-                  alt="Interface do jogo Minesweeper Online"
-                  loading="lazy"
-                >
+              <!-- 05. MINESWEEPER -->
+              <article class="minesweeper" style="cursor: pointer;" onclick="window.open('https://github.com/Hugo-Fuente', '_blank');">
+                <img class="visual-do-projeto-2" src="img/image.png" alt="Interface do jogo Minesweeper Online" loading="lazy">
                 <div class="contedo-2">
                   <div class="metadados">
-                    <span class="text-wrapper">03</span>
+                    <span class="text-wrapper">05</span>
                     <span class="tipo">FRONTEND / JAVASCRIPT</span>
                   </div>
                   <h3 class="t-tulo-3">Minesweeper Online</h3>
                   <p class="descri-o-3">
-                    Jogo Campo Minado web com sistema de contas via SessionStorage, histórico, ranking local
-                    e um modo especial contra o tempo.
+                    Jogo Campo Minado web com sistema de contas via SessionStorage, histórico, ranking local e um modo especial contra o tempo.
                   </p>
-                  <span class="m-trica">Lógica JS pura</span>
+                  <span class="m-trica">Ver repositório ↗</span>
                 </div>
               </article>
+            </div>
+
+            <!-- O TEXTO "ARRASTE PARA O LADO" AGORA FICA AQUI EMBAIXO -->
+            <div class="instrucao-scroll">
+              <p>⟷ Arraste para o lado para explorar mais projetos</p>
             </div>
           </section>
 
