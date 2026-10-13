@@ -8,26 +8,42 @@ Este repositório contém o código-fonte do meu portfólio pessoal, construído
 
 Sou o Hugo Gomes de la Fuente, estudante de Sistemas de Informação na UNICAMP, com foco em Cibersegurança, DevOps e Bancos de Dados. Este site serve como meu cartão de visita digital, onde exponho minhas competências, projetos (como visão computacional com drones e aplicações arquiteturais) e meu modelo de operação.
 
+## 🎨 Processo de Design & UX/UI (Figma)
+
+Antes de escrever a primeira linha de código, o projeto passou por uma etapa rigorosa de design de produto e prototipação no **Figma**. Isso demonstra meu cuidado não apenas com o código, mas com a experiência do usuário (UX) e a interface visual (UI):
+- **Identidade Visual (System Design):** Definição de uma paleta de cores focada em tons escuros e ciano neon, simulando o ambiente imersivo de operações de cibersegurança.
+- **Tipografia e Hierarquia:** Uso estratégico de fontes monoespaçadas para exibir dados técnicos e de leitura rápida, combinadas com fontes robustas nos títulos para criar impacto editorial.
+- **Prototipação Responsiva:** Criação de wireframes adaptáveis e testes mobile-first para garantir que as caixas biométricas flutuantes e a navegação magnética não quebrassem a usabilidade em telas menores (smartphones e tablets).
+
+*(🔗 [Acesse o protótipo completo no Figma](https://www.figma.com/proto/nK4Q4y1YIZUqLCnrv2VkZW/Sem-t%C3%ADtulo?node-id=92-10&p=f&t=zl2VTGpHJdsdrcXa-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=92%3A10))*
+
+<details>
+  <summary>👁️ Clique aqui para visualizar a estrutura do protótipo no Figma</summary>
+
+  ![Protótipo no Figma](img/figmaprototipo.jpeg)
+
+</details>
+
 ## 🚀 Funcionalidades e Destaques Técnicos
 
 - **Design "Cyber/Terminal":** Interface escura (Dark Mode nativo) com destaques em ciano e efeitos de desfoque de fundo (Glassmorphism/`backdrop-filter`).
-- **Navegação Magnética (Scroll Snapping):** A página é dividida em blocos de tela cheia (`100vh`), e o scroll "trava" suavemente em cada seção (`scroll-snap-type: y mandatory`), criando uma experiência de apresentação em formato de slides.
-- **Totalmente Responsivo:** Utilização de Media Queries para garantir que a interface e as caixas biométricas flutuantes se adaptem perfeitamente a dispositivos móveis, tablets e monitores ultrawide.
-- **Performance:** Sem frameworks pesados. Apenas HTML5 e CSS3 puro, garantindo um carregamento ultrarrápido.
+- **Navegação Magnética (Scroll Snapping):** A página principal é dividida em blocos de tela cheia (`100vh`), e a rolagem "trava" suavemente em cada seção (`scroll-snap-type: y mandatory`), criando uma experiência de apresentação estilo slide.
+- **Totalmente Responsivo:** Utilização de Media Queries para garantir que o layout se adapte perfeitamente desde celulares até monitores ultrawide.
+- **Performance:** Sem frameworks pesados. Apenas HTML5, CSS3 puro e JavaScript nativo, garantindo um carregamento ultrarrápido.
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5:** Estruturação semântica.
-- **CSS3:** Variáveis, Flexbox, CSS Scroll Snap, Animações e Máscaras de Imagem (`-webkit-mask-image`).
-- **Figma:** Prototipação e extração de assets (ícones SVG).
+- **UX/UI & Design:** Figma (Prototipação, UI Design e extração de assets).
+- **Frontend:** HTML5 semântico, CSS3 (Variáveis, Flexbox, Grid, Scroll Snap).
+- **Lógica & Mídia:** JavaScript (Vanilla) e integração embutida (iframe) do YouTube para performance de vídeo.
 
 ## 📂 Como visualizar localmente
 
-Como o projeto é construído em HTML e CSS estático, não requer processos de build complexos ou servidores.
+Como o projeto é construído em HTML e CSS estático, ele não exige servidores complexos para rodar.
 
 1. Clone o repositório:
    ```bash
-   git clone [https://github.com/Hugo-Fuente/SitePortifolioHTML.git](https://github.com/Hugo-Fuente/SitePortifolioHTML.git)
+   git clone https://github.com/Hugo-Fuente/SitePortifolioHTML.git
    ```
 2. Navegue até a pasta do projeto:
    ```bash
@@ -42,8 +58,8 @@ Como o projeto é construído em HTML e CSS estático, não requer processos de 
 Estou sempre aberto a novos desafios e oportunidades de estágio. Vamos construir algo resiliente juntos:
 
 - **Email:** hugo.fuente@yahoo.com
-- **LinkedIn:** https://www.linkedin.com/in/hugo-fuente/
-- **GitHub:** https://github.com/Hugo-Fuente
+- **LinkedIn:** [https://www.linkedin.com/in/hugo-fuente/](https://www.linkedin.com/in/hugo-fuente/)
+- **GitHub:** [https://github.com/Hugo-Fuente](https://github.com/Hugo-Fuente)
 
 ---
 *Projetado com curiosidade · Operado com cuidado · © 2026*
