@@ -303,11 +303,16 @@ html {
   margin: 0 !important;
 }
 
-/* Garante que o texto (incluindo o do GitHub) fique escuro quando o botão acender */
 .frame .ao:hover .r-tulo,
+.frame .ao:hover .r-tulo-2,
+.frame .ao:hover .r-tulo-3,
+.frame .div:hover .r-tulo,
 .frame .div:hover .r-tulo-2,
 .frame .div:hover .r-tulo-3,
 .frame .ao:focus-visible .r-tulo,
+.frame .ao:focus-visible .r-tulo-2,
+.frame .ao:focus-visible .r-tulo-3,
+.frame .div:focus-visible .r-tulo,
 .frame .div:focus-visible .r-tulo-2,
 .frame .div:focus-visible .r-tulo-3 {
   color: #02090d !important; 
