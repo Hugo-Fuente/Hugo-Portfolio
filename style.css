@@ -2113,3 +2113,9 @@ html {
   font-size: 1.1rem;
   font-weight: 700;
 }
+
+/* FORÇA O TEXTO DE TODOS OS BOTÕES A FICAR PRETO NO HOVER */
+.frame .aes a:hover span,
+.frame .aes a:focus-visible span {
+  color: #02090d !important;
+}

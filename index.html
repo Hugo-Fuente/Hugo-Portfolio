@@ -317,50 +317,24 @@
               </div>
 
               <div class="experiencia-terminal" aria-hidden="true">
+
+                <!-- Barra Superior -->
                 <div class="terminal-header" style="background: #11222a; padding: 5px 10px; border-radius: 8px 8px 0 0; font-family: monospace; font-size: 12px; color: #65fff0; border: 1px solid rgba(101,255,240,0.2); border-bottom: none;">
-                  > root@hdf_systems:~/zamiel_protocol# ./render_mascot.sh
+                  &gt; root@hdf_systems:~/zamiel_protocol# ./render_mascot.sh
                 </div>
-                <pre style="font-family: 'Courier New', Courier, monospace; font-weight: bold; background-color: rgba(0, 0, 0, 0.5); color: #65fff0; padding: 15px; border-radius: 0 0 8px 8px; border: 1px solid rgba(101,255,240,0.2); font-size: 0.32rem; line-height: 1.3; overflow-x: auto; margin: 0; text-shadow: 0 0 5px rgba(101,255,240,0.4); white-space: pre;">
-      ## .                                   .*@#
-      @@@#*.                             .+*@@@##"
-      #@@@@@@-.                       .*@@@@@@@@# /
-      #@@@@@@@@**.             .++:..*@@@@@@@@#,#:
-       #@@@@@@@@@@#.,:################@@@@@@@@# ?/
-       !#@@@@@@@@@@#65555665555655555565@@@@@-,.#
-        #@@@@@@@@@::::..3385227127773377677###,.:" 
-         !#@@@@@#2%22781773216507385865%##%%%=/ 
-          %##1727362772773718889913996838%%%?...
-          .####:::::::::::3333333333:37####*::###
-           ###;=........:::::::33333::::....;###
-          ;##!:   \====- . ::E=33} . -====/   ;##%;
-          ####:    \****   :::::"   ****/    :###;
-          :%%%#*   .-------.       .-------. .####%+*=
-          ####%*  |         |=====|         |####@%_.@##!=.
-         :##@@@}!* `-------'   \/  `-------' :##@%+  +]@@*=.
-         ^##@@@%*---==----_    ||    ----=====-,/@@@0!*   =@@@@@@#s,
-        .*#@@@@@%:-      ..:   \/   :;  ..    .,##@@@;*    .@@@@@@@@@@@@
-       .@@@# !@@@@:::##*+;:,.* || ,;.,?:::%#@@@@**    .#@@@@@@@@@@@@@
-      .#@@@@  ****#@"++#;.%+.,| V |  ;?#*"*"#@@@   ,*#@@@@@@@@@@@@@!.
-     ;@@@^..###@@@@@@###%%*  %"|/"'" .##@@@@@@@  #@@@@@@@@@@@@@@;.:'; 
-    .*'*,..##@@@@@@@@@@@##%%%%%%%%%%%%%%%##%%%, .#@@@@@@@@@@@#;---.:#@
-  _@@@: .,;:##@@@@@@@@@@@##%%%%%%%%%%%%%%%%%%%%% ;?@@@@@@@@@@@--:===@@@@@
- :@@@  ..;###@@@@@@@@@@@##%%%%%%%%%%%%%%%%%%%%% .%@@@@@@@@@@;.:++++++++=
- ;@@@ :::;################################%%%%%% .%@@@@@@@@@  ,;=//+--*###d;
- :# :@@ :;,################################%%% :@@@@@@@@@@ ..:@"`  %a@@@@@@@@@@##_
-,a##; ;@@..################################%  .a@@ .:@@@@  ..?"" ._#@@@@@@@@@@@@@@#%_
-;@@@@@  *@:: ;  ######%%%%%%%%%%%%%%%%%%%%  :@#.,;@@@@ ,@!"  ,==@@@@@@@@@@@@@@@@@@@G
-*@@@@@@@; .::: :..# #####%%%%%%%%%%%%%%%% .@@*.:;#@@..;?"`  ..@@@@@@@@@@@@@@@@@@@@@*"
-*@@@@@@@@@ ,:::,.!: .######%%%%%%%%%%%  .c@@ ::@;` .#:" .:a@@@@@@@@@@@@@@@@@@@@@"
-+*@@@@@@@@& :::: : [!  ####%%%%%%%%%  :@@.,#*--..?'" .:a@@@@@@@@@@@@@@@@@@@@@*"
- *#@@@@@@* :::::: @!####%%%%%%%  :@@?.$} .:%%/ .a@@@@@@@@@@@@@@&-a@@@@*`
-  ~*@@@@@  ::::.,` #* ##%%%`  ;@# :` .@s=` :s@@@@@@@@@@@@@@== a@@@*~
-   -*#@@  :: :.,., a# #%%%  .@@@*`.:%= ..:3@@@@@@@@@@@@++` .@@#;
-     ~1.  :: ,",*@#% %%  .:@# ..:@" :c@@@@@@@@@@@=  .=+~`
-      `      +   "#@@% : .:@`  .@"  ...:@@@@@@+--^
-                  '.::#!`  .-`  ..++-`
-                   *8;"
-                </pre>
-            </div>
+
+                <!-- Fundo do Terminal (Adicionado 'position: relative;' para prender a etiqueta dos créditos lá dentro) -->
+                <div style="background-color: rgba(0, 0, 0, 0.5); padding: 15px; border-radius: 0 0 8px 8px; border: 1px solid rgba(101,255,240,0.2); display: flex; justify-content: center; align-items: center; height: 320px; overflow: hidden; position: relative;">
+                  <!-- O Desenho do Zamiel -->
+                  <img src="img/zamiel_sketch_giz.png" alt="Mascote Zamiel a programar" 
+                    style="width: 100%; max-width: 320px; height: auto; transform: scale(1.3); margin-top: 60px; 
+                    filter: brightness(0) saturate(100%) invert(88%) sepia(21%) saturate(2225%) hue-rotate(113deg) brightness(108%) contrast(101%);">
+                  <!-- Créditos do Artista (Canto inferior direito) -->
+                  <div style="position: absolute; bottom: 10px; right: 15px; font-family: 'Roboto Mono', monospace; font-size: 10px; color: rgba(130, 164, 168, 0.7); z-index: 10;">
+                    made by <a href="https://vgen.co/37ln37" target="_blank" rel="noopener noreferrer" style="color: #65fff0; text-decoration: none; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">37LN37</a>
+                  </div>
+                </div>
+              </div>
           </section>
 
           <section class="terminal-e-contato" id="contato" aria-labelledby="titulo-contato">
