@@ -2052,3 +2052,59 @@ html {
     padding-right: 0;
   }
 }
+
+.experiencia-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.experiencia-texto {
+  flex: 1;
+  max-width: 60%;
+}
+
+.experiencia-terminal {
+  flex: 1;
+  max-width: 35%;
+  display: flex;
+  flex-direction: column;
+  margin-top: -10px;
+}
+
+@media (max-width: 768px) {
+  .experiencia-container {
+    flex-direction: column;
+  }
+
+  .experiencia-texto {
+    max-width: 100%;
+  }
+
+  .experiencia-terminal {
+    display: none;
+  }
+}
+
+/* Restaura as cores do texto da secção de experiência */
+.experiencia-texto p {
+  color: #a0b0b9; /* Cor cinza-azulado para a descrição */
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.experiencia-texto p strong:first-child {
+  color: #65fff0; /* Cor ciano/neon para as datas */
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.experiencia-texto p strong:nth-child(3) {
+  color: #ffffff; /* Cor branca para o título do cargo/curso */
+  font-size: 1.1rem;
+  font-weight: 700;
+}
