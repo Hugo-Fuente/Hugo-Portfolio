@@ -2119,3 +2119,38 @@ html {
 .frame .aes a:focus-visible span {
   color: #02090d !important;
 }
+
+/* =========================================================================
+   CRÉDITOS GLOBAIS DE ÍCONES (ACIMA DO RODAPÉ)
+   ========================================================================= */
+.creditos-globais {
+  position: absolute;
+  top: -24px;
+  right: 80px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 9px;
+  color: #4a6368;
+  text-align: right;
+  pointer-events: auto;
+  z-index: 20;
+}
+.creditos-globais a {
+  color: #65fff0 !important;
+  text-decoration: none !important;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.creditos-globais a:hover { opacity: 1; }
+
+@media (max-width: 768px) {
+  .creditos-globais {
+    position: relative;
+    top: 0;
+    right: auto;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0px;
+    padding: 0;
+    order: -1; /* Força a subir para o topo do flex column */
+  }
+}
