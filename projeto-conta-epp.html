@@ -396,6 +396,91 @@
       box-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
     }
 
+    /* SEÇÃO EQUIPE (Abaixo do Botão) */
+    .equipe-projeto {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border-top: 1px dashed #173a43;
+      padding-top: 24px;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .equipe-titulo {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      color: #65fff0;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    .equipe-membros {
+      display: flex;
+      gap: 32px;
+    }
+
+    .membro-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      gap: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .membro-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .membro-foto-wrapper {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      padding: 2px;
+      background: #173a43;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .membro-card:hover .membro-foto-wrapper {
+      background: #65fff0;
+      box-shadow: 0 0 15px rgba(101, 255, 240, 0.4);
+    }
+
+    .membro-foto {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #040d12;
+      filter: grayscale(100%) brightness(0.9);
+      transition: filter 0.3s ease;
+    }
+
+    .membro-card:hover .membro-foto {
+      filter: grayscale(0%) brightness(1);
+    }
+
+    .membro-nome {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #ddecf0;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .membro-card:hover .membro-nome {
+      color: #65fff0;
+    }
+
+    .membro-tag {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      color: #8fa8b0;
+    }
+
     /* Responsividade */
     @media (max-width: 1024px) {
       .hero-backend, .bootcamp-section {
@@ -548,6 +633,28 @@
             </p>
             
             <a href="https://bootcamp.qitech.com.br/" target="_blank" class="btn-qitech">CONHECER O BOOTCAMP ↗</a>
+            <!-- NOVA SEÇÃO: MEMBROS DA EQUIPE -->
+            <div class="equipe-projeto">
+              <h3 class="equipe-titulo">// CO-AUTORES DO CÓDIGO</h3>
+              <div class="equipe-membros">
+                <a href="https://www.linkedin.com/in/leandroapleite/" target="_blank" class="membro-card">
+                  <div class="membro-foto-wrapper">
+                    <!-- Coloque a foto do Leandro na sua pasta img/ -->
+                    <img src="img/leandro.png" alt="Leandro Leite" class="membro-foto">
+                  </div>
+                  <span class="membro-nome">Leandro Leite</span>
+                  <span class="membro-tag">Backend Dev</span>
+                </a>
+                <a href="https://www.linkedin.com/in/mateus-carósio-0a6066311/" target="_blank" class="membro-card">
+                  <div class="membro-foto-wrapper">
+                    <!-- Coloque a foto do Mateus na sua pasta img/ -->
+                    <img src="img/mateus.png" alt="Mateus Carósio" class="membro-foto">
+                  </div>
+                  <span class="membro-nome">Mateus Carósio</span>
+                  <span class="membro-tag">Backend Dev</span>
+                </a>
+              </div>
+            </div>
           </div>
 
           <div class="bootcamp-visual">
