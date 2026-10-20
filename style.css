@@ -43,7 +43,7 @@ html {
   width: 100%;
   background-color: #02090d;
   
-  /* A MÁGICA: Corta a parte da foto que tenta invadir a próxima secção */
+  /* A MÁGICA: Corta a parte da foto que tenta invadir a próxima seção */
   overflow: hidden; 
   
   scroll-snap-align: start; 
@@ -827,7 +827,7 @@ html {
 
 .frame .ttulo-da-seo-2 {
   display: flex;
-  width: 100%; /* Mudado de 1254px para 100% para se adaptar ao ecrã */
+  width: 100%; /* Mudado de 1254px para 100% para se adaptar à tela */
   align-items: flex-end;
   justify-content: space-between;
   position: relative;
@@ -899,7 +899,7 @@ html {
 .frame .competncia:hover {
   border-color: #65fff0 !important;
   border-top: 2px solid #65fff0 !important; /* O topo acende com mais intensidade */
-  transform: translateY(-6px) !important; /* O cartão levanta em direção ao utilizador */
+  transform: translateY(-6px) !important; /* O cartão levanta em direção ao usuário */
   
   /* Adiciona um brilho externo e um leve reflexo interno */
   box-shadow: 
@@ -1799,7 +1799,7 @@ html {
      CORREÇÃO DEFINITIVA: CONTATO E TERMINAL (MOBILE)
      ========================================================================= */
 
-  /* 1. Força a secção inteira a não ultrapassar o ecrã */
+  /* 1. Força a seção inteira a não ultrapassar a tela */
   .frame .terminal-e-contato {
     padding: 60px 20px 40px !important;
     width: 100vw !important;
@@ -1954,12 +1954,12 @@ html {
   bottom: 0;
   width: 120px; /* Largura do degradê */
   
-  /* Vai de totalmente transparente até à cor exata do fundo da secção (#02090d) */
+  /* Vai de totalmente transparente até a cor exata do fundo da seção (#02090d) */
   background: linear-gradient(to right, rgba(2, 9, 13, 0) 0%, rgba(2, 9, 13, 0.95) 100%);
   opacity: var(--fade-opacity, 1);
   transition: opacity 0.3s ease;
   
-  pointer-events: none; /* Garante que o rato atravessa a fumaça e consegue clicar no cartão */
+  pointer-events: none; /* Garante que o mouse atravessa a fumaça e consegue clicar no cartão */
   z-index: 5; /* Fica por cima dos cartões, mas por baixo do texto "Arraste para o lado" se necessário */
 }
 
@@ -2011,7 +2011,7 @@ html {
 /* 3. ESTILO DO TEXTO DE INSTRUÇÃO NO RODAPÉ DO CARROSSEL */
 .instrucao-scroll {
   width: 100%;
-  text-align: right; /* Alinha à direita, seguindo o padrão de design da secção */
+  text-align: right; /* Alinha à direita, seguindo o padrão de design da seção */
   margin-top: 8px; /* Dá um pequeno espaço abaixo dos cartões */
   position: relative;
   z-index: 6;
@@ -2094,7 +2094,7 @@ html {
   }
 }
 
-/* Restaura as cores do texto da secção de experiência */
+/* Restaura as cores do texto da seção de experiência */
 .experiencia-texto p {
   color: #a0b0b9; /* Cor cinza-azulado para a descrição */
   font-size: 1rem;

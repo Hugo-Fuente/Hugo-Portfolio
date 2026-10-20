@@ -21,7 +21,7 @@ html {
   margin: 0 auto;
   position: relative;
   
-  /* A MAGIA AQUI: Muda para visible para a coruja poder invadir a secção de baixo */
+  /* A MAGIA AQUI: Muda para visible para a coruja poder invadir a seção de baixo */
   overflow: visible !important; 
   overflow-x: clip !important; /* Continua a impedir o scroll horizontal indesejado */
 }
@@ -302,7 +302,7 @@ header .nome {
   padding: 100px;
   position: relative;
   align-items: center;
-  z-index: 10 !important; /* Coloca esta secção por cima do fundo escuro anterior */
+  z-index: 10 !important; /* Coloca esta seção por cima do fundo escuro anterior */
   overflow: visible !important; /* Impede o corte da asa */
 }
 
@@ -455,7 +455,7 @@ teclas-dpad {
 .bg-coruja-2 {
   position: absolute;
   right: -5%;
-  bottom: -5%; /* Prende a coruja à base da secção */
+  bottom: -5%; /* Prende a coruja à base da seção */
   height: 125%; /* Aumentado para 125%: o excesso vai vazar para o bloco de cima! */
   object-fit: contain;
   z-index: 1;
@@ -584,7 +584,7 @@ teclas-dpad {
      ========================================================================= */
   
   .arquitetura-projeto {
-    padding: 60px 0 !important; /* Removemos o padding lateral da secção para evitar empurrões */
+    padding: 60px 0 !important; /* Removemos o padding lateral da seção para evitar empurrões */
     width: 100% !important;
     overflow-x: hidden !important;
   }
@@ -677,7 +677,7 @@ teclas-dpad {
     flex-shrink: 0 !important; /* Impede que a seta seja esmagada */
   }
 
-  /* 5. Esmaecer as corujas para não bloquearem a leitura no ecrã pequeno */
+  /* 5. Esmaecer as corujas para não bloquearem a leitura na tela pequena */
   .bg-coruja-1, .bg-coruja-2 {
     opacity: 0.15 !important;
     right: -20% !important;
