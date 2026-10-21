@@ -21,15 +21,70 @@
     <link rel="stylesheet" href="globals.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style-projeto.css">
+
+    <style>
+      .membro-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        gap: 8px;
+        transition: transform 0.3s ease;
+        width: 75px;
+      }
+      .membro-card:hover {
+        transform: translateY(-4px);
+      }
+      .membro-foto-wrapper {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        padding: 2px;
+        background: #173a43;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .membro-card:hover .membro-foto-wrapper {
+        background: #65fff0;
+        box-shadow: 0 0 15px rgba(101, 255, 240, 0.4);
+      }
+      .membro-foto {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        filter: grayscale(100%) brightness(0.9);
+        transition: filter 0.3s ease;
+      }
+      .membro-card:hover .membro-foto {
+        filter: grayscale(0%) brightness(1);
+      }
+      .membro-nome {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        color: #e9fbf8;
+        text-align: center;
+        line-height: 1.2;
+        transition: color 0.3s ease;
+      }
+      .membro-card:hover .membro-nome {
+        color: #65fff0;
+      }
+    </style>
+
   </head>
 
   <body>
     <div class="frame">
       <div class="pagina-projeto-wrapper" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
         
-        <!-- Barra de Navegação -->
-        <nav class="navegao" style="position: sticky; top: 0; background-color: rgba(4, 13, 18, 0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 100;">
-          <a class="assinatura" href="index.html">
+        <!-- Barra de Navegação Global -->
+        <nav class="navegao" style="position: sticky; top: 0; background-color: rgba(4, 13, 18, 0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 100;" aria-label="Navegação principal">
+          <a class="assinatura" href="index.html" aria-label="Hugo Fuente, início">
             <span style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px;">
               <img src="img/icons/owl2.png" alt="Logo Zamiel" style="width: 100%; height: auto; object-fit: contain;">
             </span>
@@ -42,11 +97,13 @@
               <li><a class="text-wrapper" href="index.html#experiencia">EXPERIÊNCIA</a></li>
               <li><a class="text-wrapper" href="index.html#contato">CONTATO</a></li>
           </ul>
-          <p class="status" role="status">● DISPONÍVEL PARA MISSÕES</p>
+          <a href="index.html#experiencia" style="text-decoration: none;">
+            <p class="status" style="border-color: rgba(101, 255, 240, 0.4); transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#65fff0'; this.style.color='#02090d';" onmouseout="this.style.backgroundColor='rgba(2, 9, 13, 0.75)'; this.style.color='#65fff0';">← VOLTAR</p>
+          </a>
         </nav>
 
-        <!-- Hero Section em Duas Colunas -->
-        <header class="hero-projeto" style="justify-content: space-between; align-items: flex-start; padding: 80px; width: 100%; max-width: 1440px; gap: 60px;">
+        <!-- Hero Section com 3 colunas perfeitamente espaçadas (Texto | Ilustrações | Ficha Técnica) -->
+        <header class="hero-projeto" style="justify-content: space-between; align-items: flex-start; padding: 32px 120px 60px 100px !important; min-height: 85vh !important; width: 100%; max-width: 1440px; gap: 60px;">
           
           <!-- Coluna Esquerda -->
           <div class="hero-text-container" style="align-items: flex-start; text-align: left; max-width: 680px;">
@@ -55,11 +112,11 @@
               <span>FEV 2022 — JUL 2022 · VOLUNTARIADO NA UNICAMP</span>
             </div>
             
-            <h1 class="titulo-principal">Ensinando Lógica de Programação na Prática.</h1>
-            <p class="descricao-principal" style="width: 100%; max-width: 650px;">
-              Atuação voluntária desenvolvida em equipe como projeto prático para a disciplina de <strong>Gestão de Projetos da Unicamp</strong>, ministrada pelo Prof. Dr. Marcos Borges. 
+            <h1 class="titulo-principal" style="font-size: 58px !important;">Ensinando Lógica de Programação na Prática.</h1>
+            <p class="descricao-principal" style="font-size: 17px !important; width: 100%; max-width: 650px;">
+              Atuação voluntária desenvolvida em equipe junto a <a href="https://www.linkedin.com/in/arthurdpm/" target="_blank" style="color: #65fff0; text-decoration: underline;">Arthur de Paula Moraes</a> e <a href="https://matheusbraum.com/" target="_blank" style="color: #65fff0; text-decoration: underline;">Matheus Thomaz Braum</a>, como projeto prático para a disciplina de <strong>Gestão de Projetos da Unicamp</strong>, ministrada pelo <a href="https://www.linkedin.com/in/marcosborges/" target="_blank" style="color: #65fff0; text-decoration: underline;">Prof. Dr. Marcos Borges</a>.
               <br><br>
-              O trabalho aplicou os pilares de gerenciamento em um cenário comunitário real, implementando a metodologia do <strong>LIAG</strong> na escola pública <strong>CEIEF Jamile Caram De Souza Dias</strong>, em Limeira.
+              O trabalho aplicou os pilares de gerenciamento em um cenário comunitário real em parceria com o <strong>LIAG (Laboratório de Informática, Aprendizagem e Gestão)</strong>, implementando o método educacional "Era uma vez" na escola pública <strong>CEIEF Jamile Caram De Souza Dias</strong>, em Limeira.
             </p>
 
             <div class="tecnologias-usadas" style="justify-content: flex-start; margin-top: 24px;">
@@ -69,92 +126,90 @@
               <span class="tech-tag">Python</span>
               <span class="tech-tag">Impacto Social</span>
             </div>
-
           </div>
 
-          <!-- Coluna Direita: Ficha Técnica e Equipe -->
-          <div style="flex: 1; max-width: 440px; display: flex; flex-direction: column; gap: 24px;">
+          <!-- Coluna Direita: Ficha Técnica e Widgets -->
+          <div style="flex: 1.1; max-width: 420px; display: flex; flex-direction: column; gap: 20px;">
             
             <!-- Painel 1: Ficha Técnica -->
-            <div style="background-color: #0b2028; border: 1px solid #173a43; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 24px; box-shadow: 0 16px 32px rgba(0,0,0,0.5);">
+            <div style="background-color: #0b2028; border: 1px solid #173a43; border-radius: 12px; padding: 26px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 16px 32px rgba(0,0,0,0.5);">
               
-              <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: #e9fbf8; margin: 0; border-bottom: 1px solid #173a43; padding-bottom: 16px;">
+              <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; color: #e9fbf8; margin: 0; border-bottom: 1px solid #173a43; padding-bottom: 12px;">
                 // FICHA TÉCNICA
               </h3>
-              
-              <div style="display: flex; flex-direction: column; gap: 16px; font-family: 'Inter', sans-serif; font-size: 14px; color: #82a4a8;">
+
+              <div style="display: flex; flex-direction: column; gap: 12px; font-family: 'Inter', sans-serif; font-size: 13px; color: #82a4a8;">
                 <div>
-                  <strong style="color: #65fff0; font-family: 'Roboto Mono', monospace; font-size: 12px; display: block; margin-bottom: 4px;">ESCOPO DA MISSÃO:</strong>
+                  <strong style="color: #65fff0; font-family: 'Roboto Mono', monospace; font-size: 11px; display: block; margin-bottom: 2px;">ESCOPO DA MISSÃO:</strong>
                   Ensino de lógica e introdução à programação
                 </div>
                 <div>
-                  <strong style="color: #65fff0; font-family: 'Roboto Mono', monospace; font-size: 12px; display: block; margin-bottom: 4px;">LOCALIZAÇÃO / BASE:</strong>
+                  <strong style="color: #65fff0; font-family: 'Roboto Mono', monospace; font-size: 11px; display: block; margin-bottom: 2px;">LOCALIZAÇÃO / BASE:</strong>
                   Escola Pública CEIEF Jamile Caram (Limeira-SP)
                 </div>
                 <div>
-                  <strong style="color: #65fff0; font-family: 'Roboto Mono', monospace; font-size: 12px; display: block; margin-bottom: 4px;">PÚBLICO-ALVO:</strong>
+                  <strong style="color: #65fff0; font-family: 'Roboto Mono', monospace; font-size: 11px; display: block; margin-bottom: 2px;">PÚBLICO-ALVO:</strong>
                   Alunos do Ensino Fundamental II (10 a 11 anos)
                 </div>
               </div>
 
-              <div style="border-top: 1px solid #173a43; padding-top: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+              <div style="border-top: 1px solid #173a43; padding-top: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
                 <div>
-                  <span style="font-family: 'Roboto Mono', monospace; font-size: 10px; color: #82a4a8; display: block; margin-bottom: 4px; text-transform: uppercase;">Parceria & Metodologia</span>
+                  <span style="font-family: 'Roboto Mono', monospace; font-size: 10px; color: #82a4a8; display: block; margin-bottom: 2px; text-transform: uppercase;">Parceria & Metodologia</span>
                   <a href="https://liag.ft.unicamp.br/" target="_blank" style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: #e9fbf8; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#65fff0'" onmouseout="this.style.color='#e9fbf8'">
                     Portal do LIAG Unicamp ↗
                   </a>
                 </div>
-                <a href="https://liag.ft.unicamp.br/" target="_blank" style="flex-shrink: 0; display: block; text-decoration: none;">
-                  <img src="img/liag-logo.png" alt="Logotipo LIAG Unicamp" style="width: 70px; height: auto; object-fit: contain; background: #ffffff; padding: 4px; border-radius: 4px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <a href="https://liag.ft.unicamp.br/" target="_blank" style="flex-shrink: 0; display: block; text-decoration: none; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                  <img src="img/liag-logo.png" alt="Logotipo LIAG Unicamp" style="width: 64px; height: auto; object-fit: contain; background: #ffffff; padding: 4px; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
                 </a>
               </div>
-
             </div>
 
             <!-- Linha de Widgets Inferiores (Lado a Lado) -->
             <div style="display: flex; gap: 16px; width: 100%; align-items: stretch;">
               
               <!-- Widget Esquerdo: Co-autores -->
-              <div style="flex: 1.8; background-color: #0b2028; border: 1px solid #173a43; border-radius: 12px; padding: 24px 20px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 16px 32px rgba(0,0,0,0.5);">
-                <h3 style="font-family: 'Roboto Mono', monospace; font-size: 11px; color: #65fff0; margin: 0 0 20px 0; letter-spacing: 0.5px; text-align: center;">
+              <div style="flex: 1.8; background-color: #0b2028; border: 1px solid #173a43; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 16px 32px rgba(0,0,0,0.5);">
+                <h3 style="font-family: 'Roboto Mono', monospace; font-size: 11px; color: #65fff0; margin: 0 0 16px 0; letter-spacing: 0.5px; text-align: center;">
                   // CO-AUTORES
                 </h3>
                 
                 <div style="display: flex; gap: 12px; justify-content: space-evenly; width: 100%;">
                   <!-- Arthur -->
-                  <a href="https://www.linkedin.com/in/arthurdpm/" target="_blank" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; transition: transform 0.3s ease; width: 80px;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <div style="width: 64px; height: 64px; border-radius: 50%; padding: 3px; border: 1px solid #173a43; margin-bottom: 12px; background-color: #040d12; transition: border-color 0.3s ease; display: flex; justify-content: center; align-items: center; overflow: hidden;" onmouseover="this.style.borderColor='#65fff0'" onmouseout="this.style.borderColor='#173a43'">
-                      <img src="img/arthur.jpg" alt="Arthur Moraes" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+                  <a href="https://www.linkedin.com/in/arthurdpm/" target="_blank" class="membro-card">
+                    <div class="membro-foto-wrapper">
+                      <img src="img/arthur.jpg" alt="Arthur Moraes" class="membro-foto">
                     </div>
-                    <span style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #e9fbf8; text-align: center; line-height: 1.2;">Arthur<br>Moraes</span>
+                    <span class="membro-nome">Arthur<br>Moraes</span>
                   </a>
 
                   <!-- Matheus -->
-                  <a href="https://matheusbraum.com/" target="_blank" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; transition: transform 0.3s ease; width: 80px;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <div style="width: 64px; height: 64px; border-radius: 50%; padding: 3px; border: 1px solid #173a43; margin-bottom: 12px; background-color: #040d12; transition: border-color 0.3s ease; display: flex; justify-content: center; align-items: center; overflow: hidden;" onmouseover="this.style.borderColor='#65fff0'" onmouseout="this.style.borderColor='#173a43'">
-                      <!-- Alterado para .svg e fundo claro adicionado caso seja texto/logotipo preto -->
-                      <img src="img/braum.svg" alt="Matheus Braum" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%; background-color: #e9fbf8; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+                  <a href="https://matheusbraum.com/" target="_blank" class="membro-card">
+                    <div class="membro-foto-wrapper">
+                      <img src="img/braum.svg" alt="Matheus Braum" class="membro-foto" style="object-fit: contain; background-color: #e9fbf8;">
                     </div>
-                    <span style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #e9fbf8; text-align: center; line-height: 1.2;">Matheus<br>Braum</span>
+                    <span class="membro-nome">Matheus<br>Braum</span>
                   </a>
                 </div>
               </div>
 
               <!-- Widget Direito: Supervisão -->
-              <div style="flex: 1; background-color: #0b2028; border: 1px solid #173a43; border-radius: 12px; padding: 24px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 16px 32px rgba(0,0,0,0.5);">
-                <h3 style="font-family: 'Roboto Mono', monospace; font-size: 11px; color: #82a4a8; margin: 0 0 20px 0; letter-spacing: 0.5px; text-align: center;">
+              <div style="flex: 1; background-color: #0b2028; border: 1px solid #173a43; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 16px 32px rgba(0,0,0,0.5);">
+                <h3 style="font-family: 'Roboto Mono', monospace; font-size: 11px; color: #82a4a8; margin: 0 0 16px 0; letter-spacing: 0.5px; text-align: center;">
                   SUPERVISÃO
                 </h3>
 
-                <a href="https://www.linkedin.com/in/marcosborges/" target="_blank" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; transition: transform 0.3s ease; width: 80px;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-                  <div style="width: 64px; height: 64px; border-radius: 50%; padding: 3px; border: 1px solid #173a43; margin-bottom: 12px; background-color: #040d12; transition: border-color 0.3s ease; display: flex; justify-content: center; align-items: center; overflow: hidden;" onmouseover="this.style.borderColor='#65fff0'" onmouseout="this.style.borderColor='#173a43'">
-                    <img src="img/marcos.jpg" alt="Prof. Dr. Marcos Borges" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; filter: grayscale(100%); transition: filter 0.3s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+                <a href="https://www.linkedin.com/in/marcosborges/" target="_blank" class="membro-card">
+                  <div class="membro-foto-wrapper">
+                    <img src="img/marcos.jpg" alt="Prof. Dr. Marcos Borges" class="membro-foto">
                   </div>
-                  <span style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #e9fbf8; text-align: center; line-height: 1.2;">Prof.<br>Marcos</span>
+                  <span class="membro-nome">Prof.<br>Marcos</span>
                 </a>
               </div>
 
             </div>
+
           </div>
 
         </header>
@@ -181,7 +236,7 @@
                   </a>
                 </div>
               </div>
-              <img src="img/era-uma-vez-capa.png" alt="Capa do projeto Era Uma Vez" class="card-img">
+              <img src="img/era-uma-vez-capa.png" alt="Capa do projeto Era Uma Vez" class="card-img" style="width: 320px; height: 180px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); background: #07161c;">
               <span class="card-numero">01</span>
             </article>
             
@@ -193,8 +248,7 @@
                   O desafio prático para os alunos envolveu programar a personagem da Chapeuzinho Vermelho para navegar por cenários em grade. Aplicando blocos visuais de movimento, laços de repetição e condicionais (se/então), as crianças criaram os algoritmos necessários para alcançar a Vovó e evitar o Lobo Mau.
                 </p>
               </div>
-              <!-- Changed class to card-img and added styles to ensure it fills the space correctly -->
-              <img src="img/era-uma-vez-jogo.jpg" alt="Interface visual do jogo de labirinto no Scratch" class="card-img">
+              <img src="img/era-uma-vez-jogo.jpg" alt="Interface visual do jogo de labirinto no Scratch" class="card-img" style="width: 320px; height: 180px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); background: #85C029;">
               <span class="card-numero">02</span>
             </article>
 
@@ -206,7 +260,7 @@
                   Durante as sessões no laboratório de informática da escola pública <strong>CEIEF Prof.ª Jamile Caram de Souza Dias</strong>, nossa equipe atuou diretamente no suporte aos alunos, auxiliando na compreensão dos desafios lógicos, no manuseio das ferramentas e no estímulo ao pensamento computacional.
                 </p>
               </div>
-              <img src="img/aula-voluntariado.jpg" alt="Registro da turma e instrutores na escola" class="card-img">
+              <img src="img/aula-voluntariado.jpg" alt="Registro da turma e instrutores na escola" class="card-img" style="width: 320px; height: 180px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
               <span class="card-numero">03</span>
             </article>
 
@@ -218,7 +272,7 @@
                   Utilizamos o projetor e o ambiente visual do Scratch para demonstrar conceitos práticos de programação, permitindo que os alunos acompanhassem o passo a passo da construção dos algoritmos de forma interativa, visual e colaborativa.
                 </p>
               </div>
-              <img src="img/aula-scratch.jpg" alt="Apresentação no projetor e prática com os alunos" class="card-img">
+              <img src="img/aula-scratch.jpg" alt="Apresentação no projetor e prática com os alunos" class="card-img" style="width: 320px; height: 180px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
               <span class="card-numero">04</span>
             </article>
 

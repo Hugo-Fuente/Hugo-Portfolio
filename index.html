@@ -76,7 +76,7 @@
           <aside class="leitura-biomtrica" aria-label="Informações do sistema">
             <p class="leitura">
               FACE_ID: HDF-01<br>
-              CLEARANCE: 🇧🇷 / 🇪🇸 (DUAL CITIZEN)<br>
+              CLEARANCE: <span style="font-family: 'Segoe UI Emoji', 'Apple ColorEmoji', sans-serif;">🇧🇷 / 🇪🇸</span> (DUAL CITIZEN)<br>
               FOCUS: CYBERSECURITY | IA | DEV OPS<br>
               SYSTEM_INTEGRITY: 99.7%
             </p>
@@ -140,13 +140,13 @@
             <!-- Início do Carrossel -->
             <div class="lista-de-projetos">
               
-              <!-- 01. DRONE -->
+              <!-- Cartão 1: Drone Gesture Control -->
               <article class="div-2" style="cursor: pointer;" onclick="window.location.href='projeto-drone.html';">
-                <img class="visual-do-projeto" src="img/visual-do-projeto-2.png" alt="Interface do projeto Drone Gesture Control" loading="lazy">
+                <img class="visual-do-projeto" src="img/visual-do-projeto-2.png" alt="Drone Gesture Control" loading="lazy">
                 <div class="contedo">
                   <div class="metadados">
                     <span class="text-wrapper">01</span>
-                    <span class="tipo">IA / VISÃO COMPUTACIONAL</span>
+                    <span class="tipo">PYTHON / OPENCV / MEDIAPIPE</span>
                   </div>
                   <h3 class="t-tulo-3">Drone Gesture Control</h3>
                   <p class="descri-o-3">
@@ -156,13 +156,13 @@
                 </div>
               </article>
 
-              <!-- 02. API QI TECH -->
+              <!-- Cartão 2: API de Governança EPP -->
               <article class="div-2" style="cursor: pointer;" onclick="window.location.href='projeto-conta-epp.html';">
-                <img class="img" src="img/c4-diagram.png" alt="Arquitetura do sistema bancário" loading="lazy" style="object-position: top center; background-color: #0b2028;">
+                <img class="img" src="img/c4-diagram.png" alt="API de Governança EPP" loading="lazy" style="object-fit: contain; object-position: center; background-color: #f4f7f6; padding: 10px; box-sizing: border-box;">
                 <div class="contedo">
                   <div class="metadados">
                     <span class="text-wrapper">02</span>
-                    <span class="tipo">BACKEND / ARQUITETURA</span>
+                    <span class="tipo">PYTHON / FASTAPI / POSTGRESQL</span>
                   </div>
                   <h3 class="t-tulo-3">API de Governança EPP</h3>
                   <p class="descri-o-3">
@@ -172,31 +172,46 @@
                 </div>
               </article>
 
-              <!-- NOVO PROJETO: SOKOPATO -->
-              <article class="div-2" style="cursor: pointer;" onclick="window.location.href='projeto-sokopato.html';">
-                <!-- Usando a tela da web do jogo como capa, chama muita atenção -->
-                <img class="img" src="img/sokopato-logo.jpg" alt="Interface Web da IA resolvendo o Sokoban" loading="lazy" style="object-position: center center;">
+              <!-- Cartão 3: Motor Antifraude Pix -->
+              <article class="div-2" style="cursor: pointer;" onclick="window.location.href='projeto-antifraude.html';">
+                <img class="img" src="img/antifraude-bd.png" alt="Diagrama de Banco de Dados PostgreSQL do Motor Antifraude Pix" loading="lazy" style="object-fit: contain; object-position: center; background-color: #f4f7f6; padding: 10px; box-sizing: border-box;">
                 <div class="contedo">
                   <div class="metadados">
-                    <!-- Atualize a numeração conforme a posição -->
-                    <span class="text-wrapper">03</span> 
-                    <span class="tipo">IA / ALGORITMOS / BUSCA</span>
+                    <span class="text-wrapper">03</span>
+                    <span class="tipo">PYTHON / FASTAPI / RISCO</span>
                   </div>
-                  <h3 class="t-tulo-3">Sokopato AI Solver</h3>
+                  <h3 class="t-tulo-3">Motor Antifraude Pix</h3>
                   <p class="descri-o-3">
-                    Estudo de Caso acadêmico: Gerador e solucionador de matrizes de Sokoban capaz de processar milhares de estados utilizando o algoritmo de busca heurística A* (A-Star).
+                    API de alta performance desenvolvida no Hackathon QI Tech 2026 para análise transacional em tempo real, garantindo idempotência e isolamento por locks de concorrência.
                   </p>
-                  <!-- Mudamos a métrica para indicar que é um estudo de caso e não um link para o github -->
-                  <span class="m-trica">Ler Estudo de Caso ↗</span>
+                  <span class="m-trica">Ver detalhes e arquitetura ↗</span>
                 </div>
               </article>
 
-              <!-- 04. CLÍNICA VETERINÁRIA -->
-              <article class="div-2" style="cursor: pointer;" onclick="window.open('https://github.com/Hugo-Fuente/ClinicaVeterinaria', '_blank');">
-                <img class="img" src="img/visual-do-projeto.png" alt="Interface do aplicativo de clínica veterinária" loading="lazy">
+              <!-- Cartão 4: Sokopato AI Solver -->
+              <article class="div-2" style="cursor: pointer;" onclick="window.location.href='projeto-sokopato.html';">
+                <img class="img" src="img/sokopato-logo.jpg" alt="Sokopato AI Solver" loading="lazy" style="object-position: center center;">
                 <div class="contedo">
                   <div class="metadados">
                     <span class="text-wrapper">04</span>
+                    <span class="tipo">PYTHON / ALGORITMOS DE BUSCA</span>
+                  </div>
+                  <h3 class="t-tulo-3">Sokopato AI Solver</h3>
+                  <p class="descri-o-3">
+                    Estudo de caso acadêmico: gerador e solucionador de matrizes de Sokoban capaz de processar milhares de estados utilizando o algoritmo de busca heurística A*.
+                  </p>
+                  <span class="m-trica">Ler estudo de caso ↗</span>
+                </div>
+              </article>
+
+              
+
+              <!-- Cartão 5: Clínica Veterinária -->
+              <article class="div-2" style="cursor: pointer;" onclick="window.open('https://github.com/Hugo-Fuente/ClinicaVeterinaria', '_blank');">
+                <img class="img" src="img/visual-do-projeto.png" alt="Interface do aplicativo de clínica veterinária" loading="lazy" style="object-position: center; object-fit: cover; background-color: #0b2028;">
+                <div class="contedo">
+                  <div class="metadados">
+                    <span class="text-wrapper">05</span>
                     <span class="tipo">BACKEND / JAVA / SQL</span>
                   </div>
                   <h3 class="t-tulo-3">App de Clínica Veterinária</h3>
@@ -207,12 +222,12 @@
                 </div>
               </article>
 
-              <!-- 05. MINESWEEPER -->
-              <article class="minesweeper" style="cursor: pointer;" onclick="window.open('https://github.com/Hugo-Fuente/MinesweeperOnline', '_blank');">
-                <img class="visual-do-projeto-2" src="img/image.png" alt="Interface do jogo Minesweeper Online" loading="lazy">
-                <div class="contedo-2">
+              <!-- Cartão 6: Minesweeper -->
+              <article class="div-2" style="cursor: pointer;" onclick="window.open('https://github.com/Hugo-Fuente/MinesweeperOnline', '_blank');">
+                <img class="img" src="img/image.png" alt="Interface do jogo Minesweeper Online" loading="lazy" style="object-position: center; object-fit: cover; background-color: #0b2028;">
+                <div class="contedo">
                   <div class="metadados">
-                    <span class="text-wrapper">05</span>
+                    <span class="text-wrapper">06</span>
                     <span class="tipo">FRONTEND / JAVASCRIPT</span>
                   </div>
                   <h3 class="t-tulo-3">Minesweeper Online</h3>
@@ -222,6 +237,8 @@
                   <span class="m-trica">Ver repositório ↗</span>
                 </div>
               </article>
+
+
             </div>
 
             <!-- O TEXTO "ARRASTE PARA O LADO" AGORA FICA AQUI EMBAIXO -->
@@ -401,7 +418,7 @@
                     software_engineering · infra · adaptability · continuous_learning<br><br>
                     $ contact --open<br>
                     → hugo.fuente@yahoo.com<br>
-                    → mobility: 🇧🇷 / 🇪🇸 (Dual Citizenship)<br>
+                    → mobility: <span style="font-family: 'Segoe UI Emoji', 'Apple ColorEmoji', sans-serif;">🇧🇷 / 🇪🇸</span> (Dual Citizenship)<br>
                     → status: looking_for_internship_
                   </p>
                 </div>

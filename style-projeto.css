@@ -30,11 +30,11 @@ html {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start !important; 
-  min-height: 90vh;
+  min-height: 85vh !important;
   
   /* O SEGREDO ESTÁ AQUI: O primeiro valor (80px) é o espaço no topo. 
      Aumente este número para empurrar todo o bloco de texto mais para baixo! */
-  padding: 55px 120px 80px 100px !important; 
+  padding: 48px 120px 60px 100px !important;
   
   position: relative;
   overflow: visible !important;
@@ -93,7 +93,7 @@ html {
   font-family: "Roboto Condensed", Helvetica, sans-serif !important;
   font-weight: 800 !important;
   color: #ddecf0 !important;
-  font-size: 64px !important;
+  font-size: 58px !important;
   line-height: 0.95 !important;
   letter-spacing: -1.28px !important;
   /* Aumentado de 550px para 600px para evitar a quebra excessiva */
@@ -105,7 +105,7 @@ html {
   font-family: "Inter", Helvetica, sans-serif !important;
   font-weight: 400 !important;
   color: #8fa8b0 !important;
-  font-size: 18px !important;
+  font-size: 17px !important;
   line-height: 1.6 !important;
   width: 476px !important; /* Medida exata do Figma */
   margin: 0;

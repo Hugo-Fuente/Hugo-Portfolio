@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Antifraude Pix | HDF_SYSTEMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Roboto+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="globals.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      html { scroll-behavior: smooth; }
+      body { background-color: #040d12; color: #e9fbf8; margin: 0; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+      
+      .card-projeto {
+        background-color: #0b2028;
+        border: 1px solid #173a43;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 16px 32px rgba(0,0,0,0.6);
+        transition: border-color 0.3s ease, transform 0.3s ease;
+      }
+      .card-projeto:hover {
+        border-color: rgba(101, 255, 240, 0.4);
+      }
+      
+      /* Efeito de zoom suave nas fotos ao passar o mouse */
+      .img-container-equipe, .img-container-workspace {
+        width: 100%;
+        background: #020709;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .img-container-equipe { max-height: 400px; }
+      .img-container-workspace { max-height: 340px; }
+
+      .img-container-equipe img, .img-container-workspace img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .card-projeto:hover .img-container-equipe img,
+      .card-projeto:hover .img-container-workspace img {
+        transform: scale(1.05);
+      }
+
+
+
+      .tech-tag {
+        background: #0b2028;
+        border: 1px solid #173a43;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 11px;
+        color: #65fff0;
+      }
+
+      .btn-github {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 13px;
+        color: #65fff0;
+        background: #040d12;
+        border: 1px solid #173a43;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .btn-github:hover {
+        border-color: #65fff0;
+        background: rgba(101, 255, 240, 0.08);
+        transform: translateY(-2px);
+      }
+    
+      /* Estilos para os co-autores idênticos aos de EPP */
+      .membro-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        gap: 8px;
+        transition: transform 0.3s ease;
+        width: 80px;
+      }
+      .membro-card:hover {
+        transform: translateY(-4px);
+      }
+      .membro-foto-wrapper {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        padding: 2px;
+        background: #173a43;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+      }
+      .membro-card:hover .membro-foto-wrapper {
+        background: #65fff0;
+        box-shadow: 0 0 15px rgba(101, 255, 240, 0.4);
+      }
+      .membro-foto {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #040d12;
+        filter: grayscale(100%) brightness(0.9);
+        transition: filter 0.3s ease;
+      }
+      .membro-card:hover .membro-foto {
+        filter: grayscale(0%) brightness(1);
+      }
+      .membro-nome {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        color: #ddecf0;
+        text-align: center;
+        line-height: 1.2;
+        transition: color 0.3s ease;
+      }
+      .membro-card:hover .membro-nome {
+        color: #65fff0;
+      }
+</style>
+
+</head>
+<body>
+  <div class="frame">
+    <div class="pagina-backend-wrapper" style="width: 100%;">
+
+  <!-- Barra de Navegação Global -->
+  <nav class="navegao" style="position: sticky; top: 0; background-color: rgba(4, 13, 18, 0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 100;" aria-label="Navegação principal">
+    <a class="assinatura" href="index.html" aria-label="Hugo Fuente, início">
+      <span style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px;">
+        <img src="img/icons/owl2.png" alt="Logo Zamiel" style="width: 100%; height: auto; object-fit: contain;">
+      </span>
+      <span class="nome">HDF_SYSTEMS</span>
+    </a>
+    <ul class="links">
+        <li><a class="text-wrapper" href="index.html#perfil">SOBRE</a></li>
+        <li><a class="text-wrapper" href="index.html#projetos">PROJETOS</a></li>
+        <li><a class="text-wrapper" href="index.html#competencias">HABILIDADES</a></li>
+        <li><a class="text-wrapper" href="index.html#experiencia">EXPERIÊNCIA</a></li>
+        <li><a class="text-wrapper" href="index.html#contato">CONTATO</a></li>
+    </ul>
+    <a href="index.html#projetos" style="text-decoration: none;">
+      <p class="status" style="border-color: rgba(101, 255, 240, 0.4); transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#65fff0'; this.style.color='#02090d';" onmouseout="this.style.backgroundColor='rgba(2, 9, 13, 0.75)'; this.style.color='#65fff0';">← VOLTAR</p>
+    </a>
+  </nav>
+
+  <!-- Seção Principal com o espaçamento ideal e equilibrado -->
+  <section style="padding: 40px 60px; display: grid; grid-template-columns: 1.1fr 1fr 0.9fr; gap: 30px; align-items: start; box-sizing: border-box;">
+    
+    <!-- Coluna 1: O Problema, Arquitetura e Solução -->
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <span style="font-family: 'Roboto Mono', monospace; font-size: 12px; color: #65fff0; letter-spacing: 1px;">
+        // OUTUBRO 2026 · HACKATHON QI TECH RISK SOLUTIONS
+      </span>
+      
+      <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: #e9fbf8; margin: 0; line-height: 1.1;">
+        Motor Antifraude Pix em Tempo Real
+      </h1>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px; line-height: 1.6; color: #82a4a8;">
+        <p style="margin: 0;">
+          <strong style="color: #e9fbf8;">O Problema:</strong> Avaliar transações Pix complexas (incluindo contas corporativas de EPP com múltiplos sócios) em frações de segundo antes da liquidação, prevenindo fraudes externas e desvios internos sem gerar falsos positivos em operações legítimas (como folhas de pagamento e fornecedores).
+        </p>
+
+        <p style="margin: 0;">
+          <strong style="color: #e9fbf8;">A Solução & O Código:</strong> Desenvolvido em Python com <strong>FastAPI</strong> e PostgreSQL, o motor combina <em>regras determinísticas puras</em> desacopladas de persistência. Para garantir total consistência sob rajadas concorrentes, utilizamos <code>pg_advisory_xact_lock</code> no PostgreSQL serializando rajadas do mesmo pagador, garantindo leituras de histórico e acumulação de limites estritamente consistentes.
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Concorrência & Locks</span>
+        <span class="tech-tag">Idempotência SHA-256</span>
+      </div>
+    </div>
+
+    <!-- Coluna 2: Foto da Equipe -->
+    <div class="card-projeto">
+      <div class="img-container-equipe">
+        <img src="img/pix-team-event.jpg" alt="Equipe com Emilio Eduardo Tressoldi Moreira">
+      </div>
+      <div style="padding: 16px 20px;">
+        <span style="font-family: 'Roboto Mono', monospace; font-size: 11px; color: #65fff0; display: block; margin-bottom: 3px;">Encerramento & Apresentação</span>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: #e9fbf8; font-weight: 500;">Equipe reunida com Emilio Eduardo Tressoldi Moreira (Sócio-Fundador da QI Tech).</span>
+      </div>
+    </div>
+
+    <!-- Coluna 3: Ficha Técnica e Co-autores com leandro.png / mateus.png e links corretos -->
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      
+      <!-- Ficha Técnica -->
+      <div class="card-projeto" style="padding: 22px; display: flex; flex-direction: column; gap: 14px;">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; color: #e9fbf8; margin: 0; border-bottom: 1px solid #173a43; padding-bottom: 8px;">
+          // FICHA TÉCNICA
+        </h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; font-family: 'Inter', sans-serif; font-size: 13px; color: #82a4a8;">
+          <div>
+            <strong style="color: #65fff0; font-family: 'Roboto Mono', monospace; font-size: 10px; display: block; margin-bottom: 2px;">ESCOPO DA MISSÃO:</strong>
+            Motor de risco transacional (Aprovação, 2FA, Rejeição)
+          </div>
+          <div>
+            <strong style="color: #65fff0; font-family: 'Roboto Mono', monospace; font-size: 10px; display: block; margin-bottom: 2px;">CONTEXTO / ORGANIZAÇÃO:</strong>
+            Bootcamp QI Tech 2026 - Risk Solutions
+          </div>
+          <div>
+            <strong style="color: #65fff0; font-family: 'Roboto Mono', monospace; font-size: 10px; display: block; margin-bottom: 2px;">DECISÕES SUPORTADAS:</strong>
+            approved, two_factor_required, rejected
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid #173a43; padding-top: 12px; display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <span style="font-family: 'Roboto Mono', monospace; font-size: 10px; color: #82a4a8; display: block; margin-bottom: 2px; text-transform: uppercase;">Desafio Oficial</span>
+            <a href="https://qitech.com.br/" target="_blank" style="font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: #e9fbf8; text-decoration: none;">
+              Portal QI Tech ↗
+            </a>
+          </div>
+          <span style="font-family: 'Roboto Mono', monospace; font-size: 11px; color: #65fff0; background: #040d12; padding: 3px 8px; border-radius: 4px; border: 1px solid #173a43;">RFC v7.3</span>
+        </div>
+      </div>
+
+      <!-- Co-autores do Projeto com fotos leandro.png / mateus.png e links -->
+      <div class="card-projeto" style="padding: 18px; display: flex; flex-direction: column;">
+        <h3 style="font-family: 'Roboto Mono', monospace; font-size: 11px; color: #65fff0; margin: 0 0 14px 0; letter-spacing: 0.5px; text-align: center;">
+          // CO-AUTORES DO PROJETO
+        </h3>
+        
+        <div style="display: flex; gap: 32px; justify-content: center; width: 100%;">
+          <!-- Leandro -->
+          <a href="https://www.linkedin.com/in/leandro-apolinario-leite/" target="_blank" class="membro-card">
+            <div class="membro-foto-wrapper">
+              <img src="img/leandro.png" alt="Leandro Leite" class="membro-foto">
+            </div>
+            <span class="membro-nome">Leandro<br>Leite</span>
+          </a>
+
+          <!-- Mateus -->
+          <a href="https://www.linkedin.com/in/mateus-carosio/" target="_blank" class="membro-card">
+            <div class="membro-foto-wrapper">
+              <img src="img/mateus.png" alt="Mateus Carósio" class="membro-foto">
+            </div>
+            <span class="membro-nome">Mateus<br>Carósio</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Segunda Dobra: Bastidores & Acesso ao GitHub com espaçamento correto -->
+  <section style="padding: 36px 60px 60px 60px; border-top: 1px solid #173a43; background-color: #020709; display: flex; flex-direction: column; gap: 24px;">
+    
+    <div style="max-width: 1320px; margin: 0 auto; width: 100%;">
+      <h3 style="font-family: 'Roboto Mono', monospace; font-size: 13px; color: #65fff0; letter-spacing: 1px; margin: 0 0 20px 0;">
+        // BASTIDORES & ARQUITETURA TÉCNICA
+      </h3>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; width: 100%; align-items: stretch;">
+        
+        <!-- Foto de Workspace perfeitamente emoldurada -->
+        <div class="card-projeto" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="img-container-workspace">
+            <img src="img/pix-workspace.jpg" alt="Setup de desenvolvimento no QG da QI Tech">
+          </div>
+          <div style="padding: 16px 22px;">
+            <span style="font-family: 'Roboto Mono', monospace; font-size: 11px; color: #65fff0; display: block; margin-bottom: 4px;">Ambiente de Desenvolvimento</span>
+            <span style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: #e9fbf8; font-weight: 500;">Imersão técnica e desenvolvimento intensivo no QG da QI Tech durante o hackathon.</span>
+          </div>
+        </div>
+
+        <!-- Bloco de Arquitetura e Link do GitHub -->
+        <div class="card-projeto" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; color: #e9fbf8; margin: 0;">
+              Arquitetura de Decisões & Auditoria
+            </h3>
+            <p style="font-size: 14px; line-height: 1.6; color: #82a4a8; margin: 0;">
+              O motor opera avaliando dezenas de regras determinísticas (desde <em>velocity checks</em> até análise de desvio de perfil baseada na mediana do pagador). Cada decisão é totalmente reproduzível graças ao versionamento estrito de regras (<code>rules_version</code> e <code>ruleset_hash</code>) e ao armazenamento integral dos metadados de execução em camadas desacopladas (Resource, Controller, Repository).
+            </p>
+          </div>
+
+          <div>
+            <a href="https://github.com/Hugo-Fuente" target="_blank" class="btn-github">
+              <span>Acessar o Repositório Completo no GitHub</span>
+              <span style="font-size: 16px;">↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    </div>
+  </div>
+</body>
+</html>
