@@ -2002,6 +2002,16 @@ html {
   scroll-snap-align: start !important; 
 }
 
+/* --- FIX: Forçar as imagens dos cartões a ignorarem o estilo em linha (style="") --- */
+.frame .div-2 .img,
+.frame .minesweeper .img {
+  background-color: transparent !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  height: 170px !important;
+  width: 100% !important;
+}
+
 /* Ajuste o texto descritivo original */
 .frame .nota-2 {
   text-align: right !important;
