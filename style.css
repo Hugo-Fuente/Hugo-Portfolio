@@ -2164,3 +2164,445 @@ html {
     order: -1; /* Força a subir para o topo do flex column */
   }
 }
+
+/* Ajustes finais da página inicial para tablets e telas estreitas */
+@media (min-width: 769px) and (max-width: 1180px) {
+  .frame .portflio-cyber-de,
+  .frame main {
+    min-width: 0;
+  }
+
+  .frame .apresentao {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    gap: 36px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 72px clamp(32px, 6vw, 72px) !important;
+  }
+
+  .frame .manifesto,
+  .frame .texto {
+    width: 100% !important;
+    max-width: 860px !important;
+    flex-shrink: 1 !important;
+  }
+
+  .frame .texto {
+    gap: 24px !important;
+  }
+
+  .frame .indicadores {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .frame .meus-projetos,
+  .frame .competncias,
+  .frame .experncia-e,
+  .frame .terminal-e-contato {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .frame .experncia-e {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    padding: 64px clamp(32px, 6vw, 72px) !important;
+  }
+
+  .experiencia-container {
+    flex-direction: column;
+  }
+
+  .experiencia-texto,
+  .experiencia-terminal {
+    width: 100%;
+    max-width: 720px;
+  }
+
+  .frame .terminal-e-contato {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 64px clamp(32px, 6vw, 72px) !important;
+  }
+}
+
+@media (min-width: 1181px) and (max-width: 1350px) {
+  .frame .apresentao {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    gap: 36px !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 72px clamp(48px, 6vw, 80px) !important;
+  }
+
+  .frame .manifesto,
+  .frame .texto {
+    width: 100% !important;
+    max-width: 860px !important;
+    flex-shrink: 1 !important;
+  }
+
+  .frame .indicadores {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .frame,
+  .frame .portflio-cyber-de {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .frame main {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .frame .navegao {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    padding: 12px 20px 8px !important;
+  }
+
+  .frame .links {
+    display: flex !important;
+    flex: 1 0 100%;
+    width: 100%;
+    min-width: 0;
+    gap: 18px;
+    overflow-x: auto;
+    padding: 0 0 6px;
+    scrollbar-width: none;
+  }
+
+  .frame .links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .frame .links .text-wrapper {
+    padding: 4px 0 !important;
+    font-size: 10px !important;
+    letter-spacing: 0.1em !important;
+    white-space: nowrap;
+  }
+
+  .frame .abertura,
+  .frame .apresentao,
+  .frame .meus-projetos,
+  .frame .competncias,
+  .frame .experncia-e,
+  .frame .terminal-e-contato {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+    box-sizing: border-box !important;
+  }
+
+  .frame .apresentao,
+  .frame .meus-projetos,
+  .frame .competncias,
+  .frame .experncia-e,
+  .frame .terminal-e-contato {
+    min-height: 0 !important;
+    height: auto !important;
+    scroll-snap-stop: normal !important;
+  }
+
+  .frame .abertura {
+    min-height: 100vh !important;
+    min-height: 100svh !important;
+  }
+
+  .frame .t-tulo {
+    font-size: clamp(32px, 8vw, 42px) !important;
+    line-height: 1.08 !important;
+  }
+
+  .frame .p {
+    font-size: clamp(29px, 7vw, 36px) !important;
+    line-height: 1.15 !important;
+  }
+
+  .frame .t-tulo-2 {
+    width: 100% !important;
+    font-size: clamp(30px, 7vw, 38px) !important;
+    line-height: 1.12 !important;
+    text-align: left !important;
+  }
+
+  .frame .t-tulo-3 {
+    font-size: clamp(21px, 5.2vw, 25px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .frame .t-tulo-4 {
+    font-size: clamp(17px, 3.8vw, 20px) !important;
+    line-height: 1.2 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .frame .t-tulo-5 {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+  }
+
+  .frame .t-tulo-6 {
+    font-size: clamp(30px, 7vw, 38px) !important;
+    line-height: 1.12 !important;
+  }
+
+  .frame .apresentao {
+    align-items: stretch !important;
+    gap: 28px !important;
+    padding: 48px 20px !important;
+  }
+
+  .frame .manifesto,
+  .frame .texto {
+    gap: 20px !important;
+  }
+
+  .frame .indicadores {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .frame .indicador {
+    min-width: 0;
+    gap: 8px !important;
+    padding: 16px !important;
+  }
+
+  .frame .valor {
+    font-size: 22px !important;
+  }
+
+  .frame .legenda {
+    font-size: 9px !important;
+    line-height: 1.4 !important;
+  }
+
+  .frame .meus-projetos,
+  .frame .competncias {
+    padding: 48px 20px !important;
+    gap: 24px !important;
+  }
+
+  .frame .ttulo-da-seo,
+  .frame .ttulo-da-seo-2 {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .frame .ttulo {
+    width: 100% !important;
+    align-items: flex-start !important;
+  }
+
+  .frame .nota-2,
+  .frame .nota-3 {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+    font-size: 10px !important;
+    line-height: 1.6 !important;
+  }
+
+  .frame .meus-projetos::after {
+    width: 44px;
+  }
+
+  .frame .lista-de-projetos {
+    width: 100% !important;
+    margin-right: -20px !important;
+    padding-right: 20px !important;
+    gap: 16px !important;
+  }
+
+  .frame .div-2,
+  .frame .minesweeper {
+    flex: 0 0 min(82vw, 440px) !important;
+    max-width: min(82vw, 440px) !important;
+    max-height: none !important;
+  }
+
+  .frame .visual-do-projeto,
+  .frame .img,
+  .frame .visual-do-projeto-2 {
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  .frame .contedo,
+  .frame .contedo-2 {
+    gap: 12px !important;
+    padding: 18px !important;
+  }
+
+  .frame .metadados {
+    gap: 8px;
+  }
+
+  .frame .tipo {
+    font-size: 9px;
+    text-align: right;
+  }
+
+  .frame .competncias {
+    align-items: stretch !important;
+  }
+
+  .frame .grade-de-competncias {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)) !important;
+    grid-auto-rows: auto !important;
+    gap: 14px !important;
+  }
+
+  .frame .competncia {
+    height: auto !important;
+    min-width: 0;
+    gap: 12px !important;
+    padding: 22px !important;
+  }
+
+  .frame .tecnologias {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  .frame .experncia-e {
+    align-items: stretch !important;
+    gap: 24px !important;
+    padding: 48px 20px !important;
+  }
+
+  .frame .processo {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .frame .etapa {
+    min-width: 0;
+    padding: 16px !important;
+  }
+
+  .frame .marco-profissional {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    padding: 16px 0 !important;
+  }
+
+  .frame .per-odo,
+  .frame .cargo,
+  .frame .cargo-2,
+  .frame .resumo,
+  .frame .resumo-2 {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex: none !important;
+    margin: 0 !important;
+  }
+
+  .frame .terminal-e-contato {
+    gap: 32px !important;
+    padding: 48px 20px 32px !important;
+  }
+
+  .frame .contato {
+    gap: 28px !important;
+  }
+
+  .frame .rodap {
+    padding: 28px 20px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .frame .processo {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+.frame .portflio-cyber-de > main {
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .frame .navegao {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    height: auto;
+    padding: 16px 32px !important;
+  }
+
+  .frame .links {
+    display: flex;
+    flex: 1 0 100%;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .frame .status {
+    display: none !important;
+  }
+
+  .frame .meus-projetos {
+    padding: 64px 32px;
+  }
+
+  .frame .competncias {
+    height: auto;
+    min-height: 100vh;
+    padding: 64px 32px;
+  }
+
+  .frame .grade-de-competncias {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .frame .navegao {
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    height: auto;
+    padding: 16px 40px !important;
+  }
+
+  .frame .links {
+    display: flex;
+    flex: 1 0 100%;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+
+  .frame .status {
+    display: none !important;
+  }
+}
