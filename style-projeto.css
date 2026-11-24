@@ -684,6 +684,110 @@ teclas-dpad {
   }
 }
 
+/* Ajustes específicos das páginas de voluntariado e Motor Antifraude Pix */
+.hero-voluntariado {
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 120px 60px 100px !important;
+  min-height: 85vh !important;
+}
+
+@media (max-width: 768px) {
+  .hero-voluntariado {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 32px !important;
+    min-height: 0 !important;
+    padding: 32px 20px 48px !important;
+  }
+
+  .hero-voluntariado .hero-text-container {
+    width: 100%;
+    max-width: 680px !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .hero-voluntariado .titulo-principal {
+    width: 100% !important;
+    font-size: 36px !important;
+    text-align: left !important;
+    overflow-wrap: anywhere;
+  }
+
+  .voluntariado-sidebar {
+    width: 100%;
+    max-width: 420px;
+    flex: none !important;
+    align-self: center;
+  }
+
+  .voluntariado-widgets {
+    flex-direction: column;
+  }
+
+  .voluntariado-feature {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .voluntariado-feature .card-img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  .voluntariado-feature .card-texto {
+    min-width: 0;
+  }
+
+  .voluntariado-feature .card-texto h3 {
+    font-size: 24px;
+    overflow-wrap: anywhere;
+  }
+
+  .pix-hero {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 24px !important;
+    padding: 28px 20px !important;
+  }
+
+  .pix-hero > * {
+    min-width: 0;
+  }
+
+  .pix-hero h1 {
+    font-size: 34px !important;
+    overflow-wrap: anywhere;
+  }
+
+  .pix-hero p,
+  .pix-hero code,
+  .pix-hero .card-projeto {
+    overflow-wrap: anywhere;
+  }
+
+  .pix-arquitetura {
+    padding: 24px 20px 36px !important;
+  }
+
+  .pix-arquitetura-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-voluntariado .titulo-principal,
+  .pix-hero h1 {
+    font-size: 30px !important;
+  }
+
+  .voluntariado-feature .card-texto h3 {
+    font-size: 21px;
+  }
+}
+
 /* =========================================================================
    POPUP / MODAL DE VÍDEO
    ========================================================================= */
